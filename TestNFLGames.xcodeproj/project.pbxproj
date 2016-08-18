@@ -13,6 +13,7 @@
 		105DA5F41D6546B9008B0605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F31D6546B9008B0605 /* Assets.xcassets */; };
 		105DA5F71D6546B9008B0605 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F51D6546B9008B0605 /* LaunchScreen.storyboard */; };
 		105DA5FF1D65473D008B0605 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5FE1D65473D008B0605 /* Downloader.swift */; };
+		105DA6011D6549D6008B0605 /* GamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA6001D6549D6008B0605 /* GamesTableViewController.swift */; };
 		7AFE9BB41C3C89C307A96C8F /* Pods_TestNFLGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC0AD2ABB98366C564CB34A /* Pods_TestNFLGames.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		105DA5F61D6546B9008B0605 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		105DA5F81D6546B9008B0605 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		105DA5FE1D65473D008B0605 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		105DA6001D6549D6008B0605 /* GamesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesTableViewController.swift; sourceTree = "<group>"; };
 		3883E86EF783007C545B5EEF /* Pods-TestNFLGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.release.xcconfig"; sourceTree = "<group>"; };
 		8AC0AD2ABB98366C564CB34A /* Pods_TestNFLGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestNFLGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C284A2F8F6C548F79726DDEC /* Pods-TestNFLGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				105DA5F31D6546B9008B0605 /* Assets.xcassets */,
 				105DA5F51D6546B9008B0605 /* LaunchScreen.storyboard */,
 				105DA5F81D6546B9008B0605 /* Info.plist */,
+				105DA6001D6549D6008B0605 /* GamesTableViewController.swift */,
 			);
 			path = TestNFLGames;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				105DA5EF1D6546B9008B0605 /* ViewController.swift in Sources */,
+				105DA6011D6549D6008B0605 /* GamesTableViewController.swift in Sources */,
 				105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */,
 				105DA5FF1D65473D008B0605 /* Downloader.swift in Sources */,
 			);
