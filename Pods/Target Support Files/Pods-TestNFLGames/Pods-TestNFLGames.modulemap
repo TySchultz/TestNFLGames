@@ -1,0 +1,6 @@
+framework module Pods_TestNFLGames {
+  umbrella header "Pods-TestNFLGames-umbrella.h"
+
+  export *
+  module * { export * }
+}

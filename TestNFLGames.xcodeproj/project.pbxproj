@@ -12,6 +12,8 @@
 		105DA5F21D6546B9008B0605 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F01D6546B9008B0605 /* Main.storyboard */; };
 		105DA5F41D6546B9008B0605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F31D6546B9008B0605 /* Assets.xcassets */; };
 		105DA5F71D6546B9008B0605 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F51D6546B9008B0605 /* LaunchScreen.storyboard */; };
+		105DA5FF1D65473D008B0605 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5FE1D65473D008B0605 /* Downloader.swift */; };
+		7AFE9BB41C3C89C307A96C8F /* Pods_TestNFLGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC0AD2ABB98366C564CB34A /* Pods_TestNFLGames.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,10 @@
 		105DA5F31D6546B9008B0605 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		105DA5F61D6546B9008B0605 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		105DA5F81D6546B9008B0605 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		105DA5FE1D65473D008B0605 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		3883E86EF783007C545B5EEF /* Pods-TestNFLGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.release.xcconfig"; sourceTree = "<group>"; };
+		8AC0AD2ABB98366C564CB34A /* Pods_TestNFLGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestNFLGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C284A2F8F6C548F79726DDEC /* Pods-TestNFLGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AFE9BB41C3C89C307A96C8F /* Pods_TestNFLGames.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08B070C1C0A0EFF43685EA49 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C284A2F8F6C548F79726DDEC /* Pods-TestNFLGames.debug.xcconfig */,
+				3883E86EF783007C545B5EEF /* Pods-TestNFLGames.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		105DA5E01D6546B9008B0605 = {
 			isa = PBXGroup;
 			children = (
 				105DA5EB1D6546B9008B0605 /* TestNFLGames */,
 				105DA5EA1D6546B9008B0605 /* Products */,
+				08B070C1C0A0EFF43685EA49 /* Pods */,
+				D230AED58758241B7ABB0E52 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +74,21 @@
 			children = (
 				105DA5EC1D6546B9008B0605 /* AppDelegate.swift */,
 				105DA5EE1D6546B9008B0605 /* ViewController.swift */,
+				105DA5FE1D65473D008B0605 /* Downloader.swift */,
 				105DA5F01D6546B9008B0605 /* Main.storyboard */,
 				105DA5F31D6546B9008B0605 /* Assets.xcassets */,
 				105DA5F51D6546B9008B0605 /* LaunchScreen.storyboard */,
 				105DA5F81D6546B9008B0605 /* Info.plist */,
 			);
 			path = TestNFLGames;
+			sourceTree = "<group>";
+		};
+		D230AED58758241B7ABB0E52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AC0AD2ABB98366C564CB34A /* Pods_TestNFLGames.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 105DA5FB1D6546B9008B0605 /* Build configuration list for PBXNativeTarget "TestNFLGames" */;
 			buildPhases = (
+				14A49EE07C7C593427B3A347 /* [CP] Check Pods Manifest.lock */,
 				105DA5E51D6546B9008B0605 /* Sources */,
 				105DA5E61D6546B9008B0605 /* Frameworks */,
 				105DA5E71D6546B9008B0605 /* Resources */,
+				FDAAD766DAF3519DC73DD214 /* [CP] Embed Pods Frameworks */,
+				9DEF6FD4FC2D3304C002576E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +160,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		14A49EE07C7C593427B3A347 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9DEF6FD4FC2D3304C002576E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDAAD766DAF3519DC73DD214 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		105DA5E51D6546B9008B0605 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -137,6 +215,7 @@
 			files = (
 				105DA5EF1D6546B9008B0605 /* ViewController.swift in Sources */,
 				105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */,
+				105DA5FF1D65473D008B0605 /* Downloader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +326,7 @@
 		};
 		105DA5FC1D6546B9008B0605 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C284A2F8F6C548F79726DDEC /* Pods-TestNFLGames.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TestNFLGames/Info.plist;
@@ -258,6 +338,7 @@
 		};
 		105DA5FD1D6546B9008B0605 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3883E86EF783007C545B5EEF /* Pods-TestNFLGames.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TestNFLGames/Info.plist;
@@ -286,6 +367,7 @@
 				105DA5FD1D6546B9008B0605 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

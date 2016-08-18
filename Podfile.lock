@@ -1,0 +1,24 @@
+PODS:
+  - Crashlytics (3.7.3):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.8)
+  - Kanna (1.1.0)
+  - Mixpanel (3.0.2):
+    - Mixpanel/Mixpanel (= 3.0.2)
+  - Mixpanel/Mixpanel (3.0.2)
+
+DEPENDENCIES:
+  - Crashlytics
+  - Fabric
+  - Kanna
+  - Mixpanel
+
+SPEC CHECKSUMS:
+  Crashlytics: 76f6beaff70acf226139582c09c78461597c2b98
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
+  Kanna: 355ed0193e5d8caf4fd996856b5bc98d586c11b6
+  Mixpanel: 0e4f1f9a2ac612b589b2894830038418c2587428
+
+PODFILE CHECKSUM: ff63c153511efa124d23728804325b39d275ab66
+
+COCOAPODS: 1.0.1
