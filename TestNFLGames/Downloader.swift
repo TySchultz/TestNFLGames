@@ -10,11 +10,11 @@ import UIKit
 import Kanna
 
 struct Event {
-    var time: String
-    var location: String
-    var activity: String
-    var building: String
-
+    var homeTeam: String
+    var awayTeam: String
+    var date: String
+    var homeScore: String
+    var awayScore: String
 }
 
 class Downloader: NSObject {
@@ -36,10 +36,16 @@ class Downloader: NSObject {
                 
                 let content = doc.css("g")
                 for row in content {
-                    let homeTeam = row.xpath("@hnn").first!
-                    let awayTeam = row.xpath("@vnn").first!
+                    
+                    let ev = Event(homeTeam: row.xpath("@hnn").first!.text!,
+                                   awayTeam: row.xpath("@vnn").first!.text!,
+                                   date: row.xpath("@eid").first!.text!,
+                                   homeScore: row.xpath("@hs").first!.text!,
+                                   awayScore: row.xpath("@vs").first!.text!)
+                    
+                    
                     //<g eid="2016082057" gsis="56859" d="Sat" t="9:00" q="P" h="LA" hnn="rams" hs="0" v="KC" vnn="chiefs" vs="0" rz="0" ga="" gt="PRE"/>
-                    print ("Vote on the \(homeTeam.text!) vs the \(awayTeam.text!)")
+                    print ("Vote on the \(ev)")
                                   }
             }
         }catch let error as NSError {
