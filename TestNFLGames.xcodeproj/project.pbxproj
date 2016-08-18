@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0175C2911D65635C00F585D7 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C2901D65635C00F585D7 /* GameTableViewCell.swift */; };
 		105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5EC1D6546B9008B0605 /* AppDelegate.swift */; };
 		105DA5EF1D6546B9008B0605 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5EE1D6546B9008B0605 /* ViewController.swift */; };
 		105DA5F21D6546B9008B0605 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F01D6546B9008B0605 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0175C2901D65635C00F585D7 /* GameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		105DA5E91D6546B9008B0605 /* TestNFLGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNFLGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		105DA5EC1D6546B9008B0605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		105DA5EE1D6546B9008B0605 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,12 +78,13 @@
 			children = (
 				105DA5EC1D6546B9008B0605 /* AppDelegate.swift */,
 				105DA5EE1D6546B9008B0605 /* ViewController.swift */,
+				105DA6001D6549D6008B0605 /* GamesTableViewController.swift */,
+				0175C2901D65635C00F585D7 /* GameTableViewCell.swift */,
 				105DA5FE1D65473D008B0605 /* Downloader.swift */,
 				105DA5F01D6546B9008B0605 /* Main.storyboard */,
 				105DA5F31D6546B9008B0605 /* Assets.xcassets */,
 				105DA5F51D6546B9008B0605 /* LaunchScreen.storyboard */,
 				105DA5F81D6546B9008B0605 /* Info.plist */,
-				105DA6001D6549D6008B0605 /* GamesTableViewController.swift */,
 			);
 			path = TestNFLGames;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0175C2911D65635C00F585D7 /* GameTableViewCell.swift in Sources */,
 				105DA5EF1D6546B9008B0605 /* ViewController.swift in Sources */,
 				105DA6011D6549D6008B0605 /* GamesTableViewController.swift in Sources */,
 				105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */,
