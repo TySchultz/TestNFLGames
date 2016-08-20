@@ -8,6 +8,8 @@
 
 import UIKit
 import Kanna
+import RealmSwift
+import Firebase
 
 struct Game {
     var homeTeam: String
@@ -19,6 +21,10 @@ struct Game {
 
 class Downloader: NSObject {
     var games :[Game] = []
+    
+    var rootRef = FIRDatabase.database().reference()
+    let itemsRef = rootRef.childByAppendingPath("NFL-games")
+    
     func downloadSchedule() -> ([Game]) {
         
         var status = 0
@@ -34,6 +40,25 @@ class Downloader: NSObject {
                 
                 let content = doc.css("g")
                 for row in content {
+                    
+                    
+                    // Create a Game object
+                    
+                    let newGame = Game()
+                    newGame.homeTeam = row.xpath("@hnn").first!.text!
+                    newGame.awayTeam = row.xpath("@vnn").first!.text!
+                    newGame.date = row.xpath("@eid").first!.text!
+                    newGame.homeScore = row.xpath("@hs").first!.text!
+                    newGame.awayScore = row.xpath("@vs").first!.text!
+                    
+                    // Get the default Realm
+                    let realm = try! Realm()
+                    // You only need to do this once (per thread)
+                    
+                    // Add to the Realm inside a transaction
+                    try! realm.write {
+                        realm.add(newGame)
+                    }
                     
                     let ev = Game(homeTeam: row.xpath("@hnn").first!.text!,
                                    awayTeam: row.xpath("@vnn").first!.text!,

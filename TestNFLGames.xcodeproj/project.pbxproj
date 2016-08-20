@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0111D3431D67ECF8007BC17B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0111D3421D67ECF8007BC17B /* GoogleService-Info.plist */; };
 		0175C2911D65635C00F585D7 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C2901D65635C00F585D7 /* GameTableViewCell.swift */; };
+		019AB7261D66A349001D0B31 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019AB7251D66A349001D0B31 /* GameObject.swift */; };
 		105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5EC1D6546B9008B0605 /* AppDelegate.swift */; };
 		105DA5EF1D6546B9008B0605 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5EE1D6546B9008B0605 /* ViewController.swift */; };
 		105DA5F21D6546B9008B0605 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F01D6546B9008B0605 /* Main.storyboard */; };
@@ -19,7 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0111D3421D67ECF8007BC17B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0175C2901D65635C00F585D7 /* GameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
+		019AB7251D66A349001D0B31 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		105DA5E91D6546B9008B0605 /* TestNFLGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNFLGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		105DA5EC1D6546B9008B0605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		105DA5EE1D6546B9008B0605 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,9 +85,11 @@
 				105DA6001D6549D6008B0605 /* GamesTableViewController.swift */,
 				0175C2901D65635C00F585D7 /* GameTableViewCell.swift */,
 				105DA5FE1D65473D008B0605 /* Downloader.swift */,
+				019AB7251D66A349001D0B31 /* GameObject.swift */,
 				105DA5F01D6546B9008B0605 /* Main.storyboard */,
 				105DA5F31D6546B9008B0605 /* Assets.xcassets */,
 				105DA5F51D6546B9008B0605 /* LaunchScreen.storyboard */,
+				0111D3421D67ECF8007BC17B /* GoogleService-Info.plist */,
 				105DA5F81D6546B9008B0605 /* Info.plist */,
 			);
 			path = TestNFLGames;
@@ -110,6 +116,7 @@
 				105DA5E71D6546B9008B0605 /* Resources */,
 				FDAAD766DAF3519DC73DD214 /* [CP] Embed Pods Frameworks */,
 				9DEF6FD4FC2D3304C002576E /* [CP] Copy Pods Resources */,
+				1110097984A88600E3F8B0A7 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0111D3431D67ECF8007BC17B /* GoogleService-Info.plist in Resources */,
 				105DA5F71D6546B9008B0605 /* LaunchScreen.storyboard in Resources */,
 				105DA5F41D6546B9008B0605 /* Assets.xcassets in Resources */,
 				105DA5F21D6546B9008B0605 /* Main.storyboard in Resources */,
@@ -167,6 +175,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1110097984A88600E3F8B0A7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		14A49EE07C7C593427B3A347 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -220,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0175C2911D65635C00F585D7 /* GameTableViewCell.swift in Sources */,
+				019AB7261D66A349001D0B31 /* GameObject.swift in Sources */,
 				105DA5EF1D6546B9008B0605 /* ViewController.swift in Sources */,
 				105DA6011D6549D6008B0605 /* GamesTableViewController.swift in Sources */,
 				105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */,
