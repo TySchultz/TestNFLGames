@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0111D3431D67ECF8007BC17B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0111D3421D67ECF8007BC17B /* GoogleService-Info.plist */; };
 		0175C2911D65635C00F585D7 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C2901D65635C00F585D7 /* GameTableViewCell.swift */; };
 		019AB7261D66A349001D0B31 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019AB7251D66A349001D0B31 /* GameObject.swift */; };
+		0EFD54B50D940BC7D776274C /* Pods_TestNFLGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D367D4CC5984DC41812CCBF4 /* Pods_TestNFLGames.framework */; };
+		103CA0A71D68013E00A4AF7B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 103CA0A61D68013E00A4AF7B /* GoogleService-Info.plist */; };
 		105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5EC1D6546B9008B0605 /* AppDelegate.swift */; };
 		105DA5EF1D6546B9008B0605 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5EE1D6546B9008B0605 /* ViewController.swift */; };
 		105DA5F21D6546B9008B0605 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F01D6546B9008B0605 /* Main.storyboard */; };
@@ -17,13 +18,13 @@
 		105DA5F71D6546B9008B0605 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F51D6546B9008B0605 /* LaunchScreen.storyboard */; };
 		105DA5FF1D65473D008B0605 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5FE1D65473D008B0605 /* Downloader.swift */; };
 		105DA6011D6549D6008B0605 /* GamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA6001D6549D6008B0605 /* GamesTableViewController.swift */; };
-		7AFE9BB41C3C89C307A96C8F /* Pods_TestNFLGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC0AD2ABB98366C564CB34A /* Pods_TestNFLGames.framework */; };
+		105DA6031D67F953008B0605 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA6021D67F953008B0605 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0111D3421D67ECF8007BC17B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0175C2901D65635C00F585D7 /* GameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		019AB7251D66A349001D0B31 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		103CA0A61D68013E00A4AF7B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		105DA5E91D6546B9008B0605 /* TestNFLGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNFLGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		105DA5EC1D6546B9008B0605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		105DA5EE1D6546B9008B0605 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,9 +34,10 @@
 		105DA5F81D6546B9008B0605 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		105DA5FE1D65473D008B0605 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		105DA6001D6549D6008B0605 /* GamesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesTableViewController.swift; sourceTree = "<group>"; };
-		3883E86EF783007C545B5EEF /* Pods-TestNFLGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.release.xcconfig"; sourceTree = "<group>"; };
-		8AC0AD2ABB98366C564CB34A /* Pods_TestNFLGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestNFLGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C284A2F8F6C548F79726DDEC /* Pods-TestNFLGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.debug.xcconfig"; sourceTree = "<group>"; };
+		105DA6021D67F953008B0605 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		3C2FB3E26558084BD6FA9E65 /* Pods-TestNFLGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.release.xcconfig"; sourceTree = "<group>"; };
+		BF5D002FE7498B93A6FBEBBE /* Pods-TestNFLGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.debug.xcconfig"; sourceTree = "<group>"; };
+		D367D4CC5984DC41812CCBF4 /* Pods_TestNFLGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestNFLGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,29 +45,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AFE9BB41C3C89C307A96C8F /* Pods_TestNFLGames.framework in Frameworks */,
+				0EFD54B50D940BC7D776274C /* Pods_TestNFLGames.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08B070C1C0A0EFF43685EA49 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C284A2F8F6C548F79726DDEC /* Pods-TestNFLGames.debug.xcconfig */,
-				3883E86EF783007C545B5EEF /* Pods-TestNFLGames.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		105DA5E01D6546B9008B0605 = {
 			isa = PBXGroup;
 			children = (
 				105DA5EB1D6546B9008B0605 /* TestNFLGames */,
 				105DA5EA1D6546B9008B0605 /* Products */,
-				08B070C1C0A0EFF43685EA49 /* Pods */,
-				D230AED58758241B7ABB0E52 /* Frameworks */,
+				E9D9DBDE200E65A5E445DBD6 /* Pods */,
+				5816787B12F834FD948B238C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,19 +81,29 @@
 				019AB7251D66A349001D0B31 /* GameObject.swift */,
 				105DA5F01D6546B9008B0605 /* Main.storyboard */,
 				105DA5F31D6546B9008B0605 /* Assets.xcassets */,
+				103CA0A61D68013E00A4AF7B /* GoogleService-Info.plist */,
 				105DA5F51D6546B9008B0605 /* LaunchScreen.storyboard */,
-				0111D3421D67ECF8007BC17B /* GoogleService-Info.plist */,
 				105DA5F81D6546B9008B0605 /* Info.plist */,
+				105DA6021D67F953008B0605 /* Game.swift */,
 			);
 			path = TestNFLGames;
 			sourceTree = "<group>";
 		};
-		D230AED58758241B7ABB0E52 /* Frameworks */ = {
+		5816787B12F834FD948B238C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8AC0AD2ABB98366C564CB34A /* Pods_TestNFLGames.framework */,
+				D367D4CC5984DC41812CCBF4 /* Pods_TestNFLGames.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9D9DBDE200E65A5E445DBD6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF5D002FE7498B93A6FBEBBE /* Pods-TestNFLGames.debug.xcconfig */,
+				3C2FB3E26558084BD6FA9E65 /* Pods-TestNFLGames.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,7 +119,6 @@
 				105DA5E71D6546B9008B0605 /* Resources */,
 				FDAAD766DAF3519DC73DD214 /* [CP] Embed Pods Frameworks */,
 				9DEF6FD4FC2D3304C002576E /* [CP] Copy Pods Resources */,
-				1110097984A88600E3F8B0A7 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,31 +167,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0111D3431D67ECF8007BC17B /* GoogleService-Info.plist in Resources */,
 				105DA5F71D6546B9008B0605 /* LaunchScreen.storyboard in Resources */,
 				105DA5F41D6546B9008B0605 /* Assets.xcassets in Resources */,
 				105DA5F21D6546B9008B0605 /* Main.storyboard in Resources */,
+				103CA0A71D68013E00A4AF7B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1110097984A88600E3F8B0A7 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		14A49EE07C7C593427B3A347 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,6 +231,7 @@
 			files = (
 				0175C2911D65635C00F585D7 /* GameTableViewCell.swift in Sources */,
 				019AB7261D66A349001D0B31 /* GameObject.swift in Sources */,
+				105DA6031D67F953008B0605 /* Game.swift in Sources */,
 				105DA5EF1D6546B9008B0605 /* ViewController.swift in Sources */,
 				105DA6011D6549D6008B0605 /* GamesTableViewController.swift in Sources */,
 				105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */,
@@ -358,7 +346,7 @@
 		};
 		105DA5FC1D6546B9008B0605 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C284A2F8F6C548F79726DDEC /* Pods-TestNFLGames.debug.xcconfig */;
+			baseConfigurationReference = BF5D002FE7498B93A6FBEBBE /* Pods-TestNFLGames.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TestNFLGames/Info.plist;
@@ -370,7 +358,7 @@
 		};
 		105DA5FD1D6546B9008B0605 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3883E86EF783007C545B5EEF /* Pods-TestNFLGames.release.xcconfig */;
+			baseConfigurationReference = 3C2FB3E26558084BD6FA9E65 /* Pods-TestNFLGames.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TestNFLGames/Info.plist;
