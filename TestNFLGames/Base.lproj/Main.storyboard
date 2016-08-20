@@ -9,6 +9,7 @@
         <!--Root View Controller-->
         <scene sceneID="MFS-va-cFH">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9mB-O0-M5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="zfg-Yc-peb" customClass="GamesTableViewController" customModule="TestNFLGames" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WOq-ZB-Gnr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -59,6 +60,12 @@
                                         <constraint firstItem="lkI-kO-X3E" firstAttribute="top" secondItem="rxD-1h-r92" secondAttribute="topMargin" id="zA4-1c-v8c"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="awayTeamImage" destination="hBA-8s-ePB" id="ELm-tL-X8G"/>
+                                    <outlet property="awayTeamLabel" destination="M4u-3s-g5K" id="UXQ-Gq-PNT"/>
+                                    <outlet property="homeTeamImage" destination="lkI-kO-X3E" id="c6C-Rw-Fos"/>
+                                    <outlet property="homeTeamLabel" destination="Fyi-sB-2FQ" id="WCP-4n-aCe"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -68,7 +75,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="uFf-QG-hhI"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9mB-O0-M5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-92" y="45"/>
         </scene>

@@ -23,6 +23,7 @@ class GamesTableViewController: UITableViewController {
         
         let downloader = Downloader()
         games = downloader.downloadSchedule()
+        
         self.tableView.reloadData()
     }
 
@@ -45,9 +46,20 @@ class GamesTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameTableViewCell
 
-        cell.textLabel?.text = "\(games[indexPath.row].homeTeam) vs \(games[indexPath.row].awayTeam)"
+        var awayTeamName = games[indexPath.row].awayTeam
+        var homeTeamName = games[indexPath.row].homeTeam
+
+        
+        cell.homeTeamLabel.text = games[indexPath.row].homeTeam
+        cell.awayTeamLabel.text = games[indexPath.row].awayTeam
+        cell.awayTeamImage.image = UIImage(named: awayTeamName)
+        cell.homeTeamImage.image = UIImage(named: homeTeamName)
+        
+        
+        //cell.textLabel?.text = "\(games[indexPath.row].homeTeam) vs \(games[indexPath.row].awayTeam)"
+        
 
         return cell
     }
