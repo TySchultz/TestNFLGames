@@ -10,12 +10,12 @@ import Foundation
 import RealmSwift
 
 class Game: Object {
-    var homeTeam: String = ""
-    var awayTeam: String = ""
-    var date: String = ""
-    var homeScore: String = ""
-    var awayScore: String = ""
-    
+    dynamic var homeTeam: String   = ""
+    dynamic var awayTeam: String   = ""
+    dynamic  var date: String      = ""
+    dynamic  var homeScore: String = ""
+    dynamic  var awayScore: String = ""
+
 // Specify properties to ignore (Realm won't persist these)
     
 //  override static func ignoredProperties() -> [String] {

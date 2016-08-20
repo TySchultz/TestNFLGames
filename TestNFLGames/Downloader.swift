@@ -13,22 +13,21 @@ import Firebase
 
 
 class Downloader: NSObject {
-    var games :[Game] = []
+    var games :Results<Game>?
     
     let rootRef = FIRDatabase.database().reference()
     
-    func downloadSchedule() -> ([Game]) {
+    func downloadSchedule() -> (Results<Game>) {
         
         var status = 0
         // Set the page URL we want to download
         var count = 1
-        
-        while count < 16 {
-            let URL = NSURL(string: "http://www.nfl.com/ajax/scorestrip?season=2016&seasonType=REG&week=\(count)")
+        let realm = try! Realm()
+
+            let URL = NSURL(string: "http://www.nfl.com/ajax/scorestrip?season=2016&seasonType=REG&week=\(1)")
 
             let itemsRef = rootRef.childByAppendingPath("NFL-games").child("Week \(count)")
    
-            
             // Try downloading it
             do {
                 
@@ -57,9 +56,6 @@ class Downloader: NSObject {
                         itemsRef.child(id).child("homeScore").setValue(newGame.homeScore)
                         itemsRef.child(id).child("awayScore").setValue(newGame.awayScore)
 
-                        // Get the default Realm
-                        let realm = try! Realm()
-                        // You only need to do this once (per thread)
                         
                         // Add to the Realm inside a transaction
                         try! realm.write {
@@ -71,10 +67,10 @@ class Downloader: NSObject {
                 print("Ooops! Something went wrong: \(error)")
                 status = error.code
             }
-            count += 1
-            
-        }
+        
+        
+        games = realm.objects(Game)
 
-        return (games)
+        return (games!)
     }
  }

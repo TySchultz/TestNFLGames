@@ -9,13 +9,15 @@
 import UIKit
 
 class GameTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var homeBadge: UIImageView!
+    @IBOutlet weak var awayBadge: UIImageView!
+    @IBOutlet weak var homePayout: UILabel!
+    @IBOutlet weak var awayPayout: UILabel!
+    @IBOutlet weak var awayTeam: UILabel!
+    @IBOutlet weak var homeTeam: UILabel!
 
-    @IBOutlet weak var awayTeamLabel: UILabel!
-    @IBOutlet weak var homeTeamLabel: UILabel!
-    @IBOutlet weak var awayTeamImage: UIImageView!
-    @IBOutlet weak var homeTeamImage: UIImageView!
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
