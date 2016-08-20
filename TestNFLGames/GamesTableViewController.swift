@@ -16,6 +16,13 @@ class GamesTableViewController: UITableViewController {
     var games :Results<Game>!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "backButton")
+//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "backButton")
+        self.navigationController?.navigationBar.tintColor = UIColor(red:0.12, green:0.71, blue:0.93, alpha:1.00)
+        self.navigationController?.navigationBar.backgroundColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -39,12 +46,14 @@ class GamesTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
+            return 1
+        }else if section == 1  {
             return 2
         }else {
             return games.count
@@ -79,6 +88,19 @@ class GamesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("TopCell", forIndexPath: indexPath) as! TopInfoCell
+            
+            cell.titleTop.text = "Name"
+            cell.titleMiddle.text = "Score"
+            cell.titleBottom.text = "Record"
+            
+            cell.firstPlace.text = "Ty"
+            cell.secondPlace.text = "310"
+            cell.thirdPlace.text = "43-36"
+            
+            return cell
+            
+        }else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCellWithIdentifier("TopCell", forIndexPath: indexPath) as! TopInfoCell
             
             cell.titleTop.text = "The"
@@ -122,13 +144,13 @@ class GamesTableViewController: UITableViewController {
         
         switch (section) {
         case 0:
-            headerCell.sectionHeaderLabel.text = "Stats";
+            headerCell.sectionHeaderLabel.text = "You";
         //return sectionHeaderView
         case 1:
-            headerCell.sectionHeaderLabel.text = "Upcoming Games";
+            headerCell.sectionHeaderLabel.text = "Stats";
         //return sectionHeaderView
         case 2:
-            headerCell.sectionHeaderLabel.text = "South America";
+            headerCell.sectionHeaderLabel.text = "Upcoming Games";
         //return sectionHeaderView
         default:
             headerCell.sectionHeaderLabel.text = "Other";
@@ -138,6 +160,6 @@ class GamesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 64.0
+        return 50
     }
 }
