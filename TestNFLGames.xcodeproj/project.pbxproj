@@ -20,7 +20,6 @@
 		103CA0B71D68E00000A4AF7B /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0B61D68E00000A4AF7B /* PlayerCell.swift */; };
 		103CA0B91D6A236C00A4AF7B /* PayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0B81D6A236C00A4AF7B /* PayoutCell.swift */; };
 		105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5EC1D6546B9008B0605 /* AppDelegate.swift */; };
-		105DA5EF1D6546B9008B0605 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5EE1D6546B9008B0605 /* ViewController.swift */; };
 		105DA5F21D6546B9008B0605 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F01D6546B9008B0605 /* Main.storyboard */; };
 		105DA5F41D6546B9008B0605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F31D6546B9008B0605 /* Assets.xcassets */; };
 		105DA5F71D6546B9008B0605 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F51D6546B9008B0605 /* LaunchScreen.storyboard */; };
@@ -43,7 +42,6 @@
 		103CA0B81D6A236C00A4AF7B /* PayoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutCell.swift; sourceTree = "<group>"; };
 		105DA5E91D6546B9008B0605 /* TestNFLGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNFLGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		105DA5EC1D6546B9008B0605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		105DA5EE1D6546B9008B0605 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		105DA5F11D6546B9008B0605 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		105DA5F31D6546B9008B0605 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		105DA5F61D6546B9008B0605 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -68,6 +66,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		103CA0BA1D6A288E00A4AF7B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0175C2901D65635C00F585D7 /* GameTableViewCell.swift */,
+				103CA0AA1D68C7FA00A4AF7B /* TopInfoCell.swift */,
+				103CA0AC1D68C80500A4AF7B /* YouCell.swift */,
+				103CA0AE1D68CBA000A4AF7B /* CustomHeaderCell.swift */,
+				103CA0B01D68D9B900A4AF7B /* GameViewMainCell.swift */,
+				103CA0B61D68E00000A4AF7B /* PlayerCell.swift */,
+				103CA0B81D6A236C00A4AF7B /* PayoutCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		103CA0BB1D6A28AF00A4AF7B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				105DA6001D6549D6008B0605 /* GamesTableViewController.swift */,
+				103CA0B21D68D9DB00A4AF7B /* GameViewTableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		103CA0BC1D6A28BE00A4AF7B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				105DA5EC1D6546B9008B0605 /* AppDelegate.swift */,
+				103CA0A61D68013E00A4AF7B /* GoogleService-Info.plist */,
+				105DA5F51D6546B9008B0605 /* LaunchScreen.storyboard */,
+				105DA5F81D6546B9008B0605 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		103CA0BD1D6A28CB00A4AF7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				105DA6021D67F953008B0605 /* Game.swift */,
+				019AB7251D66A349001D0B31 /* GameObject.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		103CA0BE1D6A28DC00A4AF7B /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				103CA0A81D6805A000A4AF7B /* TNGView.swift */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		103CA0BF1D6A28E600A4AF7B /* Data  */ = {
+			isa = PBXGroup;
+			children = (
+				105DA5FE1D65473D008B0605 /* Downloader.swift */,
+			);
+			name = "Data ";
+			sourceTree = "<group>";
+		};
 		105DA5E01D6546B9008B0605 = {
 			isa = PBXGroup;
 			children = (
@@ -89,26 +146,14 @@
 		105DA5EB1D6546B9008B0605 /* TestNFLGames */ = {
 			isa = PBXGroup;
 			children = (
-				105DA5EC1D6546B9008B0605 /* AppDelegate.swift */,
-				105DA5EE1D6546B9008B0605 /* ViewController.swift */,
-				105DA6001D6549D6008B0605 /* GamesTableViewController.swift */,
-				0175C2901D65635C00F585D7 /* GameTableViewCell.swift */,
-				105DA5FE1D65473D008B0605 /* Downloader.swift */,
-				019AB7251D66A349001D0B31 /* GameObject.swift */,
 				105DA5F01D6546B9008B0605 /* Main.storyboard */,
 				105DA5F31D6546B9008B0605 /* Assets.xcassets */,
-				103CA0A61D68013E00A4AF7B /* GoogleService-Info.plist */,
-				105DA5F51D6546B9008B0605 /* LaunchScreen.storyboard */,
-				105DA5F81D6546B9008B0605 /* Info.plist */,
-				105DA6021D67F953008B0605 /* Game.swift */,
-				103CA0A81D6805A000A4AF7B /* TNGView.swift */,
-				103CA0AA1D68C7FA00A4AF7B /* TopInfoCell.swift */,
-				103CA0AC1D68C80500A4AF7B /* YouCell.swift */,
-				103CA0AE1D68CBA000A4AF7B /* CustomHeaderCell.swift */,
-				103CA0B01D68D9B900A4AF7B /* GameViewMainCell.swift */,
-				103CA0B21D68D9DB00A4AF7B /* GameViewTableViewController.swift */,
-				103CA0B61D68E00000A4AF7B /* PlayerCell.swift */,
-				103CA0B81D6A236C00A4AF7B /* PayoutCell.swift */,
+				103CA0BB1D6A28AF00A4AF7B /* Controllers */,
+				103CA0BA1D6A288E00A4AF7B /* Cells */,
+				103CA0BC1D6A28BE00A4AF7B /* Supporting Files */,
+				103CA0BD1D6A28CB00A4AF7B /* Model */,
+				103CA0BE1D6A28DC00A4AF7B /* Custom Views */,
+				103CA0BF1D6A28E600A4AF7B /* Data  */,
 			);
 			path = TestNFLGames;
 			sourceTree = "<group>";
@@ -262,7 +307,6 @@
 				103CA0B31D68D9DB00A4AF7B /* GameViewTableViewController.swift in Sources */,
 				105DA6031D67F953008B0605 /* Game.swift in Sources */,
 				103CA0B91D6A236C00A4AF7B /* PayoutCell.swift in Sources */,
-				105DA5EF1D6546B9008B0605 /* ViewController.swift in Sources */,
 				103CA0AD1D68C80500A4AF7B /* YouCell.swift in Sources */,
 				103CA0A91D6805A000A4AF7B /* TNGView.swift in Sources */,
 				105DA6011D6549D6008B0605 /* GamesTableViewController.swift in Sources */,
