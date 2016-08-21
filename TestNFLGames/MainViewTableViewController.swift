@@ -185,14 +185,36 @@ extension MainViewTableViewController {
         cell.homePayout.text = "\(Int(arc4random_uniform(30) + 1))"
         
         
+        //Adjust AM/PM for London games that start at 9:15 AM
+        let londonFormatter = NSDateFormatter()
+        londonFormatter.dateFormat = "HHmm"
+        let londonTime = londonFormatter.dateFromString("0915")
+        
+        var londonCompare = (kickoffTime?.compare(londonTime!) == NSComparisonResult.OrderedSame)
+        
+        if (londonCompare == false)
+        {
+            print("LONDON TIME")
+            kickoffTime?.dateByAddingTimeInterval(12 * 60 * 60)
+        }
+        
+        //Reformat time to be more readable
+        let formatterTime = NSDateFormatter()
+        formatterTime.dateFormat = "h:mm a"
+        let timeString = formatterTime.stringFromDate(kickoffTime!)
+        
+        
+        cell.time.text = timeString
+        
+        
         //Reformat date to be more readable
         let formatterTwo = NSDateFormatter()
         formatterTwo.dateFormat = "E, MMM d"
-        
         let dateString = formatterTwo.stringFromDate(kickoffTime!)
         
-        
         cell.dateLabel.text = dateString
+        
+        
         return cell
     }
 
