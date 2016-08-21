@@ -11,17 +11,24 @@ import RealmSwift
 
 class GamesTableViewController: UITableViewController {
 
-    let teams = [["Browns","Steelers","Patriots"], ["Nick","Ty","Zelda"]]
+    let teams = [["Nick","Ty","Zelda"],["Browns","Steelers","Patriots"]]
     let records = [["7-4","5-6","4-8"], ["321", "310", "283"]]
+    let titles = ["TOP PLAYERS", "TOP TEAMS"]
     var games :Results<Game>!
+    
+    @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var headerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
+        headerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 93)
+        self.navigationController?.navigationBarHidden = true
+
         
-        
-//        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "backButton")
-//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "backButton")
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "backButton")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "backButton")
         self.navigationController?.navigationBar.tintColor = UIColor(red:0.12, green:0.71, blue:0.93, alpha:1.00)
         self.navigationController?.navigationBar.backgroundColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
@@ -91,34 +98,34 @@ class GamesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("TopCell", forIndexPath: indexPath) as! TopInfoCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("YouCell", forIndexPath: indexPath) as! YouCell
             
-            cell.titleTop.text = "Name"
-            cell.titleMiddle.text = "Score"
-            cell.titleBottom.text = "Record"
             
-            cell.firstPlace.text = "Ty"
-            cell.secondPlace.text = "310"
-            cell.thirdPlace.text = "43-36"
             
             return cell
             
         }else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCellWithIdentifier("TopCell", forIndexPath: indexPath) as! TopInfoCell
             
-            cell.titleTop.text = "The"
-            cell.titleMiddle.text = "Best"
-            if indexPath.row == 0 {
-                cell.titleBottom.text = "Teams"
-            }else {
-                cell.titleBottom.text = "Players"
-
-            }
+          
             
            
-            cell.firstPlace.attributedText = attributedString(teams[indexPath.row][0], last: records[indexPath.row][0], cell: indexPath.row)
-            cell.secondPlace.attributedText = attributedString(teams[indexPath.row][1], last: records[indexPath.row][1], cell: indexPath.row)
-            cell.thirdPlace.attributedText = attributedString(teams[indexPath.row][2], last: records[indexPath.row][2], cell: indexPath.row)
+//            cell.firstPlace.attributedText = attributedString(teams[indexPath.row][0], last: records[indexPath.row][0], cell: indexPath.row)
+//            cell.secondPlace.attributedText = attributedString(teams[indexPath.row][1], last: records[indexPath.row][1], cell: indexPath.row)
+//            cell.thirdPlace.attributedText = attributedString(teams[indexPath.row][2], last: records[indexPath.row][2], cell: indexPath.row)
+//            
+            cell.title.text = titles[indexPath.row]
+            cell.firstPlace.text = teams[indexPath.row][0]
+            cell.secondPlace.text = teams[indexPath.row][1]
+            cell.thirdPlace.text = teams[indexPath.row][2]
+            
+            if indexPath.row == 0 {
+                cell.leaderBoardButton.enabled = true
+                cell.leaderBoardButton.alpha = 1.0
+            }else {
+                cell.leaderBoardButton.enabled = false
+                cell.leaderBoardButton.alpha = 0.0
+            }
 
             
             return cell
@@ -187,18 +194,50 @@ class GamesTableViewController: UITableViewController {
         }
     }
     
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        let destination = segue.destinationViewController as! GameViewTableViewController
+        destination.title = "Browns vs. Steelers"
+//        switch segue.identifier! {
+//        case "BuildingDetail":
+//           let detailController = segue.destinationViewController as! TableViewController
+//        detailController.events = events[tableView.indexPathForSelectedRow!.row-1]
+//        let headerText = buildings[tableView.indexPathForSelectedRow!.row-1]
+//        detailController.title = headerText
+//        if headerText == "Recreation and Physical Activity Center" {
+//            detailController.title = "RPAC"
+//        }
+//        mixpanel.track(
+//            "Building Selected",
+//            properties: ["building name": buildings[tableView.indexPathForSelectedRow!.row-1]]
+//        )
+        
+
+//        default:
+//            print("this segue doesnt work")
+//        }
+    }
+    
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCellWithIdentifier("sectionHeader") as! CustomHeaderCell
         
         switch (section) {
         case 0:
-            headerCell.sectionHeaderLabel.text = "You";
+            headerCell.sectionHeaderLabel.text = "THIS IS YOU";
+            headerCell.sectionHeaderLabel.textColor = UIColor(red:0.46, green:0.89, blue:0.56, alpha:1.00)
         //return sectionHeaderView
         case 1:
-            headerCell.sectionHeaderLabel.text = "Stats";
+            headerCell.sectionHeaderLabel.text = "TODAY'S LEADERS";
+            headerCell.sectionHeaderLabel.textColor = UIColor(red:0.95, green:0.51, blue:0.23, alpha:1.00)
+
         //return sectionHeaderView
         case 2:
-            headerCell.sectionHeaderLabel.text = "Upcoming Games";
+            headerCell.sectionHeaderLabel.text = "UPCOMING GAMES";
+            headerCell.sectionHeaderLabel.textColor = UIColor(red:0.22, green:0.64, blue:0.90, alpha:1.00)
+
         //return sectionHeaderView
         default:
             headerCell.sectionHeaderLabel.text = "Other";
@@ -208,6 +247,24 @@ class GamesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 40
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 70.0
+        }else if indexPath.section == 1 {
+            return 100.0
+        }else {
+            return 84.0
+        }
+    }
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        
+        if offset < 0 {
+            self.headerTopConstraint.constant = offset + 24
+        }
     }
 }

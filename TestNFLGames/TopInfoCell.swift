@@ -10,9 +10,8 @@ import UIKit
 
 class TopInfoCell: UITableViewCell {
 
-    @IBOutlet weak var titleTop: UILabel!
-    @IBOutlet weak var titleMiddle: UILabel!
-    @IBOutlet weak var titleBottom: UILabel!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var leaderBoardButton: UIButton!
     @IBOutlet weak var firstPlace: UILabel!
     @IBOutlet weak var secondPlace: UILabel!
     @IBOutlet weak var thirdPlace: UILabel!
