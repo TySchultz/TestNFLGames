@@ -11,7 +11,7 @@
         <!--Games-->
         <scene sceneID="MFS-va-cFH">
             <objects>
-                <tableViewController id="zfg-Yc-peb" customClass="GamesTableViewController" customModule="TestNFLGames" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="zfg-Yc-peb" customClass="MainViewTableViewController" customModule="TestNFLGames" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="84" sectionHeaderHeight="18" sectionFooterHeight="18" id="WOq-ZB-Gnr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -12,13 +12,9 @@ class GameViewTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Show the top bar
         self.navigationController?.navigationBarHidden = false
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,21 +31,19 @@ class GameViewTableViewController: UITableViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBarHidden = true
     }
+}
+
+// MARK: - Table view data source
+
+extension GameViewTableViewController {
     
-
-
-    // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 3
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 1
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -57,24 +51,17 @@ class GameViewTableViewController: UITableViewController {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("mainCell", forIndexPath: indexPath) as! GameViewMainCell
             
-            // Configure the cell...
-        
-            
             return cell
             
         }else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCellWithIdentifier("PayoutCell", forIndexPath: indexPath) as! PayoutCell
-            
-            // Configure the cell...
-            
             
             return cell
             
         }else {
             let cell = tableView.dequeueReusableCellWithIdentifier("PlayerCell", forIndexPath: indexPath) as! PlayerCell
             
-            // Configure the cell...
-            
+            //Fake data for players who voted
             cell.homePlayers.addArrangedSubview(createView("Ty"))
             cell.homePlayers.addArrangedSubview(createView("Zelda"))
             cell.homePlayers.addArrangedSubview(createView("Sam"))
@@ -90,10 +77,21 @@ class GameViewTableViewController: UITableViewController {
             cell.awayPlayers.addArrangedSubview(createView("Johnny"))
             
             return cell
-            
         }
     }
-    
+
+    //Create a view for the player cell
+    func createView (name : String) -> UILabel {
+        let lab = UILabel()
+        lab.text = name
+        lab.font = UIFont(name: "System", size: 16.0)
+        return lab
+    }
+}
+
+
+//MARK: Header styling
+extension GameViewTableViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCellWithIdentifier("sectionHeader") as! CustomHeaderCell
@@ -102,17 +100,12 @@ class GameViewTableViewController: UITableViewController {
         case 0:
             headerCell.sectionHeaderLabel.text = "";
             headerCell.sectionHeaderLabel.textColor = UIColor(red:0.46, green:0.89, blue:0.56, alpha:1.00)
-        //return sectionHeaderView
         case 1:
             headerCell.sectionHeaderLabel.text = "CHOOSE A TEAM";
             headerCell.sectionHeaderLabel.textColor = UIColor(red:0.95, green:0.51, blue:0.23, alpha:1.00)
-            
-        //return sectionHeaderView
         case 2:
             headerCell.sectionHeaderLabel.text = "PLAYERS";
             headerCell.sectionHeaderLabel.textColor = UIColor(red:0.22, green:0.64, blue:0.90, alpha:1.00)
-            
-        //return sectionHeaderView
         default:
             headerCell.sectionHeaderLabel.text = "Other";
         }
@@ -141,66 +134,4 @@ class GameViewTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.01
     }
-    
-//    - (UIView*)tableView:(UITableView*)tableView
-//    viewForHeaderInSection:(NSInteger)section {
-//    return [[UIView alloc] initWithFrame:CGRectZero];
-//    }
-//    
-//    - (UIView*)tableView:(UITableView*)tableView
-//    viewForFooterInSection:(NSInteger)section {
-//    return [[UIView alloc] initWithFrame:CGRectZero];
-//    }
-
-    func createView (name : String) -> UILabel {
-        let lab = UILabel()
-        lab.text = name
-        lab.font = UIFont(name: "System", size: 16.0)
-        return lab
-    }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

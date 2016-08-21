@@ -24,7 +24,7 @@
 		105DA5F41D6546B9008B0605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F31D6546B9008B0605 /* Assets.xcassets */; };
 		105DA5F71D6546B9008B0605 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F51D6546B9008B0605 /* LaunchScreen.storyboard */; };
 		105DA5FF1D65473D008B0605 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5FE1D65473D008B0605 /* Downloader.swift */; };
-		105DA6011D6549D6008B0605 /* GamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA6001D6549D6008B0605 /* GamesTableViewController.swift */; };
+		105DA6011D6549D6008B0605 /* MainViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA6001D6549D6008B0605 /* MainViewTableViewController.swift */; };
 		105DA6031D67F953008B0605 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA6021D67F953008B0605 /* Game.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +47,7 @@
 		105DA5F61D6546B9008B0605 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		105DA5F81D6546B9008B0605 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		105DA5FE1D65473D008B0605 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
-		105DA6001D6549D6008B0605 /* GamesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesTableViewController.swift; sourceTree = "<group>"; };
+		105DA6001D6549D6008B0605 /* MainViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewTableViewController.swift; sourceTree = "<group>"; };
 		105DA6021D67F953008B0605 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3C2FB3E26558084BD6FA9E65 /* Pods-TestNFLGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.release.xcconfig"; sourceTree = "<group>"; };
 		BF5D002FE7498B93A6FBEBBE /* Pods-TestNFLGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		103CA0BB1D6A28AF00A4AF7B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				105DA6001D6549D6008B0605 /* GamesTableViewController.swift */,
+				105DA6001D6549D6008B0605 /* MainViewTableViewController.swift */,
 				103CA0B21D68D9DB00A4AF7B /* GameViewTableViewController.swift */,
 			);
 			name = Controllers;
@@ -309,7 +309,7 @@
 				103CA0B91D6A236C00A4AF7B /* PayoutCell.swift in Sources */,
 				103CA0AD1D68C80500A4AF7B /* YouCell.swift in Sources */,
 				103CA0A91D6805A000A4AF7B /* TNGView.swift in Sources */,
-				105DA6011D6549D6008B0605 /* GamesTableViewController.swift in Sources */,
+				105DA6011D6549D6008B0605 /* MainViewTableViewController.swift in Sources */,
 				105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */,
 				105DA5FF1D65473D008B0605 /* Downloader.swift in Sources */,
 			);
