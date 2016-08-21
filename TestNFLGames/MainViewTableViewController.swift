@@ -186,22 +186,27 @@ extension MainViewTableViewController {
         
         
         //Adjust AM/PM for London games that start at 9:15 AM
+        let kickoffTimeFormat = NSDateFormatter()
+        kickoffTimeFormat.dateFormat = "HH:mm"
+        let kickOff = kickoffTimeFormat.dateFromString(time)
+        
         let londonFormatter = NSDateFormatter()
         londonFormatter.dateFormat = "HHmm"
         let londonTime = londonFormatter.dateFromString("0915")
         
-        var londonCompare = (kickoffTime?.compare(londonTime!) == NSComparisonResult.OrderedSame)
+        var londonCompare = (kickOff?.compare(londonTime!) == NSComparisonResult.OrderedSame)
+        print(londonCompare)
         
         if (londonCompare == false)
         {
-            print("LONDON TIME")
-            kickoffTime?.dateByAddingTimeInterval(12 * 60 * 60)
+            
+            kickOff?.dateByAddingTimeInterval(12 * 60 * 60)
         }
         
         //Reformat time to be more readable
         let formatterTime = NSDateFormatter()
         formatterTime.dateFormat = "h:mm a"
-        let timeString = formatterTime.stringFromDate(kickoffTime!)
+        let timeString = formatterTime.stringFromDate(kickOff!)
         
         
         cell.time.text = timeString
