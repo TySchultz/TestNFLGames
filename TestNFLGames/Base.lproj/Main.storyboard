@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="L5L-kG-qW8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="L5L-kG-qW8">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -58,16 +58,16 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="N69-TK-ejH"/>
                                             <exclude reference="0vc-79-3G3"/>
+                                            <exclude reference="N69-TK-ejH"/>
                                             <exclude reference="qk0-Tc-z5x"/>
                                             <exclude reference="rDf-gQ-9V7"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="constraints">
-                                            <include reference="N69-TK-ejH"/>
                                             <exclude reference="0vc-79-3G3"/>
+                                            <include reference="N69-TK-ejH"/>
                                             <include reference="qk0-Tc-z5x"/>
                                             <exclude reference="rDf-gQ-9V7"/>
                                         </mask>
@@ -163,7 +163,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="vs." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSl-zC-zny">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="vs." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSl-zC-zny">
                                                     <rect key="frame" x="271" y="27" width="25.5" height="14"/>
                                                     <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
@@ -175,12 +175,12 @@
                                                         <constraint firstAttribute="width" constant="16" id="tcB-S1-zdn"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="4:00 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7M-Z2-tzg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="4:00 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7M-Z2-tzg">
                                                     <rect key="frame" x="255" y="8" width="59" height="14"/>
                                                     <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="8/26/15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBA-iB-enn">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="8/26/15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBA-iB-enn">
                                                     <rect key="frame" x="255" y="50" width="59" height="14"/>
                                                     <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
@@ -208,6 +208,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="jF3-z2-rJT" firstAttribute="trailing" secondItem="ZWr-KI-WHC" secondAttribute="trailing" id="50z-z8-fjk"/>
+                                                <constraint firstAttribute="bottom" secondItem="NBA-iB-enn" secondAttribute="bottom" constant="4" id="8yy-G6-DNb"/>
                                                 <constraint firstAttribute="trailing" secondItem="Rlw-XG-VzI" secondAttribute="trailing" constant="8" id="9oh-cm-tKi"/>
                                                 <constraint firstItem="zgd-Og-2hn" firstAttribute="leading" secondItem="ewk-Ue-K3p" secondAttribute="trailing" constant="8" id="BVD-2b-8Ny"/>
                                                 <constraint firstItem="CSl-zC-zny" firstAttribute="top" secondItem="K7M-Z2-tzg" secondAttribute="bottom" constant="5.5" id="CIw-FU-pOY"/>
@@ -510,8 +511,8 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="LML-T8-Gjj"/>
                                             <exclude reference="3cl-QK-GrA"/>
+                                            <exclude reference="LML-T8-Gjj"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>

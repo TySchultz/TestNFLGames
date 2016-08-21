@@ -179,13 +179,20 @@ extension MainViewTableViewController {
         
         cell.homeTeam.text = homeTeamName.uppercaseString
         cell.awayTeam.text = awayTeamName.uppercaseString
-        cell.homeBadge.image = UIImage(named: awayTeamName)
-        cell.awayBadge.image = UIImage(named: homeTeamName)
+        cell.homeBadge.image = UIImage(named: homeTeamName)
+        cell.awayBadge.image = UIImage(named: awayTeamName)
         cell.awayPayout.text = "\(Int(arc4random_uniform(30) + 1))"
         cell.homePayout.text = "\(Int(arc4random_uniform(30) + 1))"
         
-        cell.dateLabel.text = date
         
+        //Reformat date to be more readable
+        let formatterTwo = NSDateFormatter()
+        formatterTwo.dateFormat = "E, MMM d"
+        
+        let dateString = formatterTwo.stringFromDate(kickoffTime!)
+        
+        
+        cell.dateLabel.text = dateString
         return cell
     }
 
