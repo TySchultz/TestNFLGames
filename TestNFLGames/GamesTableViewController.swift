@@ -17,6 +17,9 @@ class GamesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
 //        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "backButton")
 //        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "backButton")
         self.navigationController?.navigationBar.tintColor = UIColor(red:0.12, green:0.71, blue:0.93, alpha:1.00)
@@ -125,7 +128,50 @@ class GamesTableViewController: UITableViewController {
             let game = games[indexPath.row]
             let awayTeamName = game.homeTeam
             let homeTeamName = game.awayTeam
+            var date = game.date
+            var time = game.gameTime
             
+            //Ty below is me trying to get date and shit.
+            
+            //Still need to do
+            //Time right now is stuck on AM
+            
+            //Getting time to format example -> 04:25
+            if ((time.characters.count) < 5) {
+                print("IM HERE")
+                time.insert("0", atIndex: time.startIndex.advancedBy(0))
+            }
+            
+            
+            //Trying to get date at format of example -> "2016-09-11"
+            date.insert("-", atIndex: date.startIndex.advancedBy(4))
+            date.insert("-", atIndex: date.startIndex.advancedBy(7))
+            date.removeAtIndex(date.startIndex.advancedBy(11))
+            date.removeAtIndex(date.startIndex.advancedBy(10))
+            
+            //Gets date and time in format below
+            var dateAndTime = date.stringByAppendingString(" " + time)
+            
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm"
+            var kickoffTime = formatter.dateFromString(dateAndTime)
+            
+            var todaysDate:NSDate = NSDate()
+            
+            var kickoffInFuture = kickoffTime?.compare(todaysDate) == NSComparisonResult.OrderedDescending
+            
+            if (kickoffInFuture == false)
+            {
+                cell.lockImage.hidden = false
+                cell.dateLabel.hidden = true
+                cell.time.hidden = true
+                
+            }
+            else {
+                cell.lockImage.hidden = true
+            }
+            
+            //This is where me trying ends
             
             cell.homeTeam.text = homeTeamName.uppercaseString
             cell.awayTeam.text = awayTeamName.uppercaseString
@@ -133,6 +179,8 @@ class GamesTableViewController: UITableViewController {
             cell.awayBadge.image = UIImage(named: homeTeamName)
             cell.awayPayout.text = "\(Int(arc4random_uniform(30) + 1))"
             cell.homePayout.text = "\(Int(arc4random_uniform(30) + 1))"
+            
+            cell.dateLabel.text = date
             
             
             return cell

@@ -15,6 +15,7 @@ class Game: Object {
     dynamic  var date: String      = ""
     dynamic  var homeScore: String = ""
     dynamic  var awayScore: String = ""
+    dynamic var gameTime: String = ""
 
 // Specify properties to ignore (Realm won't persist these)
     

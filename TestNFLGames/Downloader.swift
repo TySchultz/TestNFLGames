@@ -46,6 +46,7 @@ class Downloader: NSObject {
                         newGame.date = row.xpath("@eid").first!.text!
                         newGame.homeScore = row.xpath("@hs").first!.text!
                         newGame.awayScore = row.xpath("@vs").first!.text!
+                        newGame.gameTime = row.xpath("@t").first!.text!
                         
                         
                         let id = row.xpath("@gsis").first!.text!
@@ -55,6 +56,7 @@ class Downloader: NSObject {
                         itemsRef.child(id).child("data").setValue(newGame.date)
                         itemsRef.child(id).child("homeScore").setValue(newGame.homeScore)
                         itemsRef.child(id).child("awayScore").setValue(newGame.awayScore)
+                        itemsRef.child(id).child("gameTime").setValue(newGame.gameTime)
 
                         
                         // Add to the Realm inside a transaction

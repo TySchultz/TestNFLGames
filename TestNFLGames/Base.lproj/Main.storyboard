@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="L5L-kG-qW8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="L5L-kG-qW8">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -54,7 +54,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vs." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSl-zC-zny">
-                                                    <rect key="frame" x="271.5" y="35.5" width="25.5" height="14"/>
+                                                    <rect key="frame" x="271.5" y="27.5" width="25.5" height="14"/>
                                                     <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -70,33 +70,53 @@
                                                     <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8/26/15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBA-iB-enn">
+                                                    <rect key="frame" x="255" y="50" width="59" height="14"/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWr-KI-WHC">
                                                     <rect key="frame" x="456" y="24" width="79.5" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nfl_lock" translatesAutoresizingMaskIntoConstraints="NO" id="ulT-ei-mZg">
+                                                    <rect key="frame" x="248" y="4" width="72" height="59"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="72" id="Aug-Ar-LCK"/>
+                                                        <constraint firstAttribute="height" constant="59" id="en7-Gc-7V4"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="jF3-z2-rJT" firstAttribute="trailing" secondItem="ZWr-KI-WHC" secondAttribute="trailing" id="50z-z8-fjk"/>
                                                 <constraint firstAttribute="trailing" secondItem="Rlw-XG-VzI" secondAttribute="trailing" constant="8" id="9oh-cm-tKi"/>
                                                 <constraint firstItem="zgd-Og-2hn" firstAttribute="leading" secondItem="ewk-Ue-K3p" secondAttribute="trailing" constant="8" id="BVD-2b-8Ny"/>
+                                                <constraint firstItem="CSl-zC-zny" firstAttribute="top" secondItem="K7M-Z2-tzg" secondAttribute="bottom" constant="5.5" id="CIw-FU-pOY"/>
                                                 <constraint firstItem="zgd-Og-2hn" firstAttribute="centerY" secondItem="ewk-Ue-K3p" secondAttribute="centerY" id="DU0-2Q-V9V"/>
                                                 <constraint firstItem="ZWr-KI-WHC" firstAttribute="centerY" secondItem="CSl-zC-zny" secondAttribute="centerY" id="Djy-Vg-8vl"/>
                                                 <constraint firstItem="Rlw-XG-VzI" firstAttribute="leading" secondItem="jF3-z2-rJT" secondAttribute="trailing" constant="8" id="Fho-7Q-TRL"/>
                                                 <constraint firstItem="CSl-zC-zny" firstAttribute="centerX" secondItem="TFS-bA-cuj" secondAttribute="centerX" id="Gpw-6t-Xg1"/>
                                                 <constraint firstItem="K7M-Z2-tzg" firstAttribute="centerX" secondItem="TFS-bA-cuj" secondAttribute="centerX" id="SJb-Ms-e6G"/>
+                                                <constraint firstItem="ulT-ei-mZg" firstAttribute="centerY" secondItem="TFS-bA-cuj" secondAttribute="centerY" id="TR6-7o-ufs"/>
                                                 <constraint firstItem="Rlw-XG-VzI" firstAttribute="top" secondItem="TFS-bA-cuj" secondAttribute="top" constant="8" id="WlM-hS-3mw"/>
                                                 <constraint firstItem="ewk-Ue-K3p" firstAttribute="leading" secondItem="TFS-bA-cuj" secondAttribute="leading" constant="8" id="a1P-Go-isx"/>
                                                 <constraint firstItem="ewk-Ue-K3p" firstAttribute="top" secondItem="TFS-bA-cuj" secondAttribute="top" constant="8" id="cbT-uM-GmZ"/>
                                                 <constraint firstItem="Rlw-XG-VzI" firstAttribute="centerY" secondItem="jF3-z2-rJT" secondAttribute="centerY" id="dYj-kO-etv"/>
                                                 <constraint firstAttribute="bottom" secondItem="ZWr-KI-WHC" secondAttribute="bottom" constant="8" id="eGV-uF-aFA"/>
                                                 <constraint firstItem="K7M-Z2-tzg" firstAttribute="top" secondItem="TFS-bA-cuj" secondAttribute="top" constant="8" id="ehv-Mu-42g"/>
+                                                <constraint firstItem="NBA-iB-enn" firstAttribute="top" secondItem="CSl-zC-zny" secondAttribute="bottom" constant="8.5" id="euc-yP-t5C"/>
                                                 <constraint firstItem="ZWr-KI-WHC" firstAttribute="top" secondItem="jF3-z2-rJT" secondAttribute="bottom" id="gge-hM-bw2"/>
                                                 <constraint firstAttribute="bottom" secondItem="llh-qb-c7m" secondAttribute="bottom" constant="8" id="hBU-nf-sBX"/>
+                                                <constraint firstItem="ZWr-KI-WHC" firstAttribute="leading" secondItem="NBA-iB-enn" secondAttribute="trailing" constant="142" id="lhI-SZ-5ra"/>
                                                 <constraint firstItem="llh-qb-c7m" firstAttribute="top" secondItem="zgd-Og-2hn" secondAttribute="bottom" id="m6J-z4-WwZ"/>
+                                                <constraint firstItem="NBA-iB-enn" firstAttribute="top" secondItem="CSl-zC-zny" secondAttribute="bottom" constant="1.5" id="nKi-6y-SkJ"/>
                                                 <constraint firstItem="llh-qb-c7m" firstAttribute="leading" secondItem="zgd-Og-2hn" secondAttribute="leading" id="oJv-Z2-sge"/>
+                                                <constraint firstItem="NBA-iB-enn" firstAttribute="top" secondItem="CSl-zC-zny" secondAttribute="bottom" constant="1.5" id="rhu-fn-4hv"/>
+                                                <constraint firstItem="NBA-iB-enn" firstAttribute="centerX" secondItem="TFS-bA-cuj" secondAttribute="centerX" id="y8H-6x-KAj"/>
+                                                <constraint firstItem="ulT-ei-mZg" firstAttribute="centerX" secondItem="TFS-bA-cuj" secondAttribute="centerX" id="yLH-pT-x9T"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -109,6 +129,14 @@
                                                     <real key="value" value="4"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="nKi-6y-SkJ"/>
+                                                    <exclude reference="rhu-fn-4hv"/>
+                                                    <exclude reference="Djy-Vg-8vl"/>
+                                                    <exclude reference="lhI-SZ-5ra"/>
+                                                </mask>
+                                            </variation>
                                         </view>
                                     </subviews>
                                     <constraints>
@@ -122,9 +150,11 @@
                                     <outlet property="awayBadge" destination="Rlw-XG-VzI" id="0al-O1-dbW"/>
                                     <outlet property="awayPayout" destination="ZWr-KI-WHC" id="r31-Ei-RyD"/>
                                     <outlet property="awayTeam" destination="jF3-z2-rJT" id="aCH-hB-zOZ"/>
+                                    <outlet property="dateLabel" destination="NBA-iB-enn" id="4Qj-Vt-Id3"/>
                                     <outlet property="homeBadge" destination="ewk-Ue-K3p" id="rAp-AO-VT3"/>
                                     <outlet property="homePayout" destination="llh-qb-c7m" id="sR0-FC-aNM"/>
                                     <outlet property="homeTeam" destination="zgd-Og-2hn" id="bcR-HK-gai"/>
+                                    <outlet property="lockImage" destination="ulT-ei-mZg" id="TY5-SK-qjv"/>
                                     <outlet property="time" destination="K7M-Z2-tzg" id="msE-b9-sw4"/>
                                     <segue destination="9CX-x0-3ba" kind="show" id="hP6-TC-eTg"/>
                                 </connections>
@@ -571,6 +601,7 @@
     </scenes>
     <resources>
         <image name="browns" width="256" height="256"/>
+        <image name="nfl_lock" width="100" height="100"/>
         <image name="steelers" width="256" height="256"/>
     </resources>
 </document>
