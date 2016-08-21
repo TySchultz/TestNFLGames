@@ -18,6 +18,7 @@
 		103CA0B11D68D9B900A4AF7B /* GameViewMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0B01D68D9B900A4AF7B /* GameViewMainCell.swift */; };
 		103CA0B31D68D9DB00A4AF7B /* GameViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0B21D68D9DB00A4AF7B /* GameViewTableViewController.swift */; };
 		103CA0B71D68E00000A4AF7B /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0B61D68E00000A4AF7B /* PlayerCell.swift */; };
+		103CA0B91D6A236C00A4AF7B /* PayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0B81D6A236C00A4AF7B /* PayoutCell.swift */; };
 		105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5EC1D6546B9008B0605 /* AppDelegate.swift */; };
 		105DA5EF1D6546B9008B0605 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5EE1D6546B9008B0605 /* ViewController.swift */; };
 		105DA5F21D6546B9008B0605 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F01D6546B9008B0605 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		103CA0B01D68D9B900A4AF7B /* GameViewMainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewMainCell.swift; sourceTree = "<group>"; };
 		103CA0B21D68D9DB00A4AF7B /* GameViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewTableViewController.swift; sourceTree = "<group>"; };
 		103CA0B61D68E00000A4AF7B /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
+		103CA0B81D6A236C00A4AF7B /* PayoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutCell.swift; sourceTree = "<group>"; };
 		105DA5E91D6546B9008B0605 /* TestNFLGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNFLGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		105DA5EC1D6546B9008B0605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		105DA5EE1D6546B9008B0605 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				103CA0B01D68D9B900A4AF7B /* GameViewMainCell.swift */,
 				103CA0B21D68D9DB00A4AF7B /* GameViewTableViewController.swift */,
 				103CA0B61D68E00000A4AF7B /* PlayerCell.swift */,
+				103CA0B81D6A236C00A4AF7B /* PayoutCell.swift */,
 			);
 			path = TestNFLGames;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				019AB7261D66A349001D0B31 /* GameObject.swift in Sources */,
 				103CA0B31D68D9DB00A4AF7B /* GameViewTableViewController.swift in Sources */,
 				105DA6031D67F953008B0605 /* Game.swift in Sources */,
+				103CA0B91D6A236C00A4AF7B /* PayoutCell.swift in Sources */,
 				105DA5EF1D6546B9008B0605 /* ViewController.swift in Sources */,
 				103CA0AD1D68C80500A4AF7B /* YouCell.swift in Sources */,
 				103CA0A91D6805A000A4AF7B /* TNGView.swift in Sources */,

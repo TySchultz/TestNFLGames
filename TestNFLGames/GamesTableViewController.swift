@@ -247,7 +247,7 @@ class GamesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 50
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -258,6 +258,10 @@ class GamesTableViewController: UITableViewController {
         }else {
             return 84.0
         }
+    }
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
