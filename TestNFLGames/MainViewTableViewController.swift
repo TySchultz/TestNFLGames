@@ -197,16 +197,21 @@ extension MainViewTableViewController {
         var londonCompare = (kickOff?.compare(londonTime!) == NSComparisonResult.OrderedSame)
         print(londonCompare)
         
+       
+        //Reformat time to be more readable
+        let formatterTime = NSDateFormatter()
+        formatterTime.dateFormat = "h:mm"
+        var timeString = formatterTime.stringFromDate(kickOff!)
+        
         if (londonCompare == false)
         {
             
-            kickOff?.dateByAddingTimeInterval(12 * 60 * 60)
+            timeString = timeString + " PM"
+        }
+        else {
+            timeString = timeString + " AM"
         }
         
-        //Reformat time to be more readable
-        let formatterTime = NSDateFormatter()
-        formatterTime.dateFormat = "h:mm a"
-        let timeString = formatterTime.stringFromDate(kickOff!)
         
         
         cell.time.text = timeString
