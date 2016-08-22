@@ -11,7 +11,7 @@ import RealmSwift
 
 class MainViewTableViewController: UITableViewController {
 
-    let teams = [["Nick","Ty","Zelda"],["Browns","Steelers","Patriots"]]
+    let teams = [["NICK","TY","ZELDA"],["BROWNS","STEELERS","PATRIOTS"]]
     let records = [["7-4","5-6","4-8"], ["321", "310", "283"]]
     let titles = ["TOP PLAYERS", "TOP TEAMS"]
     var games :Results<Game>!
@@ -154,15 +154,15 @@ extension MainViewTableViewController {
         date.removeAtIndex(date.startIndex.advancedBy(10))
         
         //Gets date and time in format below
-        var dateAndTime = date.stringByAppendingString(" " + time)
+        let dateAndTime = date.stringByAppendingString(" " + time)
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        var kickoffTime = formatter.dateFromString(dateAndTime)
+        let kickoffTime = formatter.dateFromString(dateAndTime)
         
-        var todaysDate:NSDate = NSDate()
+        let todaysDate:NSDate = NSDate()
         
-        var kickoffInFuture = kickoffTime?.compare(todaysDate) == NSComparisonResult.OrderedDescending
+        let kickoffInFuture = kickoffTime?.compare(todaysDate) == NSComparisonResult.OrderedDescending
         
         if (kickoffInFuture == false)
         {
@@ -194,7 +194,7 @@ extension MainViewTableViewController {
         londonFormatter.dateFormat = "HH:mm"
         let londonTime = londonFormatter.dateFromString("09:15")
         
-        var londonCompare = (kickOff?.compare(londonTime!) == NSComparisonResult.OrderedSame)
+        let londonCompare = (kickOff?.compare(londonTime!) == NSComparisonResult.OrderedSame)
         print(londonCompare)
         
        
@@ -203,16 +203,14 @@ extension MainViewTableViewController {
         formatterTime.dateFormat = "h:mm"
         var timeString = formatterTime.stringFromDate(kickOff!)
         
+        //If London game then we add AM b/c they are only AM games
         if (londonCompare == false)
         {
-            
             timeString = timeString + " PM"
         }
         else {
             timeString = timeString + " AM"
         }
-        
-        
         
         cell.time.text = timeString
         
