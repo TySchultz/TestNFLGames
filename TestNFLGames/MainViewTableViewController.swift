@@ -191,8 +191,8 @@ extension MainViewTableViewController {
         let kickOff = kickoffTimeFormat.dateFromString(time)
         
         let londonFormatter = NSDateFormatter()
-        londonFormatter.dateFormat = "HHmm"
-        let londonTime = londonFormatter.dateFromString("0915")
+        londonFormatter.dateFormat = "HH:mm"
+        let londonTime = londonFormatter.dateFromString("09:15")
         
         var londonCompare = (kickOff?.compare(londonTime!) == NSComparisonResult.OrderedSame)
         print(londonCompare)
