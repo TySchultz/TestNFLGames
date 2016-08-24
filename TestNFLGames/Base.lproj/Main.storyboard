@@ -259,7 +259,7 @@
                                     <outlet property="homeTeam" destination="zgd-Og-2hn" id="bcR-HK-gai"/>
                                     <outlet property="lockImage" destination="ulT-ei-mZg" id="TY5-SK-qjv"/>
                                     <outlet property="time" destination="K7M-Z2-tzg" id="msE-b9-sw4"/>
-                                    <segue destination="9CX-x0-3ba" kind="show" id="hP6-TC-eTg"/>
+                                    <segue destination="9CX-x0-3ba" kind="show" identifier="yourSegueIdentifer" id="hP6-TC-eTg"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TopCell" rowHeight="90" id="Ae7-p2-1qk" customClass="TopInfoCell" customModule="TestNFLGames" customModuleProvider="target">
@@ -587,6 +587,13 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="awayTeamImage" destination="zVw-rP-yJh" id="Yr7-AF-de2"/>
+                                    <outlet property="awayTeamName" destination="GxG-Q6-sq0" id="boM-KF-AEY"/>
+                                    <outlet property="homeTeamImage" destination="ei7-PU-pkV" id="vIV-bF-eLm"/>
+                                    <outlet property="homeTeamName" destination="Onz-Tp-Quf" id="bLT-A9-zdQ"/>
+                                    <outlet property="timeLabel" destination="hJO-b8-284" id="wIY-00-1gS"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayerCell" rowHeight="200" id="yDP-ex-ZLf" customClass="PlayerCell" customModule="TestNFLGames" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="289.5" width="600" height="200"/>

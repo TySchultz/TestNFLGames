@@ -47,8 +47,8 @@ class Downloader: NSObject {
                         newGame.date = row.xpath("@eid").first!.text!
                         newGame.homeScore = row.xpath("@hs").first!.text!
                         newGame.awayScore = row.xpath("@vs").first!.text!
-                        newGame.gameTime = "" 
-                        
+                        newGame.gameTime = row.xpath("@t").first!.text! 
+                        print("GAME TIME" + newGame.gameTime)
                         
                         let id = row.xpath("@gsis").first!.text!
                         

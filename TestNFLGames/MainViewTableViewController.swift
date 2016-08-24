@@ -16,6 +16,13 @@ class MainViewTableViewController: UITableViewController {
     let titles = ["TOP PLAYERS", "TOP TEAMS"]
     var games :Results<Game>!
     
+    var homeBadgePassed:UIImage!
+    var awayBadgePassed:UIImage!
+    var homeTeamPassed:String!
+    var awayTeamPassed:String!
+    var timePassed:String!
+    
+    
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerView: UIView!
     
@@ -48,13 +55,43 @@ class MainViewTableViewController: UITableViewController {
   
     //MARK: Navigation
     
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // Get Cell Label
+        let indexPath = tableView.indexPathForSelectedRow!
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as! GameTableViewCell
+        
+        homeBadgePassed = currentCell.homeBadge.image
+        awayBadgePassed = currentCell.awayBadge.image
+        awayTeamPassed = currentCell.awayTeam.text
+        print(currentCell.homeTeam.text! + " HERE")
+        homeTeamPassed = currentCell.homeTeam.text
+        timePassed = currentCell.time.text
+        
+        performSegueWithIdentifier("yourSegueIdentifer", sender: self)
+    }
+
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        
+        if (segue.identifier == "yourSegueIdentifer") {
         let destination = segue.destinationViewController as! GameViewTableViewController
+        
+        print(homeTeamPassed)
+        
+        destination.homeTeamName = homeTeamPassed
+        destination.awayTeamName = awayTeamPassed
+        destination.time = timePassed
         destination.title = "Browns vs. Steelers"
+            
+        }
     }
+    
+
    
     //Keeps the header view stuck to the top when you pull down. 
     //A simple effect that looks kinda cool

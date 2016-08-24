@@ -10,8 +10,15 @@ import UIKit
 
 class GameViewTableViewController: UITableViewController {
 
+    var homeTeamName : String = ""
+    var awayTeamName : String = ""
+    var time : String = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         //Show the top bar
         self.navigationController?.navigationBarHidden = false
@@ -50,6 +57,10 @@ extension GameViewTableViewController {
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("mainCell", forIndexPath: indexPath) as! GameViewMainCell
+            
+            cell.awayTeamName.text = awayTeamName
+            cell.homeTeamName.text = homeTeamName
+            cell.timeLabel.text = time
             
             return cell
             
