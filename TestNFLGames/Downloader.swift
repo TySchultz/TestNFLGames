@@ -17,12 +17,13 @@ class Downloader: NSObject {
     
     let rootRef = FIRDatabase.database().reference()
     
-    func downloadSchedule() -> (Results<Game>) {
+    func downloadSchedule() -> (List<Game>) {
         
+        var games : List<Game> = List<Game>()
         var status = 0
         // Set the page URL we want to download
         var count = 1
-        let realm = try! Realm()
+//        let realm = try! Realm()
 
 //        while count < 16 {
             let URL = NSURL(string: "http://www.nfl.com/ajax/scorestrip?season=2016&seasonType=REG&week=\(count)")
@@ -44,25 +45,19 @@ class Downloader: NSObject {
                         let newGame = Game()
                         newGame.homeTeam = row.xpath("@hnn").first!.text!
                         newGame.awayTeam = row.xpath("@vnn").first!.text!
-                        newGame.date = row.xpath("@eid").first!.text!
+                        newGame.startDate = row.xpath("@eid").first!.text!
                         newGame.homeScore = row.xpath("@hs").first!.text!
                         newGame.awayScore = row.xpath("@vs").first!.text!
-                        newGame.gameTime = row.xpath("@t").first!.text! 
-                        print("GAME TIME" + newGame.gameTime)
                         
-                        let id = row.xpath("@gsis").first!.text!
+                        games.append(newGame)
+//                        let id = row.xpath("@gsis").first!.text!
                         
-                        itemsRef.child(id).child("homeTeam").setValue(newGame.homeTeam)
-                        itemsRef.child(id).child("awayTeam").setValue(newGame.awayTeam)
-                        itemsRef.child(id).child("data").setValue(newGame.date)
-                        itemsRef.child(id).child("homeScore").setValue(newGame.homeScore)
-                        itemsRef.child(id).child("awayScore").setValue(newGame.awayScore)
+//                        itemsRef.child(id).child("homeTeam").setValue(newGame.homeTeam)
+//                        itemsRef.child(id).child("awayTeam").setValue(newGame.awayTeam)
+//                        itemsRef.child(id).child("data").setValue(newGame.date)
+//                        itemsRef.child(id).child("homeScore").setValue(newGame.homeScore)
+//                        itemsRef.child(id).child("awayScore").setValue(newGame.awayScore)
 
-                        
-                        // Add to the Realm inside a transaction
-                        try! realm.write {
-                            realm.add(newGame)
-                        }
                     }
                 }
             }catch let error as NSError {
@@ -71,9 +66,7 @@ class Downloader: NSObject {
             }
 //            count += 1
 //        }
-        games = realm.objects(Game)
-
-        return (games!)
+        return (games)
     }
     
     

@@ -14,7 +14,7 @@ class MainViewTableViewController: UITableViewController {
     let teams = [["NICK","TY","ZELDA"],["BROWNS","STEELERS","PATRIOTS"]]
     let records = [["7-4","5-6","4-8"], ["321", "310", "283"]]
     let titles = ["TOP PLAYERS", "TOP TEAMS"]
-    var games :Results<Game>!
+    var games :List<Game> = List<Game>()
     
     var homeBadgePassed:UIImage!
     var awayBadgePassed:UIImage!
@@ -60,49 +60,32 @@ class MainViewTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        // Get Cell Label
         let indexPath = tableView.indexPathForSelectedRow!
-        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as! GameTableViewCell
+        let cell = tableView.cellForRowAtIndexPath(indexPath)!
         
-        
-        
-        homeBadgePassed = currentCell.homeBadge.image
-        awayBadgePassed = currentCell.awayBadge.image
-        awayTeamPassed = currentCell.awayTeam.text
-        print(currentCell.homeTeam.text! + " HERE")
-        homeTeamPassed = currentCell.homeTeam.text
-        timePassed = currentCell.time.text
-        
-        let destination : GameViewTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("GamesViewDetail") as! GameViewTableViewController
-        self.navigationController?.pushViewController(destination, animated: true)
-        
-        destination.game = currentCell.game
-        destination.setup() 
-//        destination.homeTeamName = homeTeamPassed
-//        destination.awayTeamName = awayTeamPassed
-//        destination.time = timePassed
-        destination.title = awayTeamPassed + " vs. " + homeTeamPassed
-        
-    
+        //Makes sure only the GameTableViewCell is the one who can push to detail
+        if cell.isKindOfClass(GameTableViewCell) {
+            let currentCell = cell as! GameTableViewCell
+            homeBadgePassed = currentCell.homeBadge.image
+            awayBadgePassed = currentCell.awayBadge.image
+            awayTeamPassed = currentCell.awayTeam.text
+            print(currentCell.homeTeam.text! + " HERE")
+            homeTeamPassed = currentCell.homeTeam.text
+            timePassed = currentCell.time.text
+            
+            let destination : GameViewTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("GamesViewDetail") as! GameViewTableViewController
+            self.navigationController?.pushViewController(destination, animated: true)
+            
+            destination.game = currentCell.game
+            destination.setup()
+            //        destination.homeTeamName = homeTeamPassed
+            //        destination.awayTeamName = awayTeamPassed
+            //        destination.time = timePassed
+            destination.title = awayTeamPassed + " vs. " + homeTeamPassed
+            
+        }
+        // Get Cell Label
     }
-
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let backItem = UIBarButtonItem()
-//        backItem.title = ""
-//        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
-        
-//        if (segue.identifier == "yourSegueIdentifer") {
-//        let destination = segue.destinationViewController as! GameViewTableViewController
-//        
-//        print(homeTeamPassed)
-//        
-//            
-//        }
-    }
-    
-
    
     //Keeps the header view stuck to the top when you pull down. 
     //A simple effect that looks kinda cool
@@ -147,10 +130,8 @@ extension MainViewTableViewController {
         }
     }
     
-    
     func createYouCell(indexPath : NSIndexPath) -> YouCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("YouCell", forIndexPath: indexPath) as! YouCell
-        
         return cell
     }
     
@@ -177,13 +158,12 @@ extension MainViewTableViewController {
     func createGameCell(indexPath : NSIndexPath) -> GameTableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameTableViewCell
         
-        let realm = try! Realm()
-        
-        let game = games[indexPath.row]
+
+        let game = games[indexPath.row] 
         let awayTeamName = game.awayTeam
         let homeTeamName = game.homeTeam
-        var date = game.date
-        var time = game.gameTime
+        var date = game.startDate
+//        var time = game.gameTime ?? "00:00"
         
         cell.game = game
         
@@ -193,10 +173,10 @@ extension MainViewTableViewController {
         //Time right now is stuck on AM
         
         //Getting time to format example -> 04:25
-        if ((time.characters.count) < 5) {
-            print("IM HERE")
-            time.insert("0", atIndex: time.startIndex.advancedBy(0))
-        }
+//        if ((time.characters.count) < 5) {
+//            print("IM HERE")
+//            time.insert("0", atIndex: time.startIndex.advancedBy(0))
+//        }
         
         
         //Trying to get date at format of example -> "2016-09-11"
@@ -206,26 +186,26 @@ extension MainViewTableViewController {
         date.removeAtIndex(date.startIndex.advancedBy(10))
         
         //Gets date and time in format below
-        let dateAndTime = date.stringByAppendingString(" " + time)
-        
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        let kickoffTime = formatter.dateFromString(dateAndTime)
-        
-        let todaysDate:NSDate = NSDate()
-        
-        let kickoffInFuture = kickoffTime?.compare(todaysDate) == NSComparisonResult.OrderedDescending
-        
-        if (kickoffInFuture == false)
-        {
-            cell.lockImage.hidden = false
-            cell.dateLabel.hidden = true
-            cell.time.hidden = true
-            
-        }
-        else {
-            cell.lockImage.hidden = true
-        }
+//        let dateAndTime = date.stringByAppendingString(" " + time)
+//        
+//        let formatter = NSDateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+//        let kickoffTime = formatter.dateFromString(dateAndTime)
+//        
+//        let todaysDate:NSDate = NSDate()
+//        
+//        let kickoffInFuture = kickoffTime?.compare(todaysDate) == NSComparisonResult.OrderedDescending
+//        
+//        if (kickoffInFuture == false)
+//        {
+//            cell.lockImage.hidden = false
+//            cell.dateLabel.hidden = true
+//            cell.time.hidden = true
+//            
+//        }
+//        else {
+//            cell.lockImage.hidden = true
+//        }
         
         //This is where me trying ends
         
@@ -237,50 +217,53 @@ extension MainViewTableViewController {
         cell.homePayout.text = "\(Int(arc4random_uniform(30) + 1))"
         
         
-        //Adjust AM/PM for London games that start at 9:15 AM
-        let kickoffTimeFormat = NSDateFormatter()
-        kickoffTimeFormat.dateFormat = "HH:mm"
-        let kickOff = kickoffTimeFormat.dateFromString(time)
-        
-        let londonFormatter = NSDateFormatter()
-        londonFormatter.dateFormat = "HH:mm"
-        let londonTime = londonFormatter.dateFromString("09:15")
-        
-        let londonCompare = (kickOff?.compare(londonTime!) == NSComparisonResult.OrderedSame)
-        print(londonCompare)
-        
-       
-        //Reformat time to be more readable
-        let formatterTime = NSDateFormatter()
-        formatterTime.dateFormat = "h:mm"
-        var timeString = formatterTime.stringFromDate(kickOff!)
-        
-        //If London game then we add AM b/c they are only AM games
-        if (londonCompare == false)
-        {
-            timeString = timeString + " PM"
-        }
-        else {
-            timeString = timeString + " AM"
-        }
-        
-        
-        try! realm.write {
-            
-            game.gameTime = timeString
-        }
-        
-
-        cell.time.text = timeString
-        
-        
-        //Reformat date to be more readable
-        let formatterTwo = NSDateFormatter()
-        formatterTwo.dateFormat = "E, MMM d"
-        let dateString = formatterTwo.stringFromDate(kickoffTime!)
-        
-        cell.dateLabel.text = dateString
-        
+//        //Adjust AM/PM for London games that start at 9:15 AM
+//        let kickoffTimeFormat = NSDateFormatter()
+//        kickoffTimeFormat.dateFormat = "HH:mm"
+//        var kickOff = kickoffTimeFormat.dateFromString(time)
+//        if kickOff == nil {
+//            kickOff = NSDate()
+//        }
+//        
+//        let londonFormatter = NSDateFormatter()
+//        londonFormatter.dateFormat = "HH:mm"
+//        let londonTime = londonFormatter.dateFromString("09:15")
+//        
+//        let londonCompare = (kickOff?.compare(londonTime!) == NSComparisonResult.OrderedSame)
+//        print(londonCompare)
+//        
+//       
+//        //Reformat time to be more readable
+//        let formatterTime = NSDateFormatter()
+//        formatterTime.dateFormat = "h:mm"
+//        var timeString = formatterTime.stringFromDate(kickOff!)
+//        
+//        //If London game then we add AM b/c they are only AM games
+//        if (londonCompare == false)
+//        {
+//            timeString = timeString + " PM"
+//        }
+//        else {
+//            timeString = timeString + " AM"
+//        }
+//        
+//        
+//        try! realm.write {
+//            
+//            game.gameTime = timeString
+//        }
+//        
+//
+//        cell.time.text = timeString
+//        
+//        
+//        //Reformat date to be more readable
+//        let formatterTwo = NSDateFormatter()
+//        formatterTwo.dateFormat = "E, MMM d"
+//        let dateString = formatterTwo.stringFromDate(kickoffTime!)
+//        
+//        cell.dateLabel.text = dateString
+//        
         
         return cell
     }

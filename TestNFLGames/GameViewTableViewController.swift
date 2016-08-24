@@ -37,8 +37,7 @@ class GameViewTableViewController: UITableViewController {
             self.awayTeamName = game.awayTeam
             self.homeTeamBadge =  UIImage(named: homeTeamName)
             self.awayTeamBadge = UIImage(named: awayTeamName)
-            self.time = game.gameTime
-            
+            self.time = game.startDate
         }
     }
 
