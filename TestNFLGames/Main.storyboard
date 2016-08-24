@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="L5L-kG-qW8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="L5L-kG-qW8">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -259,7 +259,6 @@
                                     <outlet property="homeTeam" destination="zgd-Og-2hn" id="bcR-HK-gai"/>
                                     <outlet property="lockImage" destination="ulT-ei-mZg" id="TY5-SK-qjv"/>
                                     <outlet property="time" destination="K7M-Z2-tzg" id="msE-b9-sw4"/>
-                                    <segue destination="9CX-x0-3ba" kind="show" identifier="yourSegueIdentifer" id="hP6-TC-eTg"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TopCell" rowHeight="90" id="Ae7-p2-1qk" customClass="TopInfoCell" customModule="TestNFLGames" customModuleProvider="target">
@@ -469,14 +468,14 @@
         <!--Game View Table View Controller-->
         <scene sceneID="pCk-K6-2vh">
             <objects>
-                <tableViewController id="9CX-x0-3ba" customClass="GameViewTableViewController" customModule="TestNFLGames" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GamesViewDetail" id="9CX-x0-3ba" customClass="GameViewTableViewController" customModule="TestNFLGames" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="360" sectionHeaderHeight="18" sectionFooterHeight="18" id="S4x-AM-2n7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="sectionHeader" rowHeight="40" id="x2z-Kf-pI6" customClass="CustomHeaderCell" customModule="TestNFLGames" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="113.5" width="600" height="40"/>
+                                <rect key="frame" x="0.0" y="49.5" width="600" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x2z-Kf-pI6" id="3z8-WF-gyv">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
@@ -507,7 +506,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainCell" rowHeight="136" id="Mf2-jy-t6M" customClass="GameViewMainCell" customModule="TestNFLGames" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="153.5" width="600" height="136"/>
+                                <rect key="frame" x="0.0" y="89.5" width="600" height="136"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mf2-jy-t6M" id="9Yl-KT-dQx">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="136"/>
@@ -596,7 +595,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayerCell" rowHeight="200" id="yDP-ex-ZLf" customClass="PlayerCell" customModule="TestNFLGames" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="289.5" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="225.5" width="600" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yDP-ex-ZLf" id="HNF-08-UF5">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
@@ -638,7 +637,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PayoutCell" rowHeight="127" id="INa-Bj-zwx" customClass="PayoutCell" customModule="TestNFLGames" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="489.5" width="600" height="127"/>
+                                <rect key="frame" x="0.0" y="425.5" width="600" height="127"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="INa-Bj-zwx" id="SkE-Xm-lMw">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="127"/>

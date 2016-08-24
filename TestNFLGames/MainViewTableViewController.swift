@@ -39,7 +39,10 @@ class MainViewTableViewController: UITableViewController {
         //Back button setup
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "backButton")
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "backButton")
-        
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+
         //Get games
         let downloader = Downloader()
         games = downloader.downloadSchedule()
@@ -69,26 +72,32 @@ class MainViewTableViewController: UITableViewController {
         homeTeamPassed = currentCell.homeTeam.text
         timePassed = currentCell.time.text
         
-        performSegueWithIdentifier("yourSegueIdentifer", sender: self)
-    }
-
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let backItem = UIBarButtonItem()
-        backItem.title = ""
-        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
         
-        if (segue.identifier == "yourSegueIdentifer") {
-        let destination = segue.destinationViewController as! GameViewTableViewController
         
-        print(homeTeamPassed)
+        let destination : GameViewTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("GamesViewDetail") as! GameViewTableViewController
+        self.navigationController?.pushViewController(destination, animated: true)
         
         destination.homeTeamName = homeTeamPassed
         destination.awayTeamName = awayTeamPassed
         destination.time = timePassed
         destination.title = "Browns vs. Steelers"
-            
-        }
+
+        
+    }
+
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let backItem = UIBarButtonItem()
+//        backItem.title = ""
+//        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        
+//        if (segue.identifier == "yourSegueIdentifer") {
+//        let destination = segue.destinationViewController as! GameViewTableViewController
+//        
+//        print(homeTeamPassed)
+//        
+//            
+//        }
     }
     
 
