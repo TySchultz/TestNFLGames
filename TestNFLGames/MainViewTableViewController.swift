@@ -82,7 +82,7 @@ class MainViewTableViewController: UITableViewController {
 //        destination.homeTeamName = homeTeamPassed
 //        destination.awayTeamName = awayTeamPassed
 //        destination.time = timePassed
-        destination.title = "Browns vs. Steelers"
+        destination.title = awayTeamPassed + " vs. " + homeTeamPassed
         
     
     }
@@ -177,9 +177,11 @@ extension MainViewTableViewController {
     func createGameCell(indexPath : NSIndexPath) -> GameTableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameTableViewCell
         
+        let realm = try! Realm()
+        
         let game = games[indexPath.row]
-        let awayTeamName = game.homeTeam
-        let homeTeamName = game.awayTeam
+        let awayTeamName = game.awayTeam
+        let homeTeamName = game.homeTeam
         var date = game.date
         var time = game.gameTime
         
@@ -262,6 +264,13 @@ extension MainViewTableViewController {
             timeString = timeString + " AM"
         }
         
+        
+        try! realm.write {
+            
+            game.gameTime = timeString
+        }
+        
+
         cell.time.text = timeString
         
         

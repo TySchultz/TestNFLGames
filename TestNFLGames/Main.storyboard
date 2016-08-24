@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="L5L-kG-qW8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="L5L-kG-qW8">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -250,13 +250,13 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="awayBadge" destination="Rlw-XG-VzI" id="0al-O1-dbW"/>
-                                    <outlet property="awayPayout" destination="ZWr-KI-WHC" id="r31-Ei-RyD"/>
-                                    <outlet property="awayTeam" destination="jF3-z2-rJT" id="aCH-hB-zOZ"/>
+                                    <outlet property="awayBadge" destination="ewk-Ue-K3p" id="HKS-FE-Irv"/>
+                                    <outlet property="awayPayout" destination="llh-qb-c7m" id="V6g-Mc-Szv"/>
+                                    <outlet property="awayTeam" destination="zgd-Og-2hn" id="EhJ-oB-jd7"/>
                                     <outlet property="dateLabel" destination="NBA-iB-enn" id="4Qj-Vt-Id3"/>
-                                    <outlet property="homeBadge" destination="ewk-Ue-K3p" id="rAp-AO-VT3"/>
-                                    <outlet property="homePayout" destination="llh-qb-c7m" id="sR0-FC-aNM"/>
-                                    <outlet property="homeTeam" destination="zgd-Og-2hn" id="bcR-HK-gai"/>
+                                    <outlet property="homeBadge" destination="Rlw-XG-VzI" id="3sc-dp-Fj5"/>
+                                    <outlet property="homePayout" destination="ZWr-KI-WHC" id="592-xD-7Yk"/>
+                                    <outlet property="homeTeam" destination="jF3-z2-rJT" id="ZRq-XH-DuT"/>
                                     <outlet property="lockImage" destination="ulT-ei-mZg" id="TY5-SK-qjv"/>
                                     <outlet property="time" destination="K7M-Z2-tzg" id="msE-b9-sw4"/>
                                 </connections>

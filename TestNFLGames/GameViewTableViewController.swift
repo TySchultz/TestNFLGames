@@ -15,6 +15,9 @@ class GameViewTableViewController: UITableViewController {
 
     var time : String = ""
     
+    var homeTeamBadge : UIImage?
+    var awayTeamBadge : UIImage?
+    
     var game : Game!
 
     override func viewDidLoad() {
@@ -32,6 +35,10 @@ class GameViewTableViewController: UITableViewController {
         if game != nil {
             self.homeTeamName = game.homeTeam
             self.awayTeamName = game.awayTeam
+            self.homeTeamBadge =  UIImage(named: homeTeamName)
+            self.awayTeamBadge = UIImage(named: awayTeamName)
+            self.time = game.gameTime
+            
         }
     }
 
@@ -69,9 +76,11 @@ extension GameViewTableViewController {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("mainCell", forIndexPath: indexPath) as! GameViewMainCell
             
-            cell.awayTeamName.text = awayTeamName
-            cell.homeTeamName.text = homeTeamName
+            cell.awayTeamName.text = awayTeamName.capitalizedString
+            cell.homeTeamName.text = homeTeamName.capitalizedString
             cell.timeLabel.text = time
+            cell.homeTeamImage.image = homeTeamBadge
+            cell.awayTeamImage.image = awayTeamBadge
             
             return cell
             
