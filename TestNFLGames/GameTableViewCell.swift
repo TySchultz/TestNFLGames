@@ -19,6 +19,9 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet weak var homeTeam: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var lockImage: UIImageView!
+    
+    var game : Game!
+
 
     override func awakeFromNib() {
         super.awakeFromNib()

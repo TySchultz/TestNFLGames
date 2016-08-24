@@ -12,16 +12,27 @@ class GameViewTableViewController: UITableViewController {
 
     var homeTeamName : String = ""
     var awayTeamName : String = ""
+
     var time : String = ""
     
-    
+    var game : Game!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         
+     
+        
         //Show the top bar
         self.navigationController?.navigationBarHidden = false
+    }
+    
+    func setup() {
+        if game != nil {
+            self.homeTeamName = game.homeTeam
+            self.awayTeamName = game.awayTeam
+        }
     }
 
     override func didReceiveMemoryWarning() {

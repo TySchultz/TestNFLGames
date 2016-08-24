@@ -65,6 +65,8 @@ class MainViewTableViewController: UITableViewController {
         let indexPath = tableView.indexPathForSelectedRow!
         let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as! GameTableViewCell
         
+        
+        
         homeBadgePassed = currentCell.homeBadge.image
         awayBadgePassed = currentCell.awayBadge.image
         awayTeamPassed = currentCell.awayTeam.text
@@ -72,17 +74,17 @@ class MainViewTableViewController: UITableViewController {
         homeTeamPassed = currentCell.homeTeam.text
         timePassed = currentCell.time.text
         
-        
-        
         let destination : GameViewTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("GamesViewDetail") as! GameViewTableViewController
         self.navigationController?.pushViewController(destination, animated: true)
         
-        destination.homeTeamName = homeTeamPassed
-        destination.awayTeamName = awayTeamPassed
-        destination.time = timePassed
+        destination.game = currentCell.game
+        destination.setup() 
+//        destination.homeTeamName = homeTeamPassed
+//        destination.awayTeamName = awayTeamPassed
+//        destination.time = timePassed
         destination.title = "Browns vs. Steelers"
-
         
+    
     }
 
     
@@ -180,6 +182,8 @@ extension MainViewTableViewController {
         let homeTeamName = game.awayTeam
         var date = game.date
         var time = game.gameTime
+        
+        cell.game = game
         
         //Ty below is me trying to get date and shit.
         

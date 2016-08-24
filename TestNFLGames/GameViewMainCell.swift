@@ -16,6 +16,7 @@ class GameViewMainCell: UITableViewCell {
     @IBOutlet weak var homeTeamName: UILabel!
     @IBOutlet weak var awayTeamName: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
