@@ -187,36 +187,10 @@ extension MainViewTableViewController {
         
         cell.game = game
         
-        //Ty below is me trying to get date and shit.
         
-        //Still need to do
-        //Time right now is stuck on AM
-        
-        //Getting time to format example -> 04:25
-        if ((time.characters.count) < 5) {
-            print("IM HERE")
-            time.insert("0", atIndex: time.startIndex.advancedBy(0))
-        }
-        
-        
-        
-        
-        //Trying to get date at format of example -> "2016-09-11"
-        date.insert("-", atIndex: date.startIndex.advancedBy(4))
-        date.insert("-", atIndex: date.startIndex.advancedBy(7))
-        date.removeAtIndex(date.startIndex.advancedBy(11))
-        date.removeAtIndex(date.startIndex.advancedBy(10))
-        
-        //Gets date and time in format below
-        let dateAndTime = date.stringByAppendingString(" " + time)
-        
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd h:mm"
-        let kickoffTime = formatter.dateFromString(dateAndTime)
-        
-        let todaysDate:NSDate = NSDate()
-        
-        let kickoffInFuture = kickoffTime?.compare(todaysDate) == NSComparisonResult.OrderedDescending
+//        let todaysDate:NSDate = NSDate()
+//        
+        let kickoffInFuture = true //kickoffTime?.compare(todaysDate) == NSComparisonResult.OrderedDescending
         
         if (kickoffInFuture == false)
         {
@@ -237,52 +211,8 @@ extension MainViewTableViewController {
         cell.awayBadge.image = UIImage(named: awayTeamName)
         cell.awayPayout.text = "\(Int(arc4random_uniform(30) + 1))"
         cell.homePayout.text = "\(Int(arc4random_uniform(30) + 1))"
-        
-        
-        //Adjust AM/PM for London games that start at 9:15 AM
-        let kickoffTimeFormat = NSDateFormatter()
-        kickoffTimeFormat.dateFormat = "h:mm"
-        let kickOff = kickoffTimeFormat.dateFromString(time)
-        
-//        let londonFormatter = NSDateFormatter()
-//        londonFormatter.dateFormat = "h:mm"
-//        let londonTime = londonFormatter.dateFromString("9:15")
-//        
-//        let londonCompare = (kickOff?.compare(londonTime!) == NSComparisonResult.OrderedSame)
-//        print(londonCompare)
-        
-       
-        //Reformat time to be more readable
-        let formatterTime = NSDateFormatter()
-        formatterTime.dateFormat = "h:mm"
-        var timeString = formatterTime.stringFromDate(kickOff!)
-        
-//        //If London game then we add AM b/c they are only AM games
-//        if (londonCompare == false)
-//        {
-//            timeString = timeString + " PM"
-//        }
-//        else {
-//            timeString = timeString + " AM"
-//        }
-        
-        
-        try! realm.write {
-            
-            game.gameTime = timeString
-        }
-        
-
-        cell.time.text = timeString
-        
-        
-        //Reformat date to be more readable
-        let formatterTwo = NSDateFormatter()
-        formatterTwo.dateFormat = "E, MMM d"
-        let dateString = formatterTwo.stringFromDate(kickoffTime!)
-        
-        cell.dateLabel.text = dateString
-        
+        cell.dateLabel.text = game.date
+        cell.time.text = game.gameTime
         
         return cell
     }

@@ -44,12 +44,15 @@ class Downloader: NSObject {
                         let newGame = Game()
                         newGame.homeTeam = row.xpath("@hnn").first!.text!
                         newGame.awayTeam = row.xpath("@vnn").first!.text!
-                        newGame.date = row.xpath("@eid").first!.text!
+                       // newGame.date = row.xpath("@eid").first!.text!
                         newGame.homeScore = row.xpath("@hs").first!.text!
                         newGame.awayScore = row.xpath("@vs").first!.text!
-                        newGame.gameTime = row.xpath("@t").first!.text! 
-                        print("GAME TIME" + newGame.gameTime)
+                       // newGame.gameTime = row.xpath("@t").first!.text!
                         
+                        let values = formatTimeAndDate(row.xpath("@t").first!.text!, date: row.xpath("@eid").first!.text!)
+                        newGame.gameTime = values.time
+                        newGame.date = values.date
+                        print("GAME TIME" + newGame.date)
                         
                         
                         let id = row.xpath("@gsis").first!.text!
@@ -115,5 +118,61 @@ class Downloader: NSObject {
             // ...
         })
         return realm.objects(Game)
+    }
+    
+    func formatTimeAndDate(time:String, date:String) -> (time: String, date: String)
+    {
+        var dateNew = date
+        //Trying to get date at format of example -> "2016-09-11"
+        dateNew.insert("-", atIndex: dateNew.startIndex.advancedBy(4))
+        dateNew.insert("-", atIndex: dateNew.startIndex.advancedBy(7))
+        dateNew.removeAtIndex(dateNew.startIndex.advancedBy(11))
+        dateNew.removeAtIndex(dateNew.startIndex.advancedBy(10))
+        
+        //Gets date and time in format below
+        let dateAndTime = dateNew.stringByAppendingString(" " + time)
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd h:mm"
+        let kickoffTime = formatter.dateFromString(dateAndTime)
+        
+        
+        
+        //Adjust AM/PM for London games that start at 9:15 AM
+        let kickoffTimeFormat = NSDateFormatter()
+        kickoffTimeFormat.dateFormat = "h:mm"
+        let kickOff = kickoffTimeFormat.dateFromString(time)
+        
+                let londonFormatter = NSDateFormatter()
+                londonFormatter.dateFormat = "h:mm"
+                let londonTime = londonFormatter.dateFromString("9:15")
+        
+                let londonCompare = (kickOff?.compare(londonTime!) == NSComparisonResult.OrderedSame)
+                print(londonCompare)
+        
+        
+        //Reformat time to be more readable
+        let formatterTime = NSDateFormatter()
+        formatterTime.dateFormat = "h:mm"
+        var timeString = formatterTime.stringFromDate(kickOff!)
+        
+                //If London game then we add AM b/c they are only AM games
+                if (londonCompare == false)
+                {
+                    timeString = timeString + " PM"
+                }
+                else {
+                    timeString = timeString + " AM"
+                }
+        
+        
+        //Reformat date to be more readable
+        let formatterTwo = NSDateFormatter()
+        formatterTwo.dateFormat = "E, MMM d"
+        let dateString = formatterTwo.stringFromDate(kickoffTime!)
+        
+ 
+        return (timeString, dateString)
+        
     }
  }
