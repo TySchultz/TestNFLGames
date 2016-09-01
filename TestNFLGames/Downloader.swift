@@ -50,6 +50,8 @@ class Downloader: NSObject {
                         newGame.gameTime = row.xpath("@t").first!.text! 
                         print("GAME TIME" + newGame.gameTime)
                         
+                        
+                        
                         let id = row.xpath("@gsis").first!.text!
                         
                         itemsRef.child(id).child("homeTeam").setValue(newGame.homeTeam)

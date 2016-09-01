@@ -199,6 +199,8 @@ extension MainViewTableViewController {
         }
         
         
+        
+        
         //Trying to get date at format of example -> "2016-09-11"
         date.insert("-", atIndex: date.startIndex.advancedBy(4))
         date.insert("-", atIndex: date.startIndex.advancedBy(7))
@@ -209,7 +211,7 @@ extension MainViewTableViewController {
         let dateAndTime = date.stringByAppendingString(" " + time)
         
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        formatter.dateFormat = "yyyy-MM-dd h:mm"
         let kickoffTime = formatter.dateFromString(dateAndTime)
         
         let todaysDate:NSDate = NSDate()
@@ -239,15 +241,15 @@ extension MainViewTableViewController {
         
         //Adjust AM/PM for London games that start at 9:15 AM
         let kickoffTimeFormat = NSDateFormatter()
-        kickoffTimeFormat.dateFormat = "HH:mm"
+        kickoffTimeFormat.dateFormat = "h:mm"
         let kickOff = kickoffTimeFormat.dateFromString(time)
         
-        let londonFormatter = NSDateFormatter()
-        londonFormatter.dateFormat = "HH:mm"
-        let londonTime = londonFormatter.dateFromString("09:15")
-        
-        let londonCompare = (kickOff?.compare(londonTime!) == NSComparisonResult.OrderedSame)
-        print(londonCompare)
+//        let londonFormatter = NSDateFormatter()
+//        londonFormatter.dateFormat = "h:mm"
+//        let londonTime = londonFormatter.dateFromString("9:15")
+//        
+//        let londonCompare = (kickOff?.compare(londonTime!) == NSComparisonResult.OrderedSame)
+//        print(londonCompare)
         
        
         //Reformat time to be more readable
@@ -255,14 +257,14 @@ extension MainViewTableViewController {
         formatterTime.dateFormat = "h:mm"
         var timeString = formatterTime.stringFromDate(kickOff!)
         
-        //If London game then we add AM b/c they are only AM games
-        if (londonCompare == false)
-        {
-            timeString = timeString + " PM"
-        }
-        else {
-            timeString = timeString + " AM"
-        }
+//        //If London game then we add AM b/c they are only AM games
+//        if (londonCompare == false)
+//        {
+//            timeString = timeString + " PM"
+//        }
+//        else {
+//            timeString = timeString + " AM"
+//        }
         
         
         try! realm.write {
