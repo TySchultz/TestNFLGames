@@ -12,14 +12,14 @@ import RealmSwift
 class Game: Object {
     dynamic var homeTeam: String   = ""
     dynamic var awayTeam: String   = ""
-    dynamic  var date: String      = ""
-    dynamic  var homeScore: String = ""
-    dynamic  var awayScore: String = ""
+    dynamic var date: String      = ""
+    dynamic var homeScore: String = ""
+    dynamic var awayScore: String = ""
     dynamic var gameTime: String = ""
-
-// Specify properties to ignore (Realm won't persist these)
+    dynamic var id: String = "" 
+    dynamic var gameWeek: Int = 0
     
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

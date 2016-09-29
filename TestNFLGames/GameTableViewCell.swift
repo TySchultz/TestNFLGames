@@ -19,8 +19,7 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet weak var homeTeam: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var lockImage: UIImageView!
-    
-    var game : Game!
+     var id : String = ""
 
 
     override func awakeFromNib() {

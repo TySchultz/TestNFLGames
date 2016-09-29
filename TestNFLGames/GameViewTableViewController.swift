@@ -23,10 +23,6 @@ class GameViewTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-     
-        
         //Show the top bar
         self.navigationController?.isNavigationBarHidden = false
     }
