@@ -31,7 +31,7 @@ class TNGView: UIView {
     }
     @IBInspectable var borderColor: UIColor? {
         didSet {
-            layer.borderColor = borderColor?.CGColor
+            layer.borderColor = borderColor?.cgColor
         }
     }
     

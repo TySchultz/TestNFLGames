@@ -33,7 +33,7 @@ class MainViewTableViewController: UITableViewController {
         headerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 93)
         
         //We dont want the top bar on this screen only when we push to the detail screen
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
 
         
         //Back button setup
@@ -59,11 +59,11 @@ class MainViewTableViewController: UITableViewController {
     //MARK: Navigation
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Get Cell Label
         let indexPath = tableView.indexPathForSelectedRow!
-        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as! GameTableViewCell
+        let currentCell = tableView.cellForRow(at: indexPath)! as! GameTableViewCell
         
         
         
@@ -74,7 +74,7 @@ class MainViewTableViewController: UITableViewController {
         homeTeamPassed = currentCell.homeTeam.text
         timePassed = currentCell.time.text
         
-        let destination : GameViewTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("GamesViewDetail") as! GameViewTableViewController
+        let destination : GameViewTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "GamesViewDetail") as! GameViewTableViewController
         self.navigationController?.pushViewController(destination, animated: true)
         
         destination.game = currentCell.game
@@ -88,7 +88,7 @@ class MainViewTableViewController: UITableViewController {
     }
 
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        let backItem = UIBarButtonItem()
 //        backItem.title = ""
 //        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
@@ -106,7 +106,7 @@ class MainViewTableViewController: UITableViewController {
    
     //Keeps the header view stuck to the top when you pull down. 
     //A simple effect that looks kinda cool
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
         
         if offset < 0 {
@@ -119,11 +119,11 @@ class MainViewTableViewController: UITableViewController {
 
 extension MainViewTableViewController {
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         }else if section == 1  {
@@ -133,9 +133,9 @@ extension MainViewTableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.section {
+        switch (indexPath as NSIndexPath).section {
         case 0:
                 return createYouCell(indexPath)
         case 1:
@@ -148,34 +148,34 @@ extension MainViewTableViewController {
     }
     
     
-    func createYouCell(indexPath : NSIndexPath) -> YouCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("YouCell", forIndexPath: indexPath) as! YouCell
+    func createYouCell(_ indexPath : IndexPath) -> YouCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "YouCell", for: indexPath) as! YouCell
         
         return cell
     }
     
     
-    func createTopCell(indexPath : NSIndexPath) -> TopInfoCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TopCell", forIndexPath: indexPath) as! TopInfoCell
+    func createTopCell(_ indexPath : IndexPath) -> TopInfoCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TopCell", for: indexPath) as! TopInfoCell
         
-        cell.title.text = titles[indexPath.row]
-        cell.firstPlace.text = teams[indexPath.row][0]
-        cell.secondPlace.text = teams[indexPath.row][1]
-        cell.thirdPlace.text = teams[indexPath.row][2]
+        cell.title.text = titles[(indexPath as NSIndexPath).row]
+        cell.firstPlace.text = teams[(indexPath as NSIndexPath).row][0]
+        cell.secondPlace.text = teams[(indexPath as NSIndexPath).row][1]
+        cell.thirdPlace.text = teams[(indexPath as NSIndexPath).row][2]
         
-        if indexPath.row == 0 {
-            cell.leaderBoardButton.enabled = true
+        if (indexPath as NSIndexPath).row == 0 {
+            cell.leaderBoardButton.isEnabled = true
             cell.leaderBoardButton.alpha = 1.0
         }else {
-            cell.leaderBoardButton.enabled = false
+            cell.leaderBoardButton.isEnabled = false
             cell.leaderBoardButton.alpha = 0.0
         }
         
         return cell
     }
     
-    func createGameCell(indexPath : NSIndexPath) -> GameTableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameTableViewCell
+    func createGameCell(_ indexPath : IndexPath) -> GameTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameTableViewCell
         
         let realm = try! Realm()
         
@@ -194,19 +194,19 @@ extension MainViewTableViewController {
         
         if (kickoffInFuture == false)
         {
-            cell.lockImage.hidden = false
-            cell.dateLabel.hidden = true
-            cell.time.hidden = true
+            cell.lockImage.isHidden = false
+            cell.dateLabel.isHidden = true
+            cell.time.isHidden = true
             
         }
         else {
-            cell.lockImage.hidden = true
+            cell.lockImage.isHidden = true
         }
         
         //This is where me trying ends
         
-        cell.homeTeam.text = homeTeamName.uppercaseString
-        cell.awayTeam.text = awayTeamName.uppercaseString
+        cell.homeTeam.text = homeTeamName.uppercased()
+        cell.awayTeam.text = awayTeamName.uppercased()
         cell.homeBadge.image = UIImage(named: homeTeamName)
         cell.awayBadge.image = UIImage(named: awayTeamName)
         cell.awayPayout.text = "\(Int(arc4random_uniform(30) + 1))"
@@ -223,8 +223,8 @@ extension MainViewTableViewController {
 
 extension MainViewTableViewController {
     
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let  headerCell = tableView.dequeueReusableCellWithIdentifier("sectionHeader") as! CustomHeaderCell
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let  headerCell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as! CustomHeaderCell
         
         switch (section) {
         case 0:
@@ -242,19 +242,19 @@ extension MainViewTableViewController {
         return headerCell
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.01
     }
     
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.section == 0 {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath as NSIndexPath).section == 0 {
             return 70.0
-        }else if indexPath.section == 1 {
+        }else if (indexPath as NSIndexPath).section == 1 {
             return 100.0
         }else {
             return 84.0

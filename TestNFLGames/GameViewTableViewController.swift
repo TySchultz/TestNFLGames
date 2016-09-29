@@ -28,7 +28,7 @@ class GameViewTableViewController: UITableViewController {
      
         
         //Show the top bar
-        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     func setup() {
@@ -47,14 +47,14 @@ class GameViewTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
     }
 }
 
@@ -62,35 +62,35 @@ class GameViewTableViewController: UITableViewController {
 
 extension GameViewTableViewController {
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("mainCell", forIndexPath: indexPath) as! GameViewMainCell
+        if (indexPath as NSIndexPath).section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! GameViewMainCell
             
-            cell.awayTeamName.text = awayTeamName.capitalizedString
-            cell.homeTeamName.text = homeTeamName.capitalizedString
+            cell.awayTeamName.text = awayTeamName.capitalized
+            cell.homeTeamName.text = homeTeamName.capitalized
             cell.timeLabel.text = time
             cell.homeTeamImage.image = homeTeamBadge
             cell.awayTeamImage.image = awayTeamBadge
             
             return cell
             
-        }else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("PayoutCell", forIndexPath: indexPath) as! PayoutCell
+        }else if (indexPath as NSIndexPath).section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PayoutCell", for: indexPath) as! PayoutCell
             
             return cell
             
         }else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("PlayerCell", forIndexPath: indexPath) as! PlayerCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerCell", for: indexPath) as! PlayerCell
             
             //Fake data for players who voted
             cell.homePlayers.addArrangedSubview(createView("Ty"))
@@ -112,7 +112,7 @@ extension GameViewTableViewController {
     }
 
     //Create a view for the player cell
-    func createView (name : String) -> UILabel {
+    func createView (_ name : String) -> UILabel {
         let lab = UILabel()
         lab.text = name
         lab.font = UIFont(name: "System", size: 16.0)
@@ -124,8 +124,8 @@ extension GameViewTableViewController {
 //MARK: Header styling
 extension GameViewTableViewController {
     
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let  headerCell = tableView.dequeueReusableCellWithIdentifier("sectionHeader") as! CustomHeaderCell
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let  headerCell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as! CustomHeaderCell
         
         switch (section) {
         case 0:
@@ -144,7 +144,7 @@ extension GameViewTableViewController {
         return headerCell
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0.01
         }else{
@@ -152,17 +152,17 @@ extension GameViewTableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.section == 0 {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath as NSIndexPath).section == 0 {
             return 130.0
-        }else if indexPath.section == 1 {
+        }else if (indexPath as NSIndexPath).section == 1 {
             return 130.0
         }else {
             return 240.0
         }
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.01
     }
 }
