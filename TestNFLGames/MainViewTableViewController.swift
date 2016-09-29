@@ -14,14 +14,14 @@ class MainViewTableViewController: UITableViewController {
     let teams = [["NICK","TY","ZELDA"],["BROWNS","STEELERS","PATRIOTS"]]
     let records = [["7-4","5-6","4-8"], ["321", "310", "283"]]
     let titles = ["TOP PLAYERS", "TOP TEAMS"]
-    var games :Results<Game>?
+    var gameResults :Results<Game>?
+    var currentGames : [[Game]]?
     
     var homeBadgePassed:UIImage!
     var awayBadgePassed:UIImage!
     var homeTeamPassed:String!
     var awayTeamPassed:String!
     var timePassed:String!
-    
     
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerView: UIView!
@@ -37,9 +37,27 @@ class MainViewTableViewController: UITableViewController {
 //        games = downloader.downloadSchedule()
         
         let realm = try! Realm()
-        games = realm.objects(Game.self).filter("gameWeek = 4")
+        gameResults = realm.objects(Game.self).filter("gameWeek = 3").sorted(byProperty: "date", ascending: false)
+        findDates()
         self.tableView.reloadData()
     }
+    
+    func findDates() {
+        var previousDate = ""
+        var count = -1
+        var filteredGames : [[Game]] = []
+        for game in gameResults! {
+            if game.date != previousDate {
+                filteredGames.append([])
+                previousDate = game.date
+                count += 1
+            }
+            filteredGames[count].append(game)
+            
+        }
+        currentGames = filteredGames
+    }
+  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -83,11 +101,11 @@ class MainViewTableViewController: UITableViewController {
 extension MainViewTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return currentGames!.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games?.count ?? 0
+        return currentGames![section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,7 +116,7 @@ extension MainViewTableViewController {
     func createGameCell(_ indexPath : IndexPath) -> GameTableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameTableViewCell
         
-        let game = games![indexPath.row]
+        let game = currentGames![indexPath.section][indexPath.row]
         
         cell.homeTeam.text = game.homeTeam.uppercased()
         cell.awayTeam.text = game.awayTeam.uppercased()
@@ -106,7 +124,6 @@ extension MainViewTableViewController {
         cell.awayBadge.image = UIImage(named: game.awayTeam)
         cell.awayPayout.text = game.awayScore
         cell.homePayout.text = game.homeScore
-        cell.dateLabel.text = game.date
         cell.time.text = game.gameTime
         cell.id = game.id
         
@@ -121,18 +138,13 @@ extension MainViewTableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as! CustomHeaderCell
         
-        switch (section) {
-        case 0:
-            headerCell.sectionHeaderLabel.text = "UPCOMING GAMES";
-            headerCell.sectionHeaderLabel.textColor = UIColor(red:0.46, green:0.89, blue:0.56, alpha:1.00)
-        default:
-            headerCell.sectionHeaderLabel.text = "Other";
-        }
+    
+        headerCell.sectionHeaderLabel.text = currentGames![section].first?.date
         return headerCell
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 64
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -140,7 +152,7 @@ extension MainViewTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 84.0
+            return 80
     }
     
     func setupNavBar () {
@@ -157,31 +169,31 @@ extension MainViewTableViewController {
 
 
 //Putting all this off until later!
-extension MainViewTableViewController {
-    func createYouCell(_ indexPath : IndexPath) -> YouCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "YouCell", for: indexPath) as! YouCell
-        
-        return cell
-    }
-    
-    
-    func createTopCell(_ indexPath : IndexPath) -> TopInfoCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TopCell", for: indexPath) as! TopInfoCell
-        
-        cell.title.text = titles[(indexPath as NSIndexPath).row]
-        cell.firstPlace.text = teams[(indexPath as NSIndexPath).row][0]
-        cell.secondPlace.text = teams[(indexPath as NSIndexPath).row][1]
-        cell.thirdPlace.text = teams[(indexPath as NSIndexPath).row][2]
-        
-        if (indexPath as NSIndexPath).row == 0 {
-            cell.leaderBoardButton.isEnabled = true
-            cell.leaderBoardButton.alpha = 1.0
-        }else {
-            cell.leaderBoardButton.isEnabled = false
-            cell.leaderBoardButton.alpha = 0.0
-        }
-        
-        return cell
-    }
-    
-}
+//extension MainViewTableViewController {
+//    func createYouCell(_ indexPath : IndexPath) -> YouCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "YouCell", for: indexPath) as! YouCell
+//        
+//        return cell
+//    }
+//    
+//    
+//    func createTopCell(_ indexPath : IndexPath) -> TopInfoCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "TopCell", for: indexPath) as! TopInfoCell
+//        
+//        cell.title.text = titles[(indexPath as NSIndexPath).row]
+//        cell.firstPlace.text = teams[(indexPath as NSIndexPath).row][0]
+//        cell.secondPlace.text = teams[(indexPath as NSIndexPath).row][1]
+//        cell.thirdPlace.text = teams[(indexPath as NSIndexPath).row][2]
+//        
+//        if (indexPath as NSIndexPath).row == 0 {
+//            cell.leaderBoardButton.isEnabled = true
+//            cell.leaderBoardButton.alpha = 1.0
+//        }else {
+//            cell.leaderBoardButton.isEnabled = false
+//            cell.leaderBoardButton.alpha = 0.0
+//        }
+//        
+//        return cell
+//    }
+//    
+//}
