@@ -138,9 +138,17 @@ extension MainViewTableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as! CustomHeaderCell
         
-    
         headerCell.sectionHeaderLabel.text = currentGames![section].first?.date
         return headerCell
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRect(x: 8, y: 0, width: self.view.frame.width-16, height: 10))
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: footerView.frame, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 8, height: 8)).cgPath
+        footerView.layer.mask = maskLayer
+        footerView.backgroundColor = UIColor.white
+        return footerView
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -148,7 +156,7 @@ extension MainViewTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.01
+        return 10.0
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
