@@ -34,8 +34,8 @@ class MainViewTableViewController: UITableViewController {
         
         //Download season
 //        let downloader = Downloader()
-//        games = downloader.downloadSchedule()
-        
+//        gameResults = downloader.downloadSchedule()
+//        
         let realm = try! Realm()
         gameResults = realm.objects(Game.self).filter("gameWeek = 3").sorted(byProperty: "date", ascending: false)
         findDates()
@@ -120,8 +120,8 @@ extension MainViewTableViewController {
         
         cell.homeTeam.text = game.homeTeam.uppercased()
         cell.awayTeam.text = game.awayTeam.uppercased()
-        cell.homeBadge.image = UIImage(named: game.homeTeam)
-        cell.awayBadge.image = UIImage(named: game.awayTeam)
+        cell.homeBadge.image = UIImage(named: game.homeTeam.teamImage())
+        cell.awayBadge.image = UIImage(named: game.awayTeam.teamImage())
         cell.awayPayout.text = game.awayScore
         cell.homePayout.text = game.homeScore
         cell.time.text = game.gameTime
@@ -160,7 +160,7 @@ extension MainViewTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 80
+            return 96
     }
     
     func setupNavBar () {
