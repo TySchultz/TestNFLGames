@@ -19,6 +19,11 @@ class GameViewMainCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.homeTeamImage.layer.cornerRadius = 8.0
+        self.awayTeamImage.layer.cornerRadius = 8.0
+        self.homeTeamImage.layer.masksToBounds = true
+        self.awayTeamImage.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -26,4 +26,16 @@ class PayoutCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    
+    func updateVote(homeChosen : Bool = false, awayChosen : Bool = false, isEnabled : Bool = true, homeAlpha : CGFloat = 1.0, awayAlpha : CGFloat = 1.0) {
+        
+        self.homeAmount.textColor = homeChosen ? UIColor.green : UIColor.black
+        self.awayAmount.textColor = awayChosen ? UIColor.green : UIColor.black
+        self.homeChoose.isEnabled = isEnabled
+        self.awayChoose.isEnabled = isEnabled
+        self.homeChoose.alpha = isEnabled ? 1.0 : 0.0
+        self.awayChoose.alpha = isEnabled ? 1.0 : 0.0
+        self.homeAmount.alpha = homeAlpha
+        self.awayAmount.alpha = awayAlpha
+    }
 }

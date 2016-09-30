@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0175C2911D65635C00F585D7 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C2901D65635C00F585D7 /* GameTableViewCell.swift */; };
-		019AB7261D66A349001D0B31 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019AB7251D66A349001D0B31 /* GameObject.swift */; };
 		0EFD54B50D940BC7D776274C /* Pods_TestNFLGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D367D4CC5984DC41812CCBF4 /* Pods_TestNFLGames.framework */; };
 		103CA0A71D68013E00A4AF7B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 103CA0A61D68013E00A4AF7B /* GoogleService-Info.plist */; };
 		103CA0A91D6805A000A4AF7B /* TNGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0A81D6805A000A4AF7B /* TNGView.swift */; };
@@ -26,11 +25,11 @@
 		105DA6011D6549D6008B0605 /* MainViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA6001D6549D6008B0605 /* MainViewTableViewController.swift */; };
 		105DA6031D67F953008B0605 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA6021D67F953008B0605 /* Game.swift */; };
 		10C4317D1D6D2ABD008A1F24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C4317C1D6D2ABD008A1F24 /* Main.storyboard */; };
+		5C5FC2F61D9EE04400704C3E /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FC2F51D9EE04400704C3E /* Vote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0175C2901D65635C00F585D7 /* GameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
-		019AB7251D66A349001D0B31 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		103CA0A61D68013E00A4AF7B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		103CA0A81D6805A000A4AF7B /* TNGView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNGView.swift; sourceTree = "<group>"; };
 		103CA0AA1D68C7FA00A4AF7B /* TopInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopInfoCell.swift; sourceTree = "<group>"; };
@@ -50,6 +49,7 @@
 		105DA6021D67F953008B0605 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		10C4317C1D6D2ABD008A1F24 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3C2FB3E26558084BD6FA9E65 /* Pods-TestNFLGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.release.xcconfig"; sourceTree = "<group>"; };
+		5C5FC2F51D9EE04400704C3E /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		BF5D002FE7498B93A6FBEBBE /* Pods-TestNFLGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.debug.xcconfig"; sourceTree = "<group>"; };
 		D367D4CC5984DC41812CCBF4 /* Pods_TestNFLGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestNFLGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -104,7 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				105DA6021D67F953008B0605 /* Game.swift */,
-				019AB7251D66A349001D0B31 /* GameObject.swift */,
+				5C5FC2F51D9EE04400704C3E /* Vote.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -302,9 +302,9 @@
 				103CA0AF1D68CBA000A4AF7B /* CustomHeaderCell.swift in Sources */,
 				0175C2911D65635C00F585D7 /* GameTableViewCell.swift in Sources */,
 				103CA0B71D68E00000A4AF7B /* PlayerCell.swift in Sources */,
+				5C5FC2F61D9EE04400704C3E /* Vote.swift in Sources */,
 				103CA0AB1D68C7FA00A4AF7B /* TopInfoCell.swift in Sources */,
 				103CA0B11D68D9B900A4AF7B /* GameViewMainCell.swift in Sources */,
-				019AB7261D66A349001D0B31 /* GameObject.swift in Sources */,
 				103CA0B31D68D9DB00A4AF7B /* GameViewTableViewController.swift in Sources */,
 				105DA6031D67F953008B0605 /* Game.swift in Sources */,
 				103CA0B91D6A236C00A4AF7B /* PayoutCell.swift in Sources */,

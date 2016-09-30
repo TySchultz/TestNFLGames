@@ -11,17 +11,9 @@ import RealmSwift
 
 class MainViewTableViewController: UITableViewController {
 
-    let teams = [["NICK","TY","ZELDA"],["BROWNS","STEELERS","PATRIOTS"]]
-    let records = [["7-4","5-6","4-8"], ["321", "310", "283"]]
-    let titles = ["TOP PLAYERS", "TOP TEAMS"]
     var gameResults :Results<Game>?
     var currentGames : [[Game]]?
-    
-    var homeBadgePassed:UIImage!
-    var awayBadgePassed:UIImage!
-    var homeTeamPassed:String!
-    var awayTeamPassed:String!
-    var timePassed:String!
+    var realm : Realm?
     
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerView: UIView!
@@ -29,15 +21,19 @@ class MainViewTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 93)
         setupNavBar()
         
         //Download season
 //        let downloader = Downloader()
 //        gameResults = downloader.downloadSchedule()
-//
-        let realm = try! Realm()
-        gameResults = realm.objects(Game.self).filter("gameWeek = 3").sorted(byProperty: "date", ascending: false)
+
+        realm = try! Realm()
+        
+        loadGamesForWeek(week: 4)
+    }
+    
+    func loadGamesForWeek(week : Int) {
+        gameResults = realm!.objects(Game.self).filter("gameWeek = \(week)").sorted(byProperty: "date", ascending: false)
         findDates()
         self.tableView.reloadData()
     }
@@ -69,21 +65,14 @@ class MainViewTableViewController: UITableViewController {
         // Get Cell Label
         let indexPath = tableView.indexPathForSelectedRow!
         let currentCell = tableView.cellForRow(at: indexPath)! as! GameTableViewCell
-        
-        homeBadgePassed = currentCell.homeBadge.image
-        awayBadgePassed = currentCell.awayBadge.image
-        awayTeamPassed = currentCell.awayTeam.text
-        print(currentCell.homeTeam.text! + " HERE")
-        homeTeamPassed = currentCell.homeTeam.text
-        timePassed = currentCell.time.text
-        
+
         let destination : GameViewTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "GamesViewDetail") as! GameViewTableViewController
         self.navigationController?.pushViewController(destination, animated: true)
         
         let realm = try! Realm()
         destination.game = realm.object(ofType: Game.self, forPrimaryKey: currentCell.id)
         destination.setup() 
-        destination.title = awayTeamPassed + " vs. " + homeTeamPassed
+        destination.title = destination.game.homeTeam + " vs. " + destination.game.awayTeam
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -113,44 +102,24 @@ extension MainViewTableViewController {
     }
     
     func createGameCell(_ indexPath : IndexPath) -> GameTableViewCell {
+        
         var ID = "GameCell"
         if currentGames![indexPath.section].count == 1 {
             ID = "GameCell-Large"
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: ID, for: indexPath) as! GameTableViewCell
         
         let game = currentGames![indexPath.section][indexPath.row]
         
-        cell.homeTeam.text = game.homeTeam.uppercased()
-        cell.awayTeam.text = game.awayTeam.uppercased()
-        cell.homeBadge.image = UIImage(named: game.homeTeam.teamImage())
-        cell.awayBadge.image = UIImage(named: game.awayTeam.teamImage())
-        cell.awayPayout.text = game.awayScore
-        cell.homePayout.text = game.homeScore
-        cell.time.text = game.gameTime
-        cell.id = game.id
-        
-        if indexPath.row == currentGames![indexPath.section].count - 1 {
-            let lightGrayColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1.0).cgColor
-            let gradient: CAGradientLayer = CAGradientLayer()
-            gradient.frame = CGRect(x: 0, y: cell.frame.height-100, width: self.view.frame.width, height: 100)
-            gradient.colors = [UIColor.white.cgColor, lightGrayColor]
-            gradient.name = "bottomGradient"
-            cell.layer.insertSublayer(gradient, at: 0)
-            cell.layer.masksToBounds = false
-        }else{
-            let layer = cell.layer.sublayers?.first
-            if layer?.name == "bottomGradient" {
-                layer?.removeFromSuperlayer()
-            }
-        }
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: ID, for: indexPath) as! GameTableViewCell
+        cell.mapGameToValues(game: currentGames![indexPath.section][indexPath.row])
+        cell.setupGradient(indexPath: indexPath, sectionCount: currentGames![indexPath.section].count - 1)
+
+        cell.setupVote(gameID: game.id)
         return cell
     }
-
 }
 
-//MARK: UI Styling
+//MARK: TableView Styling
 extension MainViewTableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -159,17 +128,7 @@ extension MainViewTableViewController {
         headerCell.sectionHeaderLabel.text = currentGames![section].first?.date
         return headerCell
     }
-    
-//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        let footerView = UIView(frame: CGRect(x: 8, y: 0, width: self.view.frame.width-16, height: 10))
-//        let maskLayer = CAShapeLayer()
-//        maskLayer.path = UIBezierPath(roundedRect: footerView.frame, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 8, height: 8)).cgPath
-//        footerView.layer.mask = maskLayer
-//        footerView.backgroundColor = UIColor.white
-//        
-//        return footerView
-//    }
-    
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 64
     }
@@ -186,6 +145,8 @@ extension MainViewTableViewController {
     }
     
     func setupNavBar () {
+        headerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 93)
+
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "backButton")
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "backButton")
@@ -194,36 +155,3 @@ extension MainViewTableViewController {
         navigationItem.backBarButtonItem = backItem
     }
 }
-
-
-
-
-//Putting all this off until later!
-//extension MainViewTableViewController {
-//    func createYouCell(_ indexPath : IndexPath) -> YouCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "YouCell", for: indexPath) as! YouCell
-//        
-//        return cell
-//    }
-//    
-//    
-//    func createTopCell(_ indexPath : IndexPath) -> TopInfoCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "TopCell", for: indexPath) as! TopInfoCell
-//        
-//        cell.title.text = titles[(indexPath as NSIndexPath).row]
-//        cell.firstPlace.text = teams[(indexPath as NSIndexPath).row][0]
-//        cell.secondPlace.text = teams[(indexPath as NSIndexPath).row][1]
-//        cell.thirdPlace.text = teams[(indexPath as NSIndexPath).row][2]
-//        
-//        if (indexPath as NSIndexPath).row == 0 {
-//            cell.leaderBoardButton.isEnabled = true
-//            cell.leaderBoardButton.alpha = 1.0
-//        }else {
-//            cell.leaderBoardButton.isEnabled = false
-//            cell.leaderBoardButton.alpha = 0.0
-//        }
-//        
-//        return cell
-//    }
-//    
-//}
