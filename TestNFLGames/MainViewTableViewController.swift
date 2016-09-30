@@ -35,7 +35,7 @@ class MainViewTableViewController: UITableViewController {
         //Download season
 //        let downloader = Downloader()
 //        gameResults = downloader.downloadSchedule()
-//        
+//
         let realm = try! Realm()
         gameResults = realm.objects(Game.self).filter("gameWeek = 3").sorted(byProperty: "date", ascending: false)
         findDates()
@@ -109,12 +109,15 @@ extension MainViewTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         return createGameCell(indexPath)
     }
     
     func createGameCell(_ indexPath : IndexPath) -> GameTableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameTableViewCell
+        var ID = "GameCell"
+        if currentGames![indexPath.section].count == 1 {
+            ID = "GameCell-Large"
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: ID, for: indexPath) as! GameTableViewCell
         
         let game = currentGames![indexPath.section][indexPath.row]
         
@@ -126,6 +129,21 @@ extension MainViewTableViewController {
         cell.homePayout.text = game.homeScore
         cell.time.text = game.gameTime
         cell.id = game.id
+        
+        if indexPath.row == currentGames![indexPath.section].count - 1 {
+            let lightGrayColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1.0).cgColor
+            let gradient: CAGradientLayer = CAGradientLayer()
+            gradient.frame = CGRect(x: 0, y: cell.frame.height-100, width: self.view.frame.width, height: 100)
+            gradient.colors = [UIColor.white.cgColor, lightGrayColor]
+            gradient.name = "bottomGradient"
+            cell.layer.insertSublayer(gradient, at: 0)
+            cell.layer.masksToBounds = false
+        }else{
+            let layer = cell.layer.sublayers?.first
+            if layer?.name == "bottomGradient" {
+                layer?.removeFromSuperlayer()
+            }
+        }
         
         return cell
     }
@@ -142,25 +160,29 @@ extension MainViewTableViewController {
         return headerCell
     }
     
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = UIView(frame: CGRect(x: 8, y: 0, width: self.view.frame.width-16, height: 10))
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = UIBezierPath(roundedRect: footerView.frame, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 8, height: 8)).cgPath
-        footerView.layer.mask = maskLayer
-        footerView.backgroundColor = UIColor.white
-        return footerView
-    }
+//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        let footerView = UIView(frame: CGRect(x: 8, y: 0, width: self.view.frame.width-16, height: 10))
+//        let maskLayer = CAShapeLayer()
+//        maskLayer.path = UIBezierPath(roundedRect: footerView.frame, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 8, height: 8)).cgPath
+//        footerView.layer.mask = maskLayer
+//        footerView.backgroundColor = UIColor.white
+//        
+//        return footerView
+//    }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 64
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10.0
+        return 0.05
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 96
+        if currentGames![indexPath.section].count == 1 {
+            return 256
+        }
+        return 76
     }
     
     func setupNavBar () {

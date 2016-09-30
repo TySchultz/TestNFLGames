@@ -26,34 +26,41 @@ class GameTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
+//        
+//        let path = UIBezierPath()
+//        path.move(to: CGPoint(x: 0, y: -5))
+//        path.addLine(to: CGPoint(x: 70, y: -5))
+//        path.addLine(to: CGPoint(x: 70, y: 90))
+//        path.addLine(to: CGPoint(x: -5, y: 90))
+//        path.addLine(to: CGPoint(x:0, y: 0))
+//        
+//        
+//        let mask = CAShapeLayer()
+//        mask.frame = awayBadge.frame
+//        mask.path = path.cgPath
+//        
+//        awayBadge.layer.mask = mask
+//        
+//        
+//        let seperator = UIBezierPath()
+//        seperator.move(to: CGPoint(x: 10, y: 0))
+//        seperator.addLine(to: CGPoint(x: 10, y: 90))
+//        
+//        let line = CAShapeLayer()
+//        line.frame = awayBadge.frame
+//        line.path = seperator.cgPath
+//        line.strokeColor = UIColor.black.cgColor
+//        line.lineWidth = 8.0
+//        
+//        
+//        homeBadge.layer.addSublayer(line)
         
-        let path = UIBezierPath()
-        path.move(to: CGPoint(x: 0, y: -5))
-        path.addLine(to: CGPoint(x: 90, y: -5))
-        path.addLine(to: CGPoint(x: 60, y: 90))
-        path.addLine(to: CGPoint(x: -5, y: 90))
-        path.addLine(to: CGPoint(x:0, y: 0))
+        homeBadge.layer.cornerRadius = 8.0
+        awayBadge.layer.cornerRadius = 8.0
         
+        homeBadge.layer.masksToBounds = true
+        awayBadge.layer.masksToBounds = true
         
-        let mask = CAShapeLayer()
-        mask.frame = awayBadge.frame
-        mask.path = path.cgPath
-        
-        awayBadge.layer.mask = mask
-        
-        
-        let seperator = UIBezierPath()
-        seperator.move(to: CGPoint(x: 90, y: 0))
-        seperator.addLine(to: CGPoint(x: 60, y: 90))
-        
-        let line = CAShapeLayer()
-        line.frame = awayBadge.frame
-        line.path = seperator.cgPath
-        line.strokeColor = UIColor.black.cgColor
-        line.lineWidth = 8.0
-        
-        
-        awayBadge.layer.addSublayer(line)
     
 
     }
@@ -85,7 +92,7 @@ extension String {
             return "Carolina"
         case "bears":
             return "Chicago"
-        case "bengels":
+        case "bengals":
             return "Cincinatti"
         case "browns":
             return "Cleveland"
@@ -108,7 +115,7 @@ extension String {
         case "rams":
             return "LosAngeles"
         case "dolphins":
-            return "Maimi"
+            return "Miami"
         case "vikings":
             return "Minnesota"
         case "patriots":
