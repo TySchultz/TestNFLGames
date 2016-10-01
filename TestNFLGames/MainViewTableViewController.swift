@@ -15,6 +15,11 @@ class MainViewTableViewController: UITableViewController {
     var currentGames : [[Game]]?
     var realm : Realm?
     
+    var currentWeek = 0
+    
+    var filter :String = ""
+    @IBOutlet weak var filterButton: UIButton!
+    
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerView: UIView!
     
@@ -24,20 +29,58 @@ class MainViewTableViewController: UITableViewController {
         setupNavBar()
         
         //Download season
-//        let downloader = Downloader()
-//        gameResults = downloader.downloadSchedule()
-
-        realm = try! Realm()
+        let downloader = Downloader()
+//        downloader.downloadSchedule()
         
-        loadGamesForWeek(week: 4)
+        realm = try! Realm()
+        currentWeek = 3
+        loadGamesForWeek(filter: "gameWeek = \(3)")
     }
     
-    func loadGamesForWeek(week : Int) {
-        gameResults = realm!.objects(Game.self).filter("gameWeek = \(week)").sorted(byProperty: "date", ascending: false)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.view.alpha = 1.0
+    }
+    
+    
+    func loadGamesForWeek(filter : String) {
+        gameResults = realm!.objects(Game.self).filter(filter).sorted(byProperty: "date", ascending: false)
         findDates()
         self.tableView.reloadData()
     }
+
     
+    @IBAction func changeWeek(_ sender: AnyObject) {
+        self.navigationController?.setToolbarHidden(true, animated: true)
+        UIView.animate(withDuration: 0.2) {
+            self.view.alpha = 0.7
+        }
+        let modalViewController = self.storyboard?.instantiateViewController(withIdentifier: "sortController") as! shareController
+        modalViewController.modalPresentationStyle = .overCurrentContext
+        modalViewController.dismissModal = {[weak self]
+            (filter, teamName, week) in
+            if self != nil {
+                UIView.animate(withDuration: 0.2) {
+                    self?.view.alpha = 1.0
+                }
+                self?.navigationController?.setToolbarHidden(false, animated: true)
+                
+                guard filter != "" else { return }
+                
+                self?.loadGamesForWeek(filter: filter)
+                
+                if teamName != "" {
+                    self?.filterButton.setTitle(teamName, for: UIControlState.normal)
+                }else {
+                    self?.filterButton.setTitle("Week \(week)", for: UIControlState.normal)
+                }
+            }
+        }
+        
+        self.navigationController?.present(modalViewController, animated: true, completion: nil)
+        
+    }
+   
     func findDates() {
         var previousDate = ""
         var count = -1
@@ -53,7 +96,6 @@ class MainViewTableViewController: UITableViewController {
         }
         currentGames = filteredGames
     }
-  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -80,6 +122,12 @@ class MainViewTableViewController: UITableViewController {
         
         if offset < 0 {
             self.headerTopConstraint.constant = offset + 24
+        }
+        
+        if offset < 50{
+            self.navigationController?.setToolbarHidden(false, animated: true)
+        }else {
+            self.navigationController?.setToolbarHidden(true, animated: true)
         }
     }
     
@@ -115,8 +163,11 @@ extension MainViewTableViewController {
         cell.setupGradient(indexPath: indexPath, sectionCount: currentGames![indexPath.section].count - 1)
 
         cell.setupVote(gameID: game.id)
+        cell.updateFinishedGame(game: game)
         return cell
     }
+    
+    
 }
 
 //MARK: TableView Styling
@@ -153,5 +204,11 @@ extension MainViewTableViewController {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
+        
+        
+        self.navigationController?.setToolbarHidden(false, animated: true)
     }
 }
+
+
+

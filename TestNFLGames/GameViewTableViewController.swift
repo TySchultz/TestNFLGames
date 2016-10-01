@@ -24,9 +24,9 @@ class GameViewTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //Show the top bar
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.isOpaque = true 
         setup()
     }
     
@@ -34,8 +34,8 @@ class GameViewTableViewController: UITableViewController {
         if game != nil {
             self.homeTeamName = game.homeTeam
             self.awayTeamName = game.awayTeam
-            self.homeTeamBadge =  UIImage(named: homeTeamName.teamImage())
-            self.awayTeamBadge = UIImage(named: awayTeamName.teamImage())
+            self.homeTeamBadge =  UIImage(named: homeTeamName.teamMascotToCity())
+            self.awayTeamBadge = UIImage(named: awayTeamName.teamMascotToCity())
             self.time = game.gameTime
             self.tableView.reloadData()
             
@@ -62,7 +62,7 @@ class GameViewTableViewController: UITableViewController {
     }
     @IBAction func voteOnGame(_ sender: UIButton) {
         
-        let cell = sender.superview?.superview as! PayoutCell
+        let payoutCell = sender.superview?.superview?.superview?.superview as! PayoutCell
         
         let realm = try! Realm()
         
@@ -72,21 +72,39 @@ class GameViewTableViewController: UITableViewController {
         vote.id = game.id + "Vote"
         
         try! realm.write {
-            realm.add(vote)
+            realm.add(vote, update: true)
         }
-        
-        UIView.animate(withDuration: 0.2) {
+        var teamName = ""
+        UIView.animate(withDuration: 0.1) {
+            self.updateTopCel(voteSide: sender.tag)
             switch sender.tag {
             case 1:
-                cell.updateVote(homeChosen: true , isEnabled: false, homeAlpha: 1.0)
+                payoutCell.updateVote(homeChosen: true , isEnabled: true, homeAlpha: 1.0)
+                teamName = self.homeTeamName
                 break
             case 2:
-                cell.updateVote(awayChosen: true , isEnabled: false, awayAlpha: 1.0)
+                payoutCell.updateVote(awayChosen: true , isEnabled: true, awayAlpha: 1.0)
+                teamName = self.awayTeamName
                 break
             default:
-                cell.updateVote()
+                payoutCell.updateVote()
             }
 
+        }
+        
+        let successView = Halo5Animation(frame: view.frame, name: teamName)
+        view.addSubview(successView)
+    }
+    
+    func updateTopCel(voteSide : Int ) {
+        let topCell = self.tableView(self.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as! GameViewMainCell
+
+        if voteSide == 1 {
+            topCell.homeTeamImage.alpha = 1.0
+            topCell.awayTeamImage.alpha = 0.3
+        }else{
+            topCell.homeTeamImage.alpha = 0.3
+            topCell.awayTeamImage.alpha = 1.0
         }
     }
 }
@@ -96,17 +114,17 @@ class GameViewTableViewController: UITableViewController {
 extension GameViewTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        if (indexPath as NSIndexPath).section == 0 {
+        if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! GameViewMainCell
             
             cell.awayTeamName.text = awayTeamName.capitalized
@@ -114,8 +132,8 @@ extension GameViewTableViewController {
             cell.timeLabel.text = time
             cell.homeTeamImage.image = homeTeamBadge
             cell.awayTeamImage.image = awayTeamBadge
-            cell.setupGradient(indexPath: indexPath, sectionCount: 0)
-            
+            cell.setupGradient(indexPath: indexPath, sectionCount: 1)
+
             var homeAlpha :CGFloat = 1.0
             var awayAlpha :CGFloat = 1.0
             
@@ -141,15 +159,17 @@ extension GameViewTableViewController {
                 switch vote!.side {
                 
                 case 1:
-                    cell.updateVote(homeChosen: true , isEnabled: false, homeAlpha: 1.0)
+                    cell.updateVote(homeChosen: true , isEnabled: true, homeAlpha: 1.0)
                     break
                 case 2:
-                    cell.updateVote(awayChosen: true , isEnabled: false, awayAlpha: 1.0)
+                    cell.updateVote(awayChosen: true , isEnabled: true, awayAlpha: 1.0)
                     break
                 default:
                     cell.updateVote()
                 }
             }
+            cell.setupGradient(indexPath: indexPath, sectionCount: 1)
+
             return cell
         }
     }
@@ -175,7 +195,7 @@ extension GameViewTableViewController {
             headerCell.sectionHeaderLabel.text = "";
             headerCell.sectionHeaderLabel.textColor = UIColor(red:0.46, green:0.89, blue:0.56, alpha:1.00)
         case 1:
-            headerCell.sectionHeaderLabel.text = "CHOOSE A TEAM";
+            headerCell.sectionHeaderLabel.text = "WHO WILL WIN?";
             headerCell.sectionHeaderLabel.textColor = UIColor(red:0.95, green:0.51, blue:0.23, alpha:1.00)
         case 2:
             headerCell.sectionHeaderLabel.text = "PLAYERS";
@@ -196,12 +216,10 @@ extension GameViewTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (indexPath as NSIndexPath).section == 0 {
+        if indexPath.row == 0 {
             return 260
-        }else if (indexPath as NSIndexPath).section == 1 {
-            return 130.0
-        }else {
-            return 240.0
+        }else{
+            return 160
         }
     }
     

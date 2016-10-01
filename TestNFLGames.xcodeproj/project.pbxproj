@@ -11,12 +11,8 @@
 		0EFD54B50D940BC7D776274C /* Pods_TestNFLGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D367D4CC5984DC41812CCBF4 /* Pods_TestNFLGames.framework */; };
 		103CA0A71D68013E00A4AF7B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 103CA0A61D68013E00A4AF7B /* GoogleService-Info.plist */; };
 		103CA0A91D6805A000A4AF7B /* TNGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0A81D6805A000A4AF7B /* TNGView.swift */; };
-		103CA0AB1D68C7FA00A4AF7B /* TopInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0AA1D68C7FA00A4AF7B /* TopInfoCell.swift */; };
-		103CA0AD1D68C80500A4AF7B /* YouCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0AC1D68C80500A4AF7B /* YouCell.swift */; };
-		103CA0AF1D68CBA000A4AF7B /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0AE1D68CBA000A4AF7B /* CustomHeaderCell.swift */; };
 		103CA0B11D68D9B900A4AF7B /* GameViewMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0B01D68D9B900A4AF7B /* GameViewMainCell.swift */; };
 		103CA0B31D68D9DB00A4AF7B /* GameViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0B21D68D9DB00A4AF7B /* GameViewTableViewController.swift */; };
-		103CA0B71D68E00000A4AF7B /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0B61D68E00000A4AF7B /* PlayerCell.swift */; };
 		103CA0B91D6A236C00A4AF7B /* PayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CA0B81D6A236C00A4AF7B /* PayoutCell.swift */; };
 		105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5EC1D6546B9008B0605 /* AppDelegate.swift */; };
 		105DA5F41D6546B9008B0605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 105DA5F31D6546B9008B0605 /* Assets.xcassets */; };
@@ -24,7 +20,12 @@
 		105DA5FF1D65473D008B0605 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA5FE1D65473D008B0605 /* Downloader.swift */; };
 		105DA6011D6549D6008B0605 /* MainViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA6001D6549D6008B0605 /* MainViewTableViewController.swift */; };
 		105DA6031D67F953008B0605 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA6021D67F953008B0605 /* Game.swift */; };
+		105FFC2D1D9F461900FDEF34 /* Halo5Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105FFC2C1D9F461900FDEF34 /* Halo5Animation.swift */; };
+		106394E11D9FF9EA0068B7D6 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106394E01D9FF9EA0068B7D6 /* Team.swift */; };
 		10C4317D1D6D2ABD008A1F24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C4317C1D6D2ABD008A1F24 /* Main.storyboard */; };
+		10E6C5C41DA0266000DC1FBD /* TeamActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6C5C31DA0266000DC1FBD /* TeamActivity.swift */; };
+		10E6C5C61DA04D4300DC1FBD /* shareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6C5C51DA04D4300DC1FBD /* shareController.swift */; };
+		10E6C5C81DA0689D00DC1FBD /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6C5C71DA0689D00DC1FBD /* CustomHeaderCell.swift */; };
 		5C5FC2F61D9EE04400704C3E /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FC2F51D9EE04400704C3E /* Vote.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,12 +33,8 @@
 		0175C2901D65635C00F585D7 /* GameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		103CA0A61D68013E00A4AF7B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		103CA0A81D6805A000A4AF7B /* TNGView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNGView.swift; sourceTree = "<group>"; };
-		103CA0AA1D68C7FA00A4AF7B /* TopInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopInfoCell.swift; sourceTree = "<group>"; };
-		103CA0AC1D68C80500A4AF7B /* YouCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouCell.swift; sourceTree = "<group>"; };
-		103CA0AE1D68CBA000A4AF7B /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
 		103CA0B01D68D9B900A4AF7B /* GameViewMainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewMainCell.swift; sourceTree = "<group>"; };
 		103CA0B21D68D9DB00A4AF7B /* GameViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewTableViewController.swift; sourceTree = "<group>"; };
-		103CA0B61D68E00000A4AF7B /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		103CA0B81D6A236C00A4AF7B /* PayoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutCell.swift; sourceTree = "<group>"; };
 		105DA5E91D6546B9008B0605 /* TestNFLGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNFLGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		105DA5EC1D6546B9008B0605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +44,12 @@
 		105DA5FE1D65473D008B0605 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		105DA6001D6549D6008B0605 /* MainViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewTableViewController.swift; sourceTree = "<group>"; };
 		105DA6021D67F953008B0605 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		105FFC2C1D9F461900FDEF34 /* Halo5Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Halo5Animation.swift; sourceTree = "<group>"; };
+		106394E01D9FF9EA0068B7D6 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		10C4317C1D6D2ABD008A1F24 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		10E6C5C31DA0266000DC1FBD /* TeamActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamActivity.swift; sourceTree = "<group>"; };
+		10E6C5C51DA04D4300DC1FBD /* shareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shareController.swift; sourceTree = "<group>"; };
+		10E6C5C71DA0689D00DC1FBD /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
 		3C2FB3E26558084BD6FA9E65 /* Pods-TestNFLGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.release.xcconfig"; sourceTree = "<group>"; };
 		5C5FC2F51D9EE04400704C3E /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		BF5D002FE7498B93A6FBEBBE /* Pods-TestNFLGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,11 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				0175C2901D65635C00F585D7 /* GameTableViewCell.swift */,
-				103CA0AA1D68C7FA00A4AF7B /* TopInfoCell.swift */,
-				103CA0AC1D68C80500A4AF7B /* YouCell.swift */,
-				103CA0AE1D68CBA000A4AF7B /* CustomHeaderCell.swift */,
+				10E6C5C71DA0689D00DC1FBD /* CustomHeaderCell.swift */,
 				103CA0B01D68D9B900A4AF7B /* GameViewMainCell.swift */,
-				103CA0B61D68E00000A4AF7B /* PlayerCell.swift */,
 				103CA0B81D6A236C00A4AF7B /* PayoutCell.swift */,
 			);
 			name = Cells;
@@ -85,6 +84,7 @@
 			children = (
 				105DA6001D6549D6008B0605 /* MainViewTableViewController.swift */,
 				103CA0B21D68D9DB00A4AF7B /* GameViewTableViewController.swift */,
+				10E6C5C51DA04D4300DC1FBD /* shareController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -105,6 +105,7 @@
 			children = (
 				105DA6021D67F953008B0605 /* Game.swift */,
 				5C5FC2F51D9EE04400704C3E /* Vote.swift */,
+				106394E01D9FF9EA0068B7D6 /* Team.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -112,7 +113,9 @@
 		103CA0BE1D6A28DC00A4AF7B /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				105FFC2C1D9F461900FDEF34 /* Halo5Animation.swift */,
 				103CA0A81D6805A000A4AF7B /* TNGView.swift */,
+				10E6C5C31DA0266000DC1FBD /* TeamActivity.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				TargetAttributes = {
 					105DA5E81D6546B9008B0605 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6B6QHT3AN6;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -299,20 +303,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				103CA0AF1D68CBA000A4AF7B /* CustomHeaderCell.swift in Sources */,
 				0175C2911D65635C00F585D7 /* GameTableViewCell.swift in Sources */,
-				103CA0B71D68E00000A4AF7B /* PlayerCell.swift in Sources */,
 				5C5FC2F61D9EE04400704C3E /* Vote.swift in Sources */,
-				103CA0AB1D68C7FA00A4AF7B /* TopInfoCell.swift in Sources */,
 				103CA0B11D68D9B900A4AF7B /* GameViewMainCell.swift in Sources */,
+				105FFC2D1D9F461900FDEF34 /* Halo5Animation.swift in Sources */,
 				103CA0B31D68D9DB00A4AF7B /* GameViewTableViewController.swift in Sources */,
 				105DA6031D67F953008B0605 /* Game.swift in Sources */,
 				103CA0B91D6A236C00A4AF7B /* PayoutCell.swift in Sources */,
-				103CA0AD1D68C80500A4AF7B /* YouCell.swift in Sources */,
 				103CA0A91D6805A000A4AF7B /* TNGView.swift in Sources */,
+				10E6C5C41DA0266000DC1FBD /* TeamActivity.swift in Sources */,
+				106394E11D9FF9EA0068B7D6 /* Team.swift in Sources */,
+				10E6C5C81DA0689D00DC1FBD /* CustomHeaderCell.swift in Sources */,
 				105DA6011D6549D6008B0605 /* MainViewTableViewController.swift in Sources */,
 				105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */,
 				105DA5FF1D65473D008B0605 /* Downloader.swift in Sources */,
+				10E6C5C61DA04D4300DC1FBD /* shareController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +429,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6B6QHT3AN6;
 				INFOPLIST_FILE = TestNFLGames/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tyschultz.TestNFLGames;
@@ -438,6 +444,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6B6QHT3AN6;
 				INFOPLIST_FILE = TestNFLGames/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tyschultz.TestNFLGames;

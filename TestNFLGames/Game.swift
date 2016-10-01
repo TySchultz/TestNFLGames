@@ -16,10 +16,15 @@ class Game: Object {
     dynamic var homeScore: String = ""
     dynamic var awayScore: String = ""
     dynamic var gameTime: String = ""
-    dynamic var id: String = "" 
+    dynamic var quarter: String = ""
+    dynamic var id: String = ""
     dynamic var gameWeek: Int = 0
+    var votes : List<Vote>?
     
     override static func primaryKey() -> String? {
         return "id"
     }
 }
+
+
+

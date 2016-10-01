@@ -14,7 +14,8 @@ import RealmSwift
 class Downloader: NSObject {
     
     let NFLURL = "http://www.nfl.com/ajax/scorestrip?season=2016&seasonType=REG&week="
-    
+    let TEAMSTATSURL = "http://www.fftoday.com/stats/16_run_pass_ratios.html"
+
     var games :Results<Game>?
     var realm : Realm?
     var week = 0
@@ -27,30 +28,12 @@ class Downloader: NSObject {
         downloadSeason()
         
         //Week
-        //week = 1
-        //downloadWeek(week)
+//        week = 1
+//        downloadWeek(week)
         
         games = realm!.objects(Game.self)
 
         return (games!)
-    }
-    
-    func createNewGame(row : XMLElement, gameWeek : Int ) -> Game{
-        let newGame = Game()
-        newGame.homeTeam = row.xpath("@hnn").first!.text!
-        newGame.awayTeam = row.xpath("@vnn").first!.text!
-        newGame.date = row.xpath("@eid").first!.text!
-        newGame.homeScore = row.xpath("@hs").first!.text!
-        newGame.awayScore = row.xpath("@vs").first!.text!
-        newGame.gameTime = row.xpath("@t").first!.text!
-        newGame.id = row.xpath("@gsis").first!.text!
-        newGame.gameWeek = gameWeek
-
-        let values = formatTimeAndDate(row.xpath("@t").first!.text!, date: row.xpath("@eid").first!.text!)
-        newGame.gameTime = values.time
-        newGame.date = values.date
-        
-        return newGame
     }
     
     private func downloadSeason() {
@@ -79,7 +62,95 @@ class Downloader: NSObject {
             print("Ooops! Something went wrong: \(error)")
         }
     }
+    
+    func createNewGame(row : XMLElement, gameWeek : Int ) -> Game{
+        let newGame = Game()
+        newGame.homeTeam = row.xpath("@hnn").first!.text!
+        newGame.awayTeam = row.xpath("@vnn").first!.text!
+        newGame.date = row.xpath("@eid").first!.text!
+        newGame.homeScore = row.xpath("@hs").first!.text!
+        newGame.awayScore = row.xpath("@vs").first!.text!
+        newGame.gameTime = row.xpath("@t").first!.text!
+        newGame.id = row.xpath("@gsis").first!.text!
+        newGame.quarter = row.xpath("@q").first!.text!
+        newGame.gameWeek = gameWeek
+        newGame.votes = List<Vote>()
+        
+        let values = formatTimeAndDate(row.xpath("@t").first!.text!, date: row.xpath("@eid").first!.text!)
+        newGame.gameTime = values.time
+        newGame.date = values.date
+        
+        return newGame
+    }
+    
+  
  }
+
+//MARK: Team Creation
+extension Downloader {
+    
+    
+    func downloadTeams() {
+        
+        realm = try! Realm()
+        let URL = Foundation.URL(string: TEAMSTATSURL)
+        
+        // Try downloading it
+        do {
+            let htmlSource = try String(contentsOf: URL!, encoding: String.Encoding.utf8)
+            if let doc = Kanna.HTML(html: htmlSource, encoding: String.Encoding.utf8) {
+                let content = doc.css("tbody tr")
+
+                for row in content {
+                    let tableData = row.css("td")
+                    let team = Team()
+                    var count = 0
+                    for td in tableData {
+                        switch count {
+                        case 0:
+                            team.teamName = td.innerHTML!
+                            break
+                        case 1:
+                            team.rushAttempts = tdNumber(tableData: td.innerHTML)
+                            break
+                        case 2:
+                            team.rushAttemptsPerGame = tdNumber(tableData: td.innerHTML)
+                            break
+                        case 3:
+                            team.passAttempts = tdNumber(tableData: td.innerHTML)
+                            break
+                        case 4:
+                            team.passAttemptsPerGame = tdNumber(tableData: td.innerHTML)
+                            break
+                        case 6:
+                            team.playsPerGame = tdNumber(tableData: td.innerHTML)
+                            break
+                        default:
+                            break
+                        }
+                        count += 1
+                    }
+
+                    try! realm!.write {
+                        realm!.add(team, update: true)
+                    }
+                    
+                }
+            }
+        }catch let error as NSError {
+            print("Ooops! Something went wrong: \(error)")
+        }
+    }
+    
+    func tdNumber(tableData : String?) -> CGFloat {
+        if let n = NumberFormatter().number(from: tableData!) {
+            return CGFloat(n)
+        }
+        return 0.0
+    }
+    
+
+}
 
 
 extension Downloader {

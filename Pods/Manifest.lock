@@ -1,20 +1,23 @@
 PODS:
+  - ASHorizontalScrollView (1.3)
   - Kanna (2.0.0)
-  - Realm (1.1.0):
-    - Realm/Headers (= 1.1.0)
-  - Realm/Headers (1.1.0)
-  - RealmSwift (1.1.0):
-    - Realm (= 1.1.0)
+  - Realm (2.0.0):
+    - Realm/Headers (= 2.0.0)
+  - Realm/Headers (2.0.0)
+  - RealmSwift (2.0.0):
+    - Realm (= 2.0.0)
 
 DEPENDENCIES:
+  - ASHorizontalScrollView (~> 1.3)
   - Kanna (= 2.0.0)
-  - RealmSwift (= 1.1.0)
+  - RealmSwift (= 2.0.0)
 
 SPEC CHECKSUMS:
+  ASHorizontalScrollView: b2648d6b3f13de7e5328fcac2a20c2a68ce829ab
   Kanna: 9a6637f72f5c77fe9c045b1efb2a5bb074754af8
-  Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
-  RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
+  Realm: 6dda421ae4b3e9a09742fc2cf4b876d459cbedcd
+  RealmSwift: 7d015f34a2781a50889be9b5a15c36c08597ea0e
 
-PODFILE CHECKSUM: 1bb0b9f2a3a978f5f943e8b6830895c700537bba
+PODFILE CHECKSUM: e804290518904915d4d6eed23bcd0fcbdebcf6a1
 
 COCOAPODS: 1.0.1

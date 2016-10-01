@@ -11,7 +11,7 @@ import UIKit
 class Halo5Animation: UIView {
 
     let BACKGROUNDCOLOR = UIColor(red:0.18, green:0.45, blue:0.64, alpha:1)
-    let ANIMATIONTIME = 0.2
+    let ANIMATIONTIME = 0.1
     let ALPHA :CGFloat = 0.9
     
     //Objects
@@ -25,21 +25,18 @@ class Halo5Animation: UIView {
     var topBorderLine : UIView?
     var bottomBorderLine : UIView?
     
-    override init(frame: CGRect) {
+    
+    var name: String?
+    
+     init(frame: CGRect, name: String = "Victory") {
         super.init(frame: frame)
         
-        
+        self.name = name
         self.initialize()
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-        
-        self.initialize()
-    }
-    
-    convenience init() {
-        self.init(frame: CGRect.zero)
         
         self.initialize()
     }
@@ -77,7 +74,7 @@ class Halo5Animation: UIView {
     func createBox() {
         let width = self.frame.size.width-128
         let height :CGFloat = 100
-        box = UIView(frame: CGRect(x: 64, y: self.frame.midY-50, width: width, height: height))
+        box = UIView(frame: CGRect(x: 64, y: self.frame.midY-150, width: width, height: height))
         box?.backgroundColor = UIColor.clear
         addSubview(box!)
     }
@@ -86,8 +83,8 @@ class Halo5Animation: UIView {
         let width = self.frame.size.width-128
         let height :CGFloat = 100
 
-        label = UILabel(frame: CGRect(x: 64, y: self.frame.midY-50, width: width, height: height))
-        label?.text = "VICTORY"
+        label = UILabel(frame: CGRect(x: 64, y: self.frame.midY-150, width: width, height: height))
+        label?.text = name
         label?.font = UIFont(name: "Avenir Medium", size: 40.0)
         label?.textColor = UIColor.white
         label?.textAlignment = NSTextAlignment.center

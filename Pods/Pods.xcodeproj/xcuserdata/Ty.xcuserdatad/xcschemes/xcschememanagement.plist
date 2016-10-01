@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Kanna.xcscheme</key>
+		<key>ASHorizontalScrollView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Mixpanel.xcscheme</key>
+		<key>Kanna.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,42 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2312E2BF9C50522848258494B4A2F69B</key>
+		<key>01A2B87D9B1D62A29564F4DBF50BD169</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8EFE724FDDAA2478F44F082C05BA272C</key>
+		<key>20B124795A791E80C36FDFB2D8D5DFCA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BCB0D7C2F9045F4F1099B624FEF0EC3E</key>
+		<key>B851E1107F806844151B19F3EA7FE027</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C5C2C89A82D51E907FDB29E393FC54DE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D721D7E75A655E0056B587A1C98A514F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E197317CE0C8B36E734068738C500553</key>
+		<key>D89B45484E075AC8F01041D23D7D0344</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>EE57040B0F2FD9464A60DBE1F82FE001</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F4B965ABCC74B469A94C08BB33D4DFD6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

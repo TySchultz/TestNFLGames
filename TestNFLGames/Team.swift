@@ -11,9 +11,16 @@ import RealmSwift
 
 class Team: Object {
     
-// Specify properties to ignore (Realm won't persist these)
+    dynamic var teamName: String   = ""
+    dynamic var wins : Int = 0
+    dynamic var losses : Int = 0
+    dynamic var rushAttempts: CGFloat = 0
+    dynamic var passAttempts: CGFloat = 0
+    dynamic var rushAttemptsPerGame : CGFloat = 0
+    dynamic var passAttemptsPerGame : CGFloat = 0
+    dynamic var playsPerGame : CGFloat = 0
     
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+    override static func primaryKey() -> String? {
+        return "teamName"
+    }
 }

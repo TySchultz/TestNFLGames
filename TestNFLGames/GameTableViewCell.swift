@@ -21,7 +21,13 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var lockImage: UIImageView!
      var id : String = ""
+    
+    
+    let PAYOUTSIZE_LARGE :CGFloat = 26
+    let NAMESIZE_LARGE :CGFloat = 18
 
+    let PAYOUTSIZE_NORMAL :CGFloat = 14
+    let NAMESIZE_NORMAL :CGFloat = 14
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,8 +41,8 @@ class GameTableViewCell: UITableViewCell {
     func mapGameToValues(game: Game){
         self.homeTeam.text = game.homeTeam.uppercased()
         self.awayTeam.text = game.awayTeam.uppercased()
-        self.homeBadge.image = UIImage(named: game.homeTeam.teamImage())
-        self.awayBadge.image = UIImage(named: game.awayTeam.teamImage())
+        self.homeBadge.image = UIImage(named: game.homeTeam.teamMascotToCity())
+        self.awayBadge.image = UIImage(named: game.awayTeam.teamMascotToCity())
         self.awayPayout.text = game.awayScore
         self.homePayout.text = game.homeScore
         self.time.text = game.gameTime
@@ -61,10 +67,10 @@ class GameTableViewCell: UITableViewCell {
                 if let vote = realme.object(ofType: Vote.self, forPrimaryKey: gameID + "Vote") {
                     switch vote.side {
                     case 1:
-                        awayAlpha = 0.3
+                        awayAlpha = 0.2
                         break
                     case 2:
-                        homeAlpha = 0.3
+                        homeAlpha = 0.2
                         break
                     default:
                         break
@@ -77,6 +83,66 @@ class GameTableViewCell: UITableViewCell {
             }
         }
 
+    }
+    
+    func updateFinishedGame (game: Game) {
+        self.homePayout.font = fontForPayout(winner: false)
+        self.awayPayout.font = fontForPayout(winner: false)
+        self.homeTeam.font = fontForName(winner: false)
+        self.awayTeam.font = fontForName(winner: false)
+        switch game.quarter {
+        case "F", "FO":
+            self.time.text = "Final"
+
+            if game.homeScore > game.awayScore{
+                self.homePayout.font = fontForPayout(winner: true)
+                self.awayPayout.font = fontForPayout(winner: false)
+                
+                self.homeTeam.font = fontForName(winner: true)
+                self.awayTeam.font = fontForName(winner: false)
+
+            }else{
+                self.homePayout.font = fontForPayout(winner: false)
+                self.awayPayout.font = fontForPayout(winner: true)
+                
+                self.homeTeam.font = fontForName(winner: false)
+                self.awayTeam.font = fontForName(winner: true)
+            }
+            break
+        default:
+            self.time.text = game.gameTime
+            self.homePayout.textColor = UIColor.black
+            self.awayPayout.textColor = UIColor.black
+
+        }
+    }
+    
+    func fontForName(winner: Bool) -> UIFont {
+        var size :CGFloat = NAMESIZE_NORMAL
+        var weight : CGFloat = UIFontWeightLight
+        if self.reuseIdentifier == "GameCell - Large" {
+            size = NAMESIZE_LARGE
+        }
+        
+        if winner {
+            weight = UIFontWeightBlack
+        }
+        
+        return UIFont.systemFont(ofSize: size, weight: weight)
+    }
+    
+    func fontForPayout(winner: Bool) -> UIFont {
+        var size :CGFloat = PAYOUTSIZE_NORMAL
+        var weight : CGFloat = UIFontWeightMedium
+        if self.reuseIdentifier == "GameCell-Large" {
+            size = PAYOUTSIZE_LARGE
+        }
+        
+        if winner {
+            weight = UIFontWeightBlack
+        }
+        
+        return UIFont.systemFont(ofSize: size, weight: weight)
     }
     
    
@@ -102,7 +168,7 @@ extension UITableViewCell {
 }
 
 extension String {
-    func teamImage() -> String {
+    func teamMascotToCity() -> String {
         
         switch self {
         case "cardinals":
@@ -169,6 +235,78 @@ extension String {
             return "Tennessee"
         case "redskins":
             return "Washington"
+        default:
+            return ""
+        }
+    }
+    
+    func teamCityToMascot() -> String {
+        
+        switch self {
+        case "Arizona":
+            return "cardinals"
+        case "Atlanta":
+            return "falcons"
+        case "Baltimore":
+            return "ravens"
+        case "Buffalo":
+            return "bills"
+        case "Carolina":
+            return "panthers"
+        case "Chicago":
+            return "bears"
+        case "Cincinatti":
+            return "bengals"
+        case "Cleveland":
+            return "browns"
+        case "Dallas":
+            return "cowboys"
+        case "Denver":
+            return "broncos"
+        case "Detroit":
+            return "lions"
+        case "GreenBay":
+            return "packers"
+        case "Houston":
+            return "texans"
+        case "Indianapolis":
+            return "colts"
+        case "Jacksonville":
+            return "jaguars"
+        case "KansasCity":
+            return "chiefs"
+        case "LosAngeles":
+            return "rams"
+        case "Miami":
+            return "dolphins"
+        case "Minnesota":
+            return "vikings"
+        case "NewEngland":
+            return "patriots"
+        case "NewOrleans":
+            return "saints"
+        case "NewYorkGiants":
+            return "giants"
+        case "NewYorkJets":
+            return "jets"
+        case "Oakland":
+            return "raiders"
+        case "Philadelphia":
+            return "eagles"
+        case "Pittsburg":
+            return "steelers"
+        case "SanDiego":
+            return "chargers"
+        case "SanFrancisco":
+            return "49ers"
+        case "Seattle":
+            return "seahawks"
+        case "TampaBay":
+            return "buccaneers"
+        case "Tennessee":
+            return "titans"
+        case "Washington":
+            return "redskins"
         default:
             return ""
         }

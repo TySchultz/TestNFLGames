@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8EFE724FDDAA2478F44F082C05BA272C'
-               BlueprintName = 'Mixpanel'
+               BlueprintIdentifier = 'B851E1107F806844151B19F3EA7FE027'
+               BlueprintName = 'ASHorizontalScrollView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Mixpanel.framework'>
+               BuildableName = 'ASHorizontalScrollView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
