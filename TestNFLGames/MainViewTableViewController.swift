@@ -15,6 +15,8 @@ class MainViewTableViewController: UITableViewController {
     var currentWeek = 0
     var gameFinder : GameFinder!
     var downloader : Downloader!
+    
+    var weekPicker : ASHorizontalScrollView!
 
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerView: UIView!
@@ -41,7 +43,7 @@ class MainViewTableViewController: UITableViewController {
         downloader.refreshCurrentWeek {
             self.loadGamesForWeek(week: self.currentWeek)
             self.tableView.reloadData()
-
+            self.refreshControl?.endRefreshing()
         }
     }
     
@@ -133,7 +135,7 @@ extension MainViewTableViewController {
     }
     
     func setupWeekPicker() {
-        let weekPicker = ASHorizontalScrollView(frame: CGRect(x: 0, y: 100, width: self.view.frame.width, height: 50))
+        weekPicker = ASHorizontalScrollView(frame: CGRect(x: 0, y: 100, width: self.view.frame.width, height: 50))
         weekPicker.leftMarginPx = 10
         weekPicker.miniMarginPxBetweenItems = 8
         weekPicker.miniAppearPxOfLastItem = 15
@@ -153,9 +155,21 @@ extension MainViewTableViewController {
                 week.backgroundColor = UIColor.black
                 week.setTitleColor(UIColor.white, for: UIControlState.normal)
             }
+            week.addTarget(self, action: #selector(changeWeek(sender:)), for: UIControlEvents.touchUpInside)
             weekPicker.addItem(week)
         }
         self.headerView.addSubview(weekPicker)
+    }
+    
+    
+    func changeWeek(sender : UIButton) {
+        for button in weekPicker.items as! [UIButton]{
+            button.backgroundColor = UIColor.white
+            button.setTitleColor(UIColor.black, for: UIControlState.normal)
+        } 
+        loadGamesForWeek(week: sender.tag)
+        sender.backgroundColor = UIColor.black
+        sender.setTitleColor(UIColor.white, for: UIControlState.normal)
     }
 }
 
