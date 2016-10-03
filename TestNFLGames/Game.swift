@@ -15,7 +15,8 @@ class Game: Object {
     dynamic var date: String      = ""
     dynamic var homeScore: String = ""
     dynamic var awayScore: String = ""
-    dynamic var gameTime: String = ""
+    dynamic var gameClock: String = ""
+    dynamic var gameStart: String = ""
     dynamic var quarter: String = ""
     dynamic var id: String = ""
     dynamic var gameWeek: Int = 0

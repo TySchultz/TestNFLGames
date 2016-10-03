@@ -8,103 +8,44 @@
 
 import UIKit
 import RealmSwift
-
+import ASHorizontalScrollView
 class MainViewTableViewController: UITableViewController {
 
-    var gameResults :Results<Game>?
     var currentGames : [[Game]]?
-    var realm : Realm?
-    
     var currentWeek = 0
-    
-    var filter :String = ""
-    @IBOutlet weak var filterButton: UIButton!
-    
+    var gameFinder : GameFinder!
+    var downloader : Downloader!
+
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gameFinder = GameFinder()
+        downloader = Downloader()
         
+        currentWeek = 4 
         setupNavBar()
-        
-        //Download season
-        let downloader = Downloader()
-//        downloader.downloadSchedule()
-        
-        realm = try! Realm()
-        currentWeek = 3
-        loadGamesForWeek(filter: "gameWeek = \(3)")
+        setupWeekPicker()
+
+        downloader.refreshSeasonData()
+        loadGamesForWeek(week: currentWeek)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.view.alpha = 1.0
-    }
-    
-    
-    func loadGamesForWeek(filter : String) {
-        gameResults = realm!.objects(Game.self).filter(filter).sorted(byProperty: "date", ascending: false)
-        findDates()
+    func loadGamesForWeek(week: Int) {
+        currentGames = gameFinder.gamesForWeek(week: week)
         self.tableView.reloadData()
     }
-
     
-    @IBAction func changeWeek(_ sender: AnyObject) {
-        self.navigationController?.setToolbarHidden(true, animated: true)
-        UIView.animate(withDuration: 0.2) {
-            self.view.alpha = 0.7
-        }
-        let modalViewController = self.storyboard?.instantiateViewController(withIdentifier: "sortController") as! shareController
-        modalViewController.modalPresentationStyle = .overCurrentContext
-        modalViewController.dismissModal = {[weak self]
-            (filter, teamName, week) in
-            if self != nil {
-                UIView.animate(withDuration: 0.2) {
-                    self?.view.alpha = 1.0
-                }
-                self?.navigationController?.setToolbarHidden(false, animated: true)
-                
-                guard filter != "" else { return }
-                
-                self?.loadGamesForWeek(filter: filter)
-                
-                if teamName != "" {
-                    self?.filterButton.setTitle(teamName, for: UIControlState.normal)
-                }else {
-                    self?.filterButton.setTitle("Week \(week)", for: UIControlState.normal)
-                }
-            }
-        }
-        
-        self.navigationController?.present(modalViewController, animated: true, completion: nil)
-        
-    }
-   
-    func findDates() {
-        var previousDate = ""
-        var count = -1
-        var filteredGames : [[Game]] = []
-        for game in gameResults! {
-            if game.date != previousDate {
-                filteredGames.append([])
-                previousDate = game.date
-                count += 1
-            }
-            filteredGames[count].append(game)
-            
-        }
-        currentGames = filteredGames
-    }
+    func refreshCurrentWeek(refreshControl : UIRefreshControl) {
+        downloader.refreshCurrentWeek {
+            self.loadGamesForWeek(week: self.currentWeek)
+            self.tableView.reloadData()
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        // Get Cell Label
         let indexPath = tableView.indexPathForSelectedRow!
         let currentCell = tableView.cellForRow(at: indexPath)! as! GameTableViewCell
 
@@ -119,22 +60,13 @@ class MainViewTableViewController: UITableViewController {
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
-        
         if offset < 0 {
             self.headerTopConstraint.constant = offset + 24
         }
-        
-        if offset < 50{
-            self.navigationController?.setToolbarHidden(false, animated: true)
-        }else {
-            self.navigationController?.setToolbarHidden(true, animated: true)
-        }
     }
-    
 }
 
 //MARK: Tableview Datasource
-
 extension MainViewTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -155,19 +87,12 @@ extension MainViewTableViewController {
         if currentGames![indexPath.section].count == 1 {
             ID = "GameCell-Large"
         }
-        
         let game = currentGames![indexPath.section][indexPath.row]
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: ID, for: indexPath) as! GameTableViewCell
-        cell.mapGameToValues(game: currentGames![indexPath.section][indexPath.row])
-        cell.setupGradient(indexPath: indexPath, sectionCount: currentGames![indexPath.section].count - 1)
+        cell.setup(game: game, indexPath: indexPath,sectionCount: currentGames![indexPath.section].count - 1)
 
-        cell.setupVote(gameID: game.id)
-        cell.updateFinishedGame(game: game)
         return cell
     }
-    
-    
 }
 
 //MARK: TableView Styling
@@ -175,7 +100,6 @@ extension MainViewTableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as! CustomHeaderCell
-        
         headerCell.sectionHeaderLabel.text = currentGames![section].first?.date
         return headerCell
     }
@@ -196,8 +120,7 @@ extension MainViewTableViewController {
     }
     
     func setupNavBar () {
-        headerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 93)
-
+        headerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 160)
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "backButton")
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "backButton")
@@ -205,8 +128,34 @@ extension MainViewTableViewController {
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
         
-        
-        self.navigationController?.setToolbarHidden(false, animated: true)
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshCurrentWeek(refreshControl:)), for: UIControlEvents.valueChanged)
+    }
+    
+    func setupWeekPicker() {
+        let weekPicker = ASHorizontalScrollView(frame: CGRect(x: 0, y: 100, width: self.view.frame.width, height: 50))
+        weekPicker.leftMarginPx = 10
+        weekPicker.miniMarginPxBetweenItems = 8
+        weekPicker.miniAppearPxOfLastItem = 15
+        weekPicker.uniformItemSize = CGSize(width: 45, height: 45)
+        //This must be called after changing any size or margin property of this class to get acurrate margin
+        weekPicker.setItemsMarginOnce()
+        for index in 1...16{
+            let week = UIButton(frame: CGRect.zero)
+            week.layer.cornerRadius = 12
+            week.layer.masksToBounds = true
+            week.layer.borderColor = UIColor.black.cgColor
+            week.layer.borderWidth = 1.0
+            week.tag = index
+            week.setTitle(String(index), for: UIControlState.normal)
+            week.setTitleColor(UIColor.black, for: UIControlState.normal)
+            if index == currentWeek {
+                week.backgroundColor = UIColor.black
+                week.setTitleColor(UIColor.white, for: UIControlState.normal)
+            }
+            weekPicker.addItem(week)
+        }
+        self.headerView.addSubview(weekPicker)
     }
 }
 

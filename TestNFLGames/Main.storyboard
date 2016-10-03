@@ -14,13 +14,13 @@
             <objects>
                 <tableViewController id="zfg-Yc-peb" customClass="MainViewTableViewController" customModule="TestNFLGames" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="84" sectionHeaderHeight="18" sectionFooterHeight="18" id="WOq-ZB-Gnr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="0gt-Vf-YFu">
-                            <rect key="frame" x="0.0" y="64" width="375" height="102"/>
+                            <rect key="frame" x="0.0" y="64" width="375" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR LEAGUE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ww0-5J-Zso">
@@ -38,17 +38,6 @@
                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="29"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eE-fZ-tck">
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="64" id="bKJ-xc-80m"/>
-                                        <constraint firstAttribute="height" constant="45" id="huI-bS-txW"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="Week 3"/>
-                                    <connections>
-                                        <action selector="changeWeek:" destination="zfg-Yc-peb" eventType="touchUpInside" id="4v1-mV-hSl"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -56,16 +45,14 @@
                                 <constraint firstItem="8QC-FC-hRy" firstAttribute="leading" secondItem="0gt-Vf-YFu" secondAttribute="leading" constant="16" id="EPz-8f-erP"/>
                                 <constraint firstItem="Ww0-5J-Zso" firstAttribute="top" secondItem="0gt-Vf-YFu" secondAttribute="top" constant="16" id="UDd-DF-3jh"/>
                                 <constraint firstItem="iOF-ln-Kde" firstAttribute="leading" secondItem="Ww0-5J-Zso" secondAttribute="leading" id="aSf-R4-AId"/>
-                                <constraint firstAttribute="trailing" secondItem="1eE-fZ-tck" secondAttribute="trailing" constant="16" id="bJA-w0-cIW"/>
                                 <constraint firstItem="Ww0-5J-Zso" firstAttribute="leading" secondItem="0gt-Vf-YFu" secondAttribute="leading" constant="16" id="cIA-Rv-sEH"/>
                                 <constraint firstItem="iOF-ln-Kde" firstAttribute="top" secondItem="Ww0-5J-Zso" secondAttribute="bottom" id="cqs-zq-3uN"/>
                                 <constraint firstItem="8QC-FC-hRy" firstAttribute="top" secondItem="iOF-ln-Kde" secondAttribute="bottom" constant="8" id="gc8-hS-mCz"/>
-                                <constraint firstItem="8QC-FC-hRy" firstAttribute="top" secondItem="1eE-fZ-tck" secondAttribute="bottom" id="oVv-xA-lPJ"/>
                             </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="sectionHeader" rowHeight="64" id="Fzm-L1-Ybz" customClass="CustomHeaderCell" customModule="TestNFLGames" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="221.5" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="280" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fzm-L1-Ybz" id="e81-JW-IdI">
                                     <frame key="frameInset" width="375" height="64"/>
@@ -109,7 +96,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="80" id="zLl-cn-6vh" customClass="GameTableViewCell" customModule="TestNFLGames" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="285.5" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="344" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zLl-cn-6vh" id="XUo-0D-zea">
                                     <frame key="frameInset" width="375" height="80"/>
@@ -197,7 +184,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell-Large" rowHeight="250" id="Bae-0f-pV3" customClass="GameTableViewCell" customModule="TestNFLGames" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="365.5" width="375" height="250"/>
+                                <rect key="frame" x="0.0" y="424" width="375" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bae-0f-pV3" id="PPn-Cj-bWG">
                                     <frame key="frameInset" width="375" height="250"/>
@@ -292,9 +279,8 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Games" id="uFf-QG-hhI"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="filterButton" destination="1eE-fZ-tck" id="IBX-kF-abn"/>
                         <outlet property="headerTopConstraint" destination="UDd-DF-3jh" id="5oe-eK-mLa"/>
                         <outlet property="headerView" destination="0gt-Vf-YFu" id="APd-T7-kUU"/>
                     </connections>
@@ -399,7 +385,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="sectionHeader" rowHeight="40" id="x2z-Kf-pI6" customClass="CustomHeaderCell" customModule="TestNFLGames" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x2z-Kf-pI6" id="3z8-WF-gyv">
                                     <frame key="frameInset" width="375" height="40"/>
@@ -429,7 +415,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainCell" rowHeight="250" id="Mf2-jy-t6M" customClass="GameViewMainCell" customModule="TestNFLGames" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="95.5" width="375" height="250"/>
+                                <rect key="frame" x="0.0" y="96" width="375" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mf2-jy-t6M" id="9Yl-KT-dQx">
                                     <frame key="frameInset" width="375" height="250"/>
@@ -500,7 +486,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PayoutCell" rowHeight="160" id="INa-Bj-zwx" customClass="PayoutCell" customModule="TestNFLGames" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="345.5" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="346" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="INa-Bj-zwx" id="SkE-Xm-lMw">
                                     <frame key="frameInset" width="375" height="160"/>
@@ -620,10 +606,10 @@
         <!--Navigation Controller-->
         <scene sceneID="UMw-Eh-ayF">
             <objects>
-                <navigationController toolbarHidden="NO" id="L5L-kG-qW8" sceneMemberID="viewController">
+                <navigationController id="L5L-kG-qW8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="featured" id="9fw-Tj-bgN"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ibb-1t-VmT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

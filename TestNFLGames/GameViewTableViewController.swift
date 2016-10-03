@@ -36,7 +36,7 @@ class GameViewTableViewController: UITableViewController {
             self.awayTeamName = game.awayTeam
             self.homeTeamBadge =  UIImage(named: homeTeamName.teamMascotToCity())
             self.awayTeamBadge = UIImage(named: awayTeamName.teamMascotToCity())
-            self.time = game.gameTime
+            self.time = game.gameStart
             self.tableView.reloadData()
             
             let realm = try! Realm()

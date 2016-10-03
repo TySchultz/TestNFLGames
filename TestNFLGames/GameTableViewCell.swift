@@ -38,25 +38,70 @@ class GameTableViewCell: UITableViewCell {
         awayBadge.layer.masksToBounds = true
     }
     
-    func mapGameToValues(game: Game){
+    func setup(game: Game, indexPath: IndexPath, sectionCount: Int) {
+        self.mapGameToValues(game: game)
+        self.setupGradient(indexPath: indexPath, sectionCount: sectionCount)
+        self.setupVote(gameID: game.id)
+    }
+    
+    private func mapGameToValues(game: Game){
         self.homeTeam.text = game.homeTeam.uppercased()
         self.awayTeam.text = game.awayTeam.uppercased()
         self.homeBadge.image = UIImage(named: game.homeTeam.teamMascotToCity())
         self.awayBadge.image = UIImage(named: game.awayTeam.teamMascotToCity())
         self.awayPayout.text = game.awayScore
         self.homePayout.text = game.homeScore
-        self.time.text = game.gameTime
+        
+        switch game.quarter {
+        case "F", "FO":
+            self.time.text = "Final"
+        case "P":
+            self.time.text = game.gameStart
+            self.homePayout.text = ""
+            self.awayPayout.text = ""
+        case "H":
+            self.time.text = "Half"
+        case "1":
+            self.time.text = "1st " + game.gameClock
+        case "2":
+            self.time.text = "2nd " + game.gameClock
+        case "3":
+            self.time.text = "3rd " + game.gameClock
+        case "4":
+            self.time.text = "4th " + game.gameClock
+        default:
+            self.time.text = game.gameStart
+        }
         self.id = game.id
+        
+        self.homePayout.font = fontForPayout(winner: false)
+        self.awayPayout.font = fontForPayout(winner: false)
+        self.homeTeam.font = fontForName(winner: false)
+        self.awayTeam.font = fontForName(winner: false)
+        switch game.quarter {
+        case "F", "FO":
+            if game.homeScore > game.awayScore{
+                self.homePayout.font = fontForPayout(winner: true)
+                self.awayPayout.font = fontForPayout(winner: false)
+                
+                self.homeTeam.font = fontForName(winner: true)
+                self.awayTeam.font = fontForName(winner: false)
+                
+            }else{
+                self.homePayout.font = fontForPayout(winner: false)
+                self.awayPayout.font = fontForPayout(winner: true)
+                
+                self.homeTeam.font = fontForName(winner: false)
+                self.awayTeam.font = fontForName(winner: true)
+            }
+            break
+        default:
+            self.homePayout.textColor = UIColor.black
+            self.awayPayout.textColor = UIColor.black
+        }
     }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     
     func setupVote(gameID : String) {
-        
         DispatchQueue(label: "background").async {
             autoreleasepool {
                 // Get realm and table instances for this thread
@@ -83,38 +128,6 @@ class GameTableViewCell: UITableViewCell {
             }
         }
 
-    }
-    
-    func updateFinishedGame (game: Game) {
-        self.homePayout.font = fontForPayout(winner: false)
-        self.awayPayout.font = fontForPayout(winner: false)
-        self.homeTeam.font = fontForName(winner: false)
-        self.awayTeam.font = fontForName(winner: false)
-        switch game.quarter {
-        case "F", "FO":
-            self.time.text = "Final"
-
-            if game.homeScore > game.awayScore{
-                self.homePayout.font = fontForPayout(winner: true)
-                self.awayPayout.font = fontForPayout(winner: false)
-                
-                self.homeTeam.font = fontForName(winner: true)
-                self.awayTeam.font = fontForName(winner: false)
-
-            }else{
-                self.homePayout.font = fontForPayout(winner: false)
-                self.awayPayout.font = fontForPayout(winner: true)
-                
-                self.homeTeam.font = fontForName(winner: false)
-                self.awayTeam.font = fontForName(winner: true)
-            }
-            break
-        default:
-            self.time.text = game.gameTime
-            self.homePayout.textColor = UIColor.black
-            self.awayPayout.textColor = UIColor.black
-
-        }
     }
     
     func fontForName(winner: Bool) -> UIFont {
@@ -167,149 +180,4 @@ extension UITableViewCell {
     }
 }
 
-extension String {
-    func teamMascotToCity() -> String {
-        
-        switch self {
-        case "cardinals":
-            return "Arizona"
-        case "falcons":
-            return "Atlanta"
-        case "ravens":
-            return "Baltimore"
-        case "bills":
-            return "Buffalo"
-        case "panthers":
-            return "Carolina"
-        case "bears":
-            return "Chicago"
-        case "bengals":
-            return "Cincinatti"
-        case "browns":
-            return "Cleveland"
-        case "cowboys":
-            return "Dallas"
-        case "broncos":
-            return "Denver"
-        case "lions":
-            return "Detroit"
-        case "packers":
-            return "GreenBay"
-        case "texans":
-            return "Houston"
-        case "colts":
-            return "Indianapolis"
-        case "jaguars":
-            return "Jacksonville"
-        case "chiefs":
-            return "KansasCity"
-        case "rams":
-            return "LosAngeles"
-        case "dolphins":
-            return "Miami"
-        case "vikings":
-            return "Minnesota"
-        case "patriots":
-            return "NewEngland"
-        case "saints":
-            return "NewOrleans"
-        case "giants":
-            return "NewYorkGiants"
-        case "jets":
-            return "NewYorkJets"
-        case "raiders":
-            return "Oakland"
-        case "eagles":
-            return "Philadelphia"
-        case "steelers":
-            return "Pittsburg"
-        case "chargers":
-            return "SanDiego"
-        case "49ers":
-            return "SanFrancisco"
-        case "seahawks":
-            return "Seattle"
-        case "buccaneers":
-            return "TampaBay"
-        case "titans":
-            return "Tennessee"
-        case "redskins":
-            return "Washington"
-        default:
-            return ""
-        }
-    }
-    
-    func teamCityToMascot() -> String {
-        
-        switch self {
-        case "Arizona":
-            return "cardinals"
-        case "Atlanta":
-            return "falcons"
-        case "Baltimore":
-            return "ravens"
-        case "Buffalo":
-            return "bills"
-        case "Carolina":
-            return "panthers"
-        case "Chicago":
-            return "bears"
-        case "Cincinatti":
-            return "bengals"
-        case "Cleveland":
-            return "browns"
-        case "Dallas":
-            return "cowboys"
-        case "Denver":
-            return "broncos"
-        case "Detroit":
-            return "lions"
-        case "GreenBay":
-            return "packers"
-        case "Houston":
-            return "texans"
-        case "Indianapolis":
-            return "colts"
-        case "Jacksonville":
-            return "jaguars"
-        case "KansasCity":
-            return "chiefs"
-        case "LosAngeles":
-            return "rams"
-        case "Miami":
-            return "dolphins"
-        case "Minnesota":
-            return "vikings"
-        case "NewEngland":
-            return "patriots"
-        case "NewOrleans":
-            return "saints"
-        case "NewYorkGiants":
-            return "giants"
-        case "NewYorkJets":
-            return "jets"
-        case "Oakland":
-            return "raiders"
-        case "Philadelphia":
-            return "eagles"
-        case "Pittsburg":
-            return "steelers"
-        case "SanDiego":
-            return "chargers"
-        case "SanFrancisco":
-            return "49ers"
-        case "Seattle":
-            return "seahawks"
-        case "TampaBay":
-            return "buccaneers"
-        case "Tennessee":
-            return "titans"
-        case "Washington":
-            return "redskins"
-        default:
-            return ""
-        }
-    }
 
-}

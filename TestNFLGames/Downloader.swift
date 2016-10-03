@@ -15,34 +15,67 @@ class Downloader: NSObject {
     
     let NFLURL = "http://www.nfl.com/ajax/scorestrip?season=2016&seasonType=REG&week="
     let TEAMSTATSURL = "http://www.fftoday.com/stats/16_run_pass_ratios.html"
-
+    let CURRENTWEEKURL = "http://www.nfl.com/liveupdate/scorestrip/ss.xml"
     var games :Results<Game>?
     var realm : Realm?
     var week = 0
     
-    func downloadSchedule() -> (Results<Game>) {
+    
+    //PUBLIC 
+    
+    func refreshSeasonData(){
         
         realm = try! Realm()
-
-        //Season 
+        
+        //Season
         downloadSeason()
-        
-        //Week
-//        week = 1
-//        downloadWeek(week)
-        
-        games = realm!.objects(Game.self)
+    }
+    
+    public func currentWeek() -> Int {
+        return 4 
+    }
+    
+    func refreshCurrentWeek(action : (() -> ())?){
 
-        return (games!)
-    }
-    
-    private func downloadSeason() {
-        for week in 1...16 {
-            downloadWeek(week: week)
+        DispatchQueue(label: "background").async {
+            autoreleasepool {
+                let backgroundRealm = try! Realm()
+                
+                let URL = Foundation.URL(string: self.CURRENTWEEKURL)
+                // Try downloading it
+                do {
+                    let htmlSource = try String(contentsOf: URL!, encoding: String.Encoding.utf8)
+                    if let doc = Kanna.HTML(html: htmlSource, encoding: String.Encoding.utf8) {
+                        let content = doc.css("g")
+                        
+                        let ee = doc.css("gms")
+                        var serverWeek = 0
+                        for row in ee {
+                            serverWeek = Int(row.xpath("@w").first!.text!)!
+                        }
+                        
+                        for row in content {
+                            // Create a Game object
+                            // Add to the Realm inside a transaction
+                            try! backgroundRealm.write {
+                                backgroundRealm.add(self.createNewGame(row: row, gameWeek: serverWeek), update: true)
+                            }
+                        }
+                    }
+                }catch let error as NSError {
+                    print("Ooops! Something went wrong: \(error)")
+                }
+                DispatchQueue.main.async {
+                    action!()
+                }
+            }
         }
+
     }
     
+    //PRIVATE
     private func downloadWeek(week : Int) {
+        
         let URL = Foundation.URL(string: NFLURL + String(week))
         print(week)
         // Try downloading it
@@ -63,28 +96,34 @@ class Downloader: NSObject {
         }
     }
     
-    func createNewGame(row : XMLElement, gameWeek : Int ) -> Game{
+    private func downloadSeason() {
+        for week in 1...16 {
+            downloadWeek(week: week)
+        }
+    }
+    
+    private func createNewGame(row : XMLElement, gameWeek : Int ) -> Game{
         let newGame = Game()
         newGame.homeTeam = row.xpath("@hnn").first!.text!
         newGame.awayTeam = row.xpath("@vnn").first!.text!
         newGame.date = row.xpath("@eid").first!.text!
         newGame.homeScore = row.xpath("@hs").first!.text!
         newGame.awayScore = row.xpath("@vs").first!.text!
-        newGame.gameTime = row.xpath("@t").first!.text!
+        newGame.gameStart = row.xpath("@t").first!.text!
         newGame.id = row.xpath("@gsis").first!.text!
         newGame.quarter = row.xpath("@q").first!.text!
+        newGame.gameClock = row.xpath("@k").first?.text ?? ""
         newGame.gameWeek = gameWeek
         newGame.votes = List<Vote>()
         
         let values = formatTimeAndDate(row.xpath("@t").first!.text!, date: row.xpath("@eid").first!.text!)
-        newGame.gameTime = values.time
+        newGame.gameStart = values.time
         newGame.date = values.date
         
         return newGame
     }
-    
-  
  }
+
 
 //MARK: Team Creation
 extension Downloader {
