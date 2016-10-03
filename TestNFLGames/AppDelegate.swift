@@ -16,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        let config = ParseClientConfiguration(block: {
+            (ParseMutableClientConfiguration) -> Void in
+            ParseMutableClientConfiguration.applicationId = "tsnaNFL";
+            ParseMutableClientConfiguration.clientKey = "tynick";
+            ParseMutableClientConfiguration.server = "http://testnfl.herokuapp.com/parse";
+        });
+        
+        Parse.initializeWithConfiguration(config);
+        
         
         return true
     }

@@ -5,4 +5,5 @@ target 'TestNFLGames' do
 pod 'Kanna', '2.0.0'
 pod 'RealmSwift', '2.0.0'
 pod 'ASHorizontalScrollView', '~> 1.3'
+pod 'Parse'
 end

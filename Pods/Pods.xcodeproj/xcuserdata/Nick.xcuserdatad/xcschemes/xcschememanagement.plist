@@ -4,45 +4,65 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ASHorizontalScrollView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Kanna.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Mixpanel.xcscheme</key>
+		<key>Parse.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-TestNFLGames.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>RealmSwift.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2312E2BF9C50522848258494B4A2F69B</key>
+		<key>04D752CCF8DFC0D494965B3D2D35E9C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8EFE724FDDAA2478F44F082C05BA272C</key>
+		<key>16DC7F0DB229A2F34B0B5E9B3E0B3EF1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D721D7E75A655E0056B587A1C98A514F</key>
+		<key>2C8AA1BAF35413BDB954A1DF93576ED1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7129FAB61478FA70223DADF4921468CD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B851E1107F806844151B19F3EA7FE027</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F4B965ABCC74B469A94C08BB33D4DFD6</key>
+		<key>F8026141EB77D97C3F4DA5C193870066</key>
 		<dict>
 			<key>primary</key>
 			<true/>
