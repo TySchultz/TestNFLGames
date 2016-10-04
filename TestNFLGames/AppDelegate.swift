@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ParseMutableClientConfiguration.server = "http://testnfl.herokuapp.com/parse";
         });
         
-        Parse.initializeWithConfiguration(config);
+        Parse.initialize(with: config);
         
         
         return true
