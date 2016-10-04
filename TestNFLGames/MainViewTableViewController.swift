@@ -36,7 +36,6 @@ class MainViewTableViewController: UITableViewController {
     
     func loadGamesForWeek(week: Int) {
         currentGames = gameFinder.gamesForWeek(week: week)
-        self.tableView.reloadData()
     }
     
     func refreshCurrentWeek(refreshControl : UIRefreshControl) {
@@ -163,13 +162,58 @@ extension MainViewTableViewController {
     
     
     func changeWeek(sender : UIButton) {
-        for button in weekPicker.items as! [UIButton]{
-            button.backgroundColor = UIColor.white
-            button.setTitleColor(UIColor.black, for: UIControlState.normal)
-        } 
-        loadGamesForWeek(week: sender.tag)
-        sender.backgroundColor = UIColor.black
-        sender.setTitleColor(UIColor.white, for: UIControlState.normal)
+        UIView.animate(withDuration: 0.2) {
+            for button in self.weekPicker.items as! [UIButton]{
+                button.backgroundColor = UIColor.white
+                button.setTitleColor(UIColor.black, for: UIControlState.normal)
+            }
+            sender.backgroundColor = UIColor.black
+            sender.setTitleColor(UIColor.white, for: UIControlState.normal)
+        }
+        
+        self.loadGamesForWeek(week: sender.tag)
+        hideAndAnimate(duration: 0.3)
+    }
+    
+    func animateTable(duration : Double) {
+
+        
+//        NSSet *visibleSections = [NSSet setWithArray:[[self.tableView indexPathsForVisibleRows] valueForKey:@"section"]];
+        self.tableView.reloadData()
+        let cells = tableView.visibleCells
+        let tableHeight: CGFloat = tableView.bounds.size.height
+        
+        for i in cells {
+            let cell: UITableViewCell = i as UITableViewCell
+            cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
+        }
+        
+        var index = 0
+        
+        for a in cells {
+            let cell: UITableViewCell = a as UITableViewCell
+            UIView.animate(withDuration: duration, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                cell.alpha = 1.0
+                cell.transform = CGAffineTransform(translationX: 0, y: 0);
+                }, completion: nil)
+            
+            index += 1
+        }
+    }
+    
+    func hideAndAnimate(duration : Double) {
+        
+        let cells = tableView.visibleCells
+
+        UIView.animate(withDuration: duration, animations: {
+            for i in cells {
+                let cell: UITableViewCell = i as UITableViewCell
+                cell.alpha = 0.0
+            }
+            }) { (Bool) in
+                self.animateTable(duration: duration)
+        }
+        
     }
 }
 
