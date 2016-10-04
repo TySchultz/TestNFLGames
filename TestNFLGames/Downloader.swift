@@ -9,7 +9,7 @@
 import UIKit
 import Kanna
 import RealmSwift
-
+import Parse
 
 class Downloader: NSObject {
     
@@ -120,6 +120,27 @@ class Downloader: NSObject {
         newGame.gameStart = values.time
         newGame.date = values.date
         
+        var gameScore = PFObject(className: "Game")
+        gameScore.setObject(newGame.homeTeam, forKey: "homeTeam")
+        gameScore.setObject(newGame.awayTeam, forKey: "awayTeam")
+        gameScore.setObject(newGame.date, forKey: "date")
+        gameScore.setObject(newGame.homeScore, forKey: "homeScore")
+        gameScore.setObject(newGame.awayScore, forKey: "awayScore")
+        gameScore.setObject(newGame.gameStart, forKey: "gameStart")
+        gameScore.setObject(newGame.id, forKey: "id")
+        gameScore.setObject(newGame.quarter, forKey: "quarter")
+        gameScore.setObject(newGame.gameClock, forKey: "gameClock")
+        gameScore.setObject(newGame.gameWeek, forKey: "gameWeek")
+
+        gameScore.saveInBackground(block: { (eel, error) in
+          
+            if eel {
+                print("(:\n")
+            }else{
+                print(error)
+            }
+        })
+    
         return newGame
     }
  }

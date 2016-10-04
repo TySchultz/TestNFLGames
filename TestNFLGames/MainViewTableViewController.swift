@@ -31,7 +31,25 @@ class MainViewTableViewController: UITableViewController {
         setupWeekPicker()
 
         downloader.refreshSeasonData()
-        loadGamesForWeek(week: currentWeek)
+        loadGamesForWeek(week: 4)
+        self.tableView.reloadData()
+    }
+    
+    func changeWeek(sender : UIButton?) {
+        UIView.animate(withDuration: 0.2) {
+            for button in self.weekPicker.items as! [UIButton]{
+                button.backgroundColor = UIColor.white
+                button.setTitleColor(UIColor.black, for: UIControlState.normal)
+            }
+            if let weekbutton = sender {
+                weekbutton.backgroundColor = UIColor.black
+                weekbutton.setTitleColor(UIColor.white, for: UIControlState.normal)
+            }
+        }
+        if let weekButton = sender {
+            self.loadGamesForWeek(week: weekButton.tag)
+        }
+        hideAndAnimate(duration: 0.3)
     }
     
     func loadGamesForWeek(week: Int) {
@@ -64,6 +82,20 @@ class MainViewTableViewController: UITableViewController {
         if offset < 0 {
             self.headerTopConstraint.constant = offset + 24
         }
+    }
+}
+
+
+//MARK: Swiping 
+
+extension MainViewTableViewController {
+    
+    func swipeRight(){
+        
+    }
+    
+    func swipeLeft(){
+        
     }
 }
 
@@ -160,25 +192,8 @@ extension MainViewTableViewController {
         self.headerView.addSubview(weekPicker)
     }
     
-    
-    func changeWeek(sender : UIButton) {
-        UIView.animate(withDuration: 0.2) {
-            for button in self.weekPicker.items as! [UIButton]{
-                button.backgroundColor = UIColor.white
-                button.setTitleColor(UIColor.black, for: UIControlState.normal)
-            }
-            sender.backgroundColor = UIColor.black
-            sender.setTitleColor(UIColor.white, for: UIControlState.normal)
-        }
-        
-        self.loadGamesForWeek(week: sender.tag)
-        hideAndAnimate(duration: 0.3)
-    }
-    
     func animateTable(duration : Double) {
-
         
-//        NSSet *visibleSections = [NSSet setWithArray:[[self.tableView indexPathsForVisibleRows] valueForKey:@"section"]];
         self.tableView.reloadData()
         let cells = tableView.visibleCells
         let tableHeight: CGFloat = tableView.bounds.size.height
