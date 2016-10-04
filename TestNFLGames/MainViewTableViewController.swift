@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import ASHorizontalScrollView
+import Parse
 class MainViewTableViewController: UITableViewController {
 
     var currentGames : [[Game]]?
@@ -33,6 +34,19 @@ class MainViewTableViewController: UITableViewController {
         downloader.refreshSeasonData()
         loadGamesForWeek(week: 4)
         self.tableView.reloadData()
+        
+        
+        let user = PFUser()
+        user.username = "ty"
+        user.email = "tyschultz@icloud.com"
+        user.password = "myPass"
+        user.signUpInBackground { (Bool, error) in
+            if Bool {
+                print("YAY")
+            }else{
+                
+            }
+        }
     }
     
     func changeWeek(sender : UIButton?) {
