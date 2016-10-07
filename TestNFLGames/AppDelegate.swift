@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let config = ParseClientConfiguration(block: {
             (ParseMutableClientConfiguration) -> Void in
-            ParseMutableClientConfiguration.applicationId = "df2a0137-7cce-45c1-b71d-92843ec0737a";
-            ParseMutableClientConfiguration.clientKey = "";
-            ParseMutableClientConfiguration.server = "https://testnfl.azurewebsites.net/parse";
+            ParseMutableClientConfiguration.applicationId = "tynicknflid";
+            ParseMutableClientConfiguration.clientKey = "holla";
+            ParseMutableClientConfiguration.server = "https://tynicknfl.herokuapp.com/parse";
         });
         
         Parse.initialize(with: config);

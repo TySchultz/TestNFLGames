@@ -35,18 +35,8 @@ class MainViewTableViewController: UITableViewController {
         loadGamesForWeek(week: 4)
         self.tableView.reloadData()
         
-        
-        let user = PFUser()
-        user.username = "ty"
-        user.email = "tyschultz@icloud.com"
-        user.password = "myPass"
-        user.signUpInBackground { (Bool, error) in
-            if Bool {
-                print("YAY")
-            }else{
-                
-            }
-        }
+        let user = PFUser.current()
+    
     }
     
     func changeWeek(sender : UIButton?) {
@@ -82,13 +72,19 @@ class MainViewTableViewController: UITableViewController {
         let indexPath = tableView.indexPathForSelectedRow!
         let currentCell = tableView.cellForRow(at: indexPath)! as! GameTableViewCell
 
-        let destination : GameViewTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "GamesViewDetail") as! GameViewTableViewController
-        self.navigationController?.pushViewController(destination, animated: true)
+//        let destination : GameViewTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "GamesViewDetail") as! GameViewTableViewController
+//        self.navigationController?.pushViewController(destination, animated: true)
+//        
+//        let realm = try! Realm()
+//        destination.game = realm.object(ofType: Game.self, forPrimaryKey: currentCell.id)
+//        destination.setup() 
+//        destination.title = destination.game.homeTeam + " vs. " + destination.game.awayTeam
         
-        let realm = try! Realm()
-        destination.game = realm.object(ofType: Game.self, forPrimaryKey: currentCell.id)
-        destination.setup() 
-        destination.title = destination.game.homeTeam + " vs. " + destination.game.awayTeam
+        
+        let matchUpView : MatchUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "matchUpView") as! MatchUpViewController
+        self.navigationController?.pushViewController(matchUpView, animated: true)
+        
+        
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

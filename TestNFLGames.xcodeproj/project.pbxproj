@@ -22,6 +22,7 @@
 		105DA6011D6549D6008B0605 /* MainViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA6001D6549D6008B0605 /* MainViewTableViewController.swift */; };
 		105DA6031D67F953008B0605 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DA6021D67F953008B0605 /* Game.swift */; };
 		105FFC2D1D9F461900FDEF34 /* Halo5Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105FFC2C1D9F461900FDEF34 /* Halo5Animation.swift */; };
+		10612DE51DA47DF000188D4B /* MatchUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10612DE41DA47DF000188D4B /* MatchUpViewController.swift */; };
 		106394E11D9FF9EA0068B7D6 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106394E01D9FF9EA0068B7D6 /* Team.swift */; };
 		10C4317D1D6D2ABD008A1F24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C4317C1D6D2ABD008A1F24 /* Main.storyboard */; };
 		10E6C5C41DA0266000DC1FBD /* TeamActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6C5C31DA0266000DC1FBD /* TeamActivity.swift */; };
@@ -49,6 +50,7 @@
 		105DA6001D6549D6008B0605 /* MainViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewTableViewController.swift; sourceTree = "<group>"; };
 		105DA6021D67F953008B0605 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		105FFC2C1D9F461900FDEF34 /* Halo5Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Halo5Animation.swift; sourceTree = "<group>"; };
+		10612DE41DA47DF000188D4B /* MatchUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchUpViewController.swift; sourceTree = "<group>"; };
 		106394E01D9FF9EA0068B7D6 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		10C4317C1D6D2ABD008A1F24 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		10E6C5C31DA0266000DC1FBD /* TeamActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamActivity.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				105DA6001D6549D6008B0605 /* MainViewTableViewController.swift */,
 				103CA0B21D68D9DB00A4AF7B /* GameViewTableViewController.swift */,
 				10E6C5C51DA04D4300DC1FBD /* shareController.swift */,
+				10612DE41DA47DF000188D4B /* MatchUpViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				105DA5ED1D6546B9008B0605 /* AppDelegate.swift in Sources */,
 				105DA5FF1D65473D008B0605 /* Downloader.swift in Sources */,
 				10E6C5C61DA04D4300DC1FBD /* shareController.swift in Sources */,
+				10612DE51DA47DF000188D4B /* MatchUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
