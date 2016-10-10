@@ -36,6 +36,21 @@ class MainViewTableViewController: UITableViewController {
         self.tableView.reloadData()
         
         let user = PFUser.current()
+        
+        
+        //Attempting to only show signup if user has not opened app before
+        let userDefaults = UserDefaults.standard
+        if !userDefaults.bool(forKey: "signedUp") {
+            let introView = SignUpViewController()
+            //Show the signup
+            //The current viewController you are presenting from needs to be within navigation controller
+            self.present(introView, animated: true, completion: nil )
+            
+            userDefaults.set(true, forKey: "signedUp")
+            userDefaults.synchronize()
+        }
+        
+        
     
     }
     
