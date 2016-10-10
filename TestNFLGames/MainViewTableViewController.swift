@@ -41,12 +41,12 @@ class MainViewTableViewController: UITableViewController {
         //Attempting to only show signup if user has not opened app before
         let userDefaults = UserDefaults.standard
         if !userDefaults.bool(forKey: "signedUp") {
-            let introView = SignUpViewController()
+             let introView:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signUpView") as! UIViewController
             //Show the signup
             //The current viewController you are presenting from needs to be within navigation controller
             self.present(introView, animated: true, completion: nil )
             
-            userDefaults.set(true, forKey: "signedUp")
+           // userDefaults.set(true, forKey: "signedUp")
             userDefaults.synchronize()
         }
         

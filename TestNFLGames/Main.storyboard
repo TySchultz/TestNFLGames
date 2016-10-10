@@ -829,7 +829,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="rFw-aj-Dq1">
             <objects>
-                <viewController id="Cy8-6A-PHA" customClass="SignUpViewController" customModule="TestNFLGames" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signUpView" id="Cy8-6A-PHA" customClass="SignUpViewController" customModule="TestNFLGames" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iyj-Ay-GIL"/>
                         <viewControllerLayoutGuide type="bottom" id="RKr-h2-1Vc"/>
