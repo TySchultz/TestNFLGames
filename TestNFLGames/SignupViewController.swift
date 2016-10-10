@@ -43,6 +43,8 @@ class SignUpViewController: UIViewController {
             newUser.username = username
             newUser.password = ""
             
+            let userDefaults = UserDefaults.standard
+            
             // Sign up the user asynchronously
             newUser.signUpInBackground { (succeeded, error) -> Void in
                 
@@ -57,6 +59,8 @@ class SignUpViewController: UIViewController {
                     DispatchQueue.main.async(execute: { () -> Void in
                         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainView") as! UIViewController
                         self.present(viewController, animated: true, completion: nil)
+                        userDefaults.set(true, forKey: "signedUp")
+                        userDefaults.synchronize()
                     })
                 }
             }
