@@ -31,7 +31,7 @@ class MainViewTableViewController: UITableViewController {
         setupNavBar()
         setupWeekPicker()
 
-        downloader.refreshSeasonData()
+       // downloader.refreshSeasonData()
         loadGamesForWeek(week: 4)
         self.tableView.reloadData()
         

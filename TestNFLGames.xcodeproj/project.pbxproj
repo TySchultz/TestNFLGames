@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01424FB21DAC6D6700A3CFF4 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01424FB11DAC6D6700A3CFF4 /* UserViewController.swift */; };
 		01610D5E1DA8654E0011C940 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01610D5D1DA8654E0011C940 /* Main.storyboard */; };
 		01610D601DA8701D0011C940 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01610D5F1DA8701D0011C940 /* SignupViewController.swift */; };
 		0175C2911D65635C00F585D7 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C2901D65635C00F585D7 /* GameTableViewCell.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01424FB11DAC6D6700A3CFF4 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		01610D5D1DA8654E0011C940 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		01610D5F1DA8701D0011C940 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		0175C2901D65635C00F585D7 /* GameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				01610D5F1DA8701D0011C940 /* SignupViewController.swift */,
+				01424FB11DAC6D6700A3CFF4 /* UserViewController.swift */,
 				105DA6001D6549D6008B0605 /* MainViewTableViewController.swift */,
 				103CA0B21D68D9DB00A4AF7B /* GameViewTableViewController.swift */,
 				10E6C5C51DA04D4300DC1FBD /* shareController.swift */,
@@ -316,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				104CDC981DA1C35F00AC0CB4 /* GameFinder.swift in Sources */,
+				01424FB21DAC6D6700A3CFF4 /* UserViewController.swift in Sources */,
 				0175C2911D65635C00F585D7 /* GameTableViewCell.swift in Sources */,
 				01610D601DA8701D0011C940 /* SignupViewController.swift in Sources */,
 				5C5FC2F61D9EE04400704C3E /* Vote.swift in Sources */,
