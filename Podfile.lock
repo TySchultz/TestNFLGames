@@ -1,6 +1,7 @@
 PODS:
   - ASHorizontalScrollView (1.3)
   - Bolts/Tasks (1.8.4)
+  - IGListKit (1.0.0)
   - Kanna (2.0.0)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
@@ -9,21 +10,26 @@ PODS:
   - Realm/Headers (2.0.0)
   - RealmSwift (2.0.0):
     - Realm (= 2.0.0)
+  - SnapKit (3.0.2)
 
 DEPENDENCIES:
   - ASHorizontalScrollView (~> 1.3)
+  - IGListKit
   - Kanna (= 2.0.0)
   - Parse
   - RealmSwift (= 2.0.0)
+  - SnapKit (~> 3.0.0)
 
 SPEC CHECKSUMS:
   ASHorizontalScrollView: b2648d6b3f13de7e5328fcac2a20c2a68ce829ab
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  IGListKit: 3242c475fa77e2abf2d4de319703088008fbe9b9
   Kanna: 9a6637f72f5c77fe9c045b1efb2a5bb074754af8
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   Realm: 6dda421ae4b3e9a09742fc2cf4b876d459cbedcd
   RealmSwift: 7d015f34a2781a50889be9b5a15c36c08597ea0e
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: 7fd1ee8f0ea8dae6d7872767b74666c1f38ec1cf
+PODFILE CHECKSUM: 68f52ca5bd7607b3f76d0970923200cfcea63f68
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.0.1

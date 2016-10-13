@@ -20,6 +20,7 @@ class Game: Object {
     dynamic var quarter: String = ""
     dynamic var id: String = ""
     dynamic var gameWeek: Int = 0
+    dynamic var thursdayGame : Bool = false
     var votes : List<Vote>?
     
     override static func primaryKey() -> String? {

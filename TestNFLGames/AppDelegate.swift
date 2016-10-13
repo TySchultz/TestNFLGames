@@ -26,6 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.initialize(with: config);
         
+        let tab = UITabBarController()
+        tab.setViewControllers([MainScheduleViewController(),MainScheduleViewController()], animated: true)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UINavigationController(rootViewController: tab)
+        window?.makeKeyAndVisible()
+        
+        
         
         return true
     }

@@ -6,4 +6,6 @@ pod 'Kanna', '2.0.0'
 pod 'RealmSwift', '2.0.0'
 pod 'ASHorizontalScrollView', '~> 1.3'
 pod 'Parse'
+pod 'SnapKit', '~> 3.0.0'
+pod 'IGListKit'
 end

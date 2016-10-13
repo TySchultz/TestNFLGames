@@ -23,24 +23,20 @@ class GameFinder: NSObject {
         //downloader.downloadSchedule()
     }
     
-    func gamesForWeek(week: Int) -> [[Game]] {
+    func gamesForWeek(week: Int) -> [Any] {
         let queryResults = realm.objects(Game.self).filter("gameWeek = \(week)").sorted(byProperty: "date", ascending: false)
         return sortGamesInWeek(gameResults: queryResults)
     }
 
-    func sortGamesInWeek(gameResults: Results<Game>) -> [[Game]] {
-        var previousDate = ""
-        var count = -1
-        var sortedGames : [[Game]] = []
+    func sortGamesInWeek(gameResults: Results<Game>) -> [Any] {
+        var gamesWithSections : [Any] = []
         for game in gameResults {
-            if game.date != previousDate {
-                sortedGames.append([])
-                previousDate = game.date
-                count += 1
+            if game.thursdayGame {
+                gamesWithSections.append(SectionHeader(title: game.date))
             }
-            sortedGames[count].append(game)
+            gamesWithSections.append(game)
         }
-        return sortedGames
+        return gamesWithSections
     }
     
     //Would organize team data if needed later on

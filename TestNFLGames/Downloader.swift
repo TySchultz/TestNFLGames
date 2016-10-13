@@ -119,19 +119,24 @@ class Downloader: NSObject {
         let values = formatTimeAndDate(row.xpath("@t").first!.text!, date: row.xpath("@eid").first!.text!)
         newGame.gameStart = values.time
         newGame.date = values.date
+        
+        if newGame.date.contains("Thu") || newGame.date.contains("Mon") {
+            newGame.thursdayGame = true
+        }
+
 //
-        var gameScore = PFObject(className: "Game")
-        gameScore.setObject(newGame.homeTeam, forKey: "homeTeam")
-        gameScore.setObject(newGame.awayTeam, forKey: "awayTeam")
-        gameScore.setObject(newGame.date, forKey: "date")
-        gameScore.setObject(newGame.homeScore, forKey: "homeScore")
-        gameScore.setObject(newGame.awayScore, forKey: "awayScore")
-        gameScore.setObject(newGame.gameStart, forKey: "gameStart")
-        gameScore.setObject(newGame.id, forKey: "id")
-        gameScore.setObject(newGame.quarter, forKey: "quarter")
-        gameScore.setObject(newGame.gameClock, forKey: "gameClock")
-        gameScore.setObject(newGame.gameWeek, forKey: "gameWeek")
-        try! gameScore.save()
+//        var gameScore = PFObject(className: "Game")
+//        gameScore.setObject(newGame.homeTeam, forKey: "homeTeam")
+//        gameScore.setObject(newGame.awayTeam, forKey: "awayTeam")
+//        gameScore.setObject(newGame.date, forKey: "date")
+//        gameScore.setObject(newGame.homeScore, forKey: "homeScore")
+//        gameScore.setObject(newGame.awayScore, forKey: "awayScore")
+//        gameScore.setObject(newGame.gameStart, forKey: "gameStart")
+//        gameScore.setObject(newGame.id, forKey: "id")
+//        gameScore.setObject(newGame.quarter, forKey: "quarter")
+//        gameScore.setObject(newGame.gameClock, forKey: "gameClock")
+//        gameScore.setObject(newGame.gameWeek, forKey: "gameWeek")
+//        try! gameScore.save()
     
         return newGame
     }

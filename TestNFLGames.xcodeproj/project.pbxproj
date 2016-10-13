@@ -31,6 +31,14 @@
 		5C29BC141DAFE1B3000B4090 /* TNGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBFE1DAFE1B3000B4090 /* TNGView.swift */; };
 		5C29BC151DAFE1B3000B4090 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBFF1DAFE1B3000B4090 /* Vote.swift */; };
 		5C29BC171DAFE292000B4090 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C29BC161DAFE292000B4090 /* Main.storyboard */; };
+		5C964A9F1DAFF70400FBA57F /* MainScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C964A9E1DAFF70400FBA57F /* MainScheduleViewController.swift */; };
+		5C964AA21DAFF70D00FBA57F /* MondayGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C964AA01DAFF70D00FBA57F /* MondayGameController.swift */; };
+		5C964AA31DAFF70D00FBA57F /* SundayGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C964AA11DAFF70D00FBA57F /* SundayGameController.swift */; };
+		5C964AA61DAFF71400FBA57F /* MondayGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C964AA41DAFF71400FBA57F /* MondayGameCell.swift */; };
+		5C964AA71DAFF71400FBA57F /* SundayGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C964AA51DAFF71400FBA57F /* SundayGameCell.swift */; };
+		5C964AAA1DAFF9B400FBA57F /* PageHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C964AA81DAFF9B400FBA57F /* PageHeaderCell.swift */; };
+		5C964AAB1DAFF9B400FBA57F /* SpinnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C964AA91DAFF9B400FBA57F /* SpinnerCell.swift */; };
+		5C964AAD1DAFF9C900FBA57F /* SectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C964AAC1DAFF9C900FBA57F /* SectionHeaderCell.swift */; };
 		A14638FC4F1667C13CB45A96 /* Pods_TestNFLGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327ED02750E38D0EE76F4180 /* Pods_TestNFLGames.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +70,14 @@
 		5C29BBFE1DAFE1B3000B4090 /* TNGView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNGView.swift; sourceTree = "<group>"; };
 		5C29BBFF1DAFE1B3000B4090 /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		5C29BC161DAFE292000B4090 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5C964A9E1DAFF70400FBA57F /* MainScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScheduleViewController.swift; sourceTree = "<group>"; };
+		5C964AA01DAFF70D00FBA57F /* MondayGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MondayGameController.swift; sourceTree = "<group>"; };
+		5C964AA11DAFF70D00FBA57F /* SundayGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SundayGameController.swift; sourceTree = "<group>"; };
+		5C964AA41DAFF71400FBA57F /* MondayGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MondayGameCell.swift; sourceTree = "<group>"; };
+		5C964AA51DAFF71400FBA57F /* SundayGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SundayGameCell.swift; sourceTree = "<group>"; };
+		5C964AA81DAFF9B400FBA57F /* PageHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageHeaderCell.swift; sourceTree = "<group>"; };
+		5C964AA91DAFF9B400FBA57F /* SpinnerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerCell.swift; sourceTree = "<group>"; };
+		5C964AAC1DAFF9C900FBA57F /* SectionHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderCell.swift; sourceTree = "<group>"; };
 		BFCF54DF14B62468E04ADDEF /* Pods-TestNFLGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.debug.xcconfig"; sourceTree = "<group>"; };
 		DB90CEEB88BD1053372ABFCA /* Pods-TestNFLGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,29 +125,17 @@
 			children = (
 				5C29BC161DAFE292000B4090 /* Main.storyboard */,
 				5C29BBEA1DAFE1B3000B4090 /* AppDelegate.swift */,
-				5C29BBEB1DAFE1B3000B4090 /* CustomHeaderCell.swift */,
-				5C29BBEC1DAFE1B3000B4090 /* Downloader.swift */,
-				5C29BBED1DAFE1B3000B4090 /* Game.swift */,
-				5C29BBEE1DAFE1B3000B4090 /* GameFinder.swift */,
-				5C29BBEF1DAFE1B3000B4090 /* GameTableViewCell.swift */,
-				5C29BBF01DAFE1B3000B4090 /* GameViewMainCell.swift */,
-				5C29BBF11DAFE1B3000B4090 /* GameViewTableViewController.swift */,
-				5C29BBF21DAFE1B3000B4090 /* GoogleService-Info.plist */,
-				5C29BBF31DAFE1B3000B4090 /* Halo5Animation.swift */,
+				5C964A9A1DAFF6C200FBA57F /* ViewControllers */,
+				5C964A9C1DAFF6DE00FBA57F /* SectionControllers */,
+				5C964A9D1DAFF6EB00FBA57F /* CellViews */,
+				5C964AAF1DAFFBCF00FBA57F /* OldCells */,
+				5C964AAE1DAFFBBB00FBA57F /* Model */,
+				5C964AB11DAFFBE600FBA57F /* OldControllers */,
+				5C964AB01DAFFBD900FBA57F /* CustomViews */,
 				5C29BBF41DAFE1B3000B4090 /* Info.plist */,
-				5C29BBF51DAFE1B3000B4090 /* MainViewTableViewController.swift */,
-				5C29BBF61DAFE1B3000B4090 /* MatchUpViewController.swift */,
-				5C29BBF71DAFE1B3000B4090 /* PayoutCell.swift */,
-				5C29BBF81DAFE1B3000B4090 /* ProfileViewController.swift */,
-				5C29BBF91DAFE1B3000B4090 /* shareController.swift */,
-				5C29BBFA1DAFE1B3000B4090 /* SignupViewController.swift */,
-				5C29BBFB1DAFE1B3000B4090 /* String+Extensions.swift */,
-				5C29BBFC1DAFE1B3000B4090 /* Team.swift */,
-				5C29BBFD1DAFE1B3000B4090 /* TeamActivity.swift */,
-				5C29BBFE1DAFE1B3000B4090 /* TNGView.swift */,
-				5C29BBFF1DAFE1B3000B4090 /* Vote.swift */,
 				1003A7B71DAD4BB600DAC8F3 /* Assets.xcassets */,
 				5C29BBE91DAFE1B2000B4090 /* TestNFLGames-Bridging-Header.h */,
+				5C29BBF21DAFE1B3000B4090 /* GoogleService-Info.plist */,
 			);
 			path = TestNFLGames;
 			sourceTree = "<group>";
@@ -143,6 +147,82 @@
 				DB90CEEB88BD1053372ABFCA /* Pods-TestNFLGames.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5C964A9A1DAFF6C200FBA57F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C964A9E1DAFF70400FBA57F /* MainScheduleViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5C964A9C1DAFF6DE00FBA57F /* SectionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C964AA01DAFF70D00FBA57F /* MondayGameController.swift */,
+				5C964AA11DAFF70D00FBA57F /* SundayGameController.swift */,
+			);
+			name = SectionControllers;
+			sourceTree = "<group>";
+		};
+		5C964A9D1DAFF6EB00FBA57F /* CellViews */ = {
+			isa = PBXGroup;
+			children = (
+				5C964AAC1DAFF9C900FBA57F /* SectionHeaderCell.swift */,
+				5C964AA81DAFF9B400FBA57F /* PageHeaderCell.swift */,
+				5C964AA91DAFF9B400FBA57F /* SpinnerCell.swift */,
+				5C964AA41DAFF71400FBA57F /* MondayGameCell.swift */,
+				5C964AA51DAFF71400FBA57F /* SundayGameCell.swift */,
+			);
+			name = CellViews;
+			sourceTree = "<group>";
+		};
+		5C964AAE1DAFFBBB00FBA57F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C29BBEC1DAFE1B3000B4090 /* Downloader.swift */,
+				5C29BBFD1DAFE1B3000B4090 /* TeamActivity.swift */,
+				5C29BBFB1DAFE1B3000B4090 /* String+Extensions.swift */,
+				5C29BBED1DAFE1B3000B4090 /* Game.swift */,
+				5C29BBEE1DAFE1B3000B4090 /* GameFinder.swift */,
+				5C29BBFC1DAFE1B3000B4090 /* Team.swift */,
+				5C29BBFF1DAFE1B3000B4090 /* Vote.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5C964AAF1DAFFBCF00FBA57F /* OldCells */ = {
+			isa = PBXGroup;
+			children = (
+				5C29BBEB1DAFE1B3000B4090 /* CustomHeaderCell.swift */,
+				5C29BBEF1DAFE1B3000B4090 /* GameTableViewCell.swift */,
+				5C29BBF01DAFE1B3000B4090 /* GameViewMainCell.swift */,
+				5C29BBF71DAFE1B3000B4090 /* PayoutCell.swift */,
+			);
+			name = OldCells;
+			sourceTree = "<group>";
+		};
+		5C964AB01DAFFBD900FBA57F /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				5C29BBF31DAFE1B3000B4090 /* Halo5Animation.swift */,
+				5C29BBFE1DAFE1B3000B4090 /* TNGView.swift */,
+			);
+			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		5C964AB11DAFFBE600FBA57F /* OldControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C29BBF11DAFE1B3000B4090 /* GameViewTableViewController.swift */,
+				5C29BBF51DAFE1B3000B4090 /* MainViewTableViewController.swift */,
+				5C29BBF61DAFE1B3000B4090 /* MatchUpViewController.swift */,
+				5C29BBF81DAFE1B3000B4090 /* ProfileViewController.swift */,
+				5C29BBF91DAFE1B3000B4090 /* shareController.swift */,
+				5C29BBFA1DAFE1B3000B4090 /* SignupViewController.swift */,
+			);
+			name = OldControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +340,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -273,23 +353,31 @@
 				5C29BC071DAFE1B3000B4090 /* GameViewTableViewController.swift in Sources */,
 				5C29BC001DAFE1B3000B4090 /* AppDelegate.swift in Sources */,
 				5C29BC061DAFE1B3000B4090 /* GameViewMainCell.swift in Sources */,
+				5C964AA21DAFF70D00FBA57F /* MondayGameController.swift in Sources */,
 				5C29BC011DAFE1B3000B4090 /* CustomHeaderCell.swift in Sources */,
 				5C29BC111DAFE1B3000B4090 /* String+Extensions.swift in Sources */,
 				5C29BC021DAFE1B3000B4090 /* Downloader.swift in Sources */,
+				5C964AA31DAFF70D00FBA57F /* SundayGameController.swift in Sources */,
 				5C29BC0F1DAFE1B3000B4090 /* shareController.swift in Sources */,
+				5C964AA61DAFF71400FBA57F /* MondayGameCell.swift in Sources */,
 				5C29BC151DAFE1B3000B4090 /* Vote.swift in Sources */,
 				5C29BC0D1DAFE1B3000B4090 /* PayoutCell.swift in Sources */,
 				5C29BC121DAFE1B3000B4090 /* Team.swift in Sources */,
 				5C29BC0B1DAFE1B3000B4090 /* MainViewTableViewController.swift in Sources */,
 				5C29BC141DAFE1B3000B4090 /* TNGView.swift in Sources */,
+				5C964AAB1DAFF9B400FBA57F /* SpinnerCell.swift in Sources */,
+				5C964AAD1DAFF9C900FBA57F /* SectionHeaderCell.swift in Sources */,
 				5C29BC041DAFE1B3000B4090 /* GameFinder.swift in Sources */,
 				5C29BC091DAFE1B3000B4090 /* Halo5Animation.swift in Sources */,
 				5C29BC0C1DAFE1B3000B4090 /* MatchUpViewController.swift in Sources */,
+				5C964A9F1DAFF70400FBA57F /* MainScheduleViewController.swift in Sources */,
 				5C29BC131DAFE1B3000B4090 /* TeamActivity.swift in Sources */,
 				5C29BC0E1DAFE1B3000B4090 /* ProfileViewController.swift in Sources */,
+				5C964AAA1DAFF9B400FBA57F /* PageHeaderCell.swift in Sources */,
 				5C29BC101DAFE1B3000B4090 /* SignupViewController.swift in Sources */,
 				5C29BC031DAFE1B3000B4090 /* Game.swift in Sources */,
 				5C29BC051DAFE1B3000B4090 /* GameTableViewCell.swift in Sources */,
+				5C964AA71DAFF71400FBA57F /* SundayGameCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
