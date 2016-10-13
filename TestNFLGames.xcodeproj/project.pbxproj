@@ -7,32 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01610D5E1DA8654E0011C940 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01610D5D1DA8654E0011C940 /* Main.storyboard */; };
-		1003A7AF1DAD4BA300DAC8F3 /* Cells in Resources */ = {isa = PBXBuildFile; fileRef = 1003A7A51DAD4BA200DAC8F3 /* Cells */; };
-		1003A7B01DAD4BA300DAC8F3 /* Custom views in Resources */ = {isa = PBXBuildFile; fileRef = 1003A7A61DAD4BA200DAC8F3 /* Custom views */; };
-		1003A7B11DAD4BA300DAC8F3 /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 1003A7A71DAD4BA200DAC8F3 /* Data */; };
-		1003A7B21DAD4BA300DAC8F3 /* DetailControllers in Resources */ = {isa = PBXBuildFile; fileRef = 1003A7A81DAD4BA200DAC8F3 /* DetailControllers */; };
-		1003A7B31DAD4BA300DAC8F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1003A7A91DAD4BA200DAC8F3 /* Main.storyboard */; };
-		1003A7B41DAD4BA300DAC8F3 /* MainControllers in Resources */ = {isa = PBXBuildFile; fileRef = 1003A7AA1DAD4BA200DAC8F3 /* MainControllers */; };
-		1003A7B51DAD4BA300DAC8F3 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 1003A7AB1DAD4BA300DAC8F3 /* Model */; };
-		1003A7B61DAD4BA300DAC8F3 /* SupportingFiles in Resources */ = {isa = PBXBuildFile; fileRef = 1003A7AC1DAD4BA300DAC8F3 /* SupportingFiles */; };
 		1003A7B81DAD4BB600DAC8F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1003A7B71DAD4BB600DAC8F3 /* Assets.xcassets */; };
+		5C29BC001DAFE1B3000B4090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBEA1DAFE1B3000B4090 /* AppDelegate.swift */; };
+		5C29BC011DAFE1B3000B4090 /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBEB1DAFE1B3000B4090 /* CustomHeaderCell.swift */; };
+		5C29BC021DAFE1B3000B4090 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBEC1DAFE1B3000B4090 /* Downloader.swift */; };
+		5C29BC031DAFE1B3000B4090 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBED1DAFE1B3000B4090 /* Game.swift */; };
+		5C29BC041DAFE1B3000B4090 /* GameFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBEE1DAFE1B3000B4090 /* GameFinder.swift */; };
+		5C29BC051DAFE1B3000B4090 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBEF1DAFE1B3000B4090 /* GameTableViewCell.swift */; };
+		5C29BC061DAFE1B3000B4090 /* GameViewMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBF01DAFE1B3000B4090 /* GameViewMainCell.swift */; };
+		5C29BC071DAFE1B3000B4090 /* GameViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBF11DAFE1B3000B4090 /* GameViewTableViewController.swift */; };
+		5C29BC081DAFE1B3000B4090 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C29BBF21DAFE1B3000B4090 /* GoogleService-Info.plist */; };
+		5C29BC091DAFE1B3000B4090 /* Halo5Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBF31DAFE1B3000B4090 /* Halo5Animation.swift */; };
+		5C29BC0A1DAFE1B3000B4090 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C29BBF41DAFE1B3000B4090 /* Info.plist */; };
+		5C29BC0B1DAFE1B3000B4090 /* MainViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBF51DAFE1B3000B4090 /* MainViewTableViewController.swift */; };
+		5C29BC0C1DAFE1B3000B4090 /* MatchUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBF61DAFE1B3000B4090 /* MatchUpViewController.swift */; };
+		5C29BC0D1DAFE1B3000B4090 /* PayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBF71DAFE1B3000B4090 /* PayoutCell.swift */; };
+		5C29BC0E1DAFE1B3000B4090 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBF81DAFE1B3000B4090 /* ProfileViewController.swift */; };
+		5C29BC0F1DAFE1B3000B4090 /* shareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBF91DAFE1B3000B4090 /* shareController.swift */; };
+		5C29BC101DAFE1B3000B4090 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBFA1DAFE1B3000B4090 /* SignupViewController.swift */; };
+		5C29BC111DAFE1B3000B4090 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBFB1DAFE1B3000B4090 /* String+Extensions.swift */; };
+		5C29BC121DAFE1B3000B4090 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBFC1DAFE1B3000B4090 /* Team.swift */; };
+		5C29BC131DAFE1B3000B4090 /* TeamActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBFD1DAFE1B3000B4090 /* TeamActivity.swift */; };
+		5C29BC141DAFE1B3000B4090 /* TNGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBFE1DAFE1B3000B4090 /* TNGView.swift */; };
+		5C29BC151DAFE1B3000B4090 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBFF1DAFE1B3000B4090 /* Vote.swift */; };
+		5C29BC171DAFE292000B4090 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C29BC161DAFE292000B4090 /* Main.storyboard */; };
 		A14638FC4F1667C13CB45A96 /* Pods_TestNFLGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327ED02750E38D0EE76F4180 /* Pods_TestNFLGames.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01610D5D1DA8654E0011C940 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		1003A7A51DAD4BA200DAC8F3 /* Cells */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Cells; sourceTree = "<group>"; };
-		1003A7A61DAD4BA200DAC8F3 /* Custom views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Custom views"; sourceTree = "<group>"; };
-		1003A7A71DAD4BA200DAC8F3 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
-		1003A7A81DAD4BA200DAC8F3 /* DetailControllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DetailControllers; sourceTree = "<group>"; };
-		1003A7A91DAD4BA200DAC8F3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		1003A7AA1DAD4BA200DAC8F3 /* MainControllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MainControllers; sourceTree = "<group>"; };
-		1003A7AB1DAD4BA300DAC8F3 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
-		1003A7AC1DAD4BA300DAC8F3 /* SupportingFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SupportingFiles; sourceTree = "<group>"; };
 		1003A7B71DAD4BB600DAC8F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		105DA5E91D6546B9008B0605 /* TestNFLGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNFLGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		327ED02750E38D0EE76F4180 /* Pods_TestNFLGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestNFLGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C29BBE91DAFE1B2000B4090 /* TestNFLGames-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestNFLGames-Bridging-Header.h"; sourceTree = "<group>"; };
+		5C29BBEA1DAFE1B3000B4090 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5C29BBEB1DAFE1B3000B4090 /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
+		5C29BBEC1DAFE1B3000B4090 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		5C29BBED1DAFE1B3000B4090 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		5C29BBEE1DAFE1B3000B4090 /* GameFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameFinder.swift; sourceTree = "<group>"; };
+		5C29BBEF1DAFE1B3000B4090 /* GameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
+		5C29BBF01DAFE1B3000B4090 /* GameViewMainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewMainCell.swift; sourceTree = "<group>"; };
+		5C29BBF11DAFE1B3000B4090 /* GameViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewTableViewController.swift; sourceTree = "<group>"; };
+		5C29BBF21DAFE1B3000B4090 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5C29BBF31DAFE1B3000B4090 /* Halo5Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Halo5Animation.swift; sourceTree = "<group>"; };
+		5C29BBF41DAFE1B3000B4090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C29BBF51DAFE1B3000B4090 /* MainViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewTableViewController.swift; sourceTree = "<group>"; };
+		5C29BBF61DAFE1B3000B4090 /* MatchUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchUpViewController.swift; sourceTree = "<group>"; };
+		5C29BBF71DAFE1B3000B4090 /* PayoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutCell.swift; sourceTree = "<group>"; };
+		5C29BBF81DAFE1B3000B4090 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5C29BBF91DAFE1B3000B4090 /* shareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shareController.swift; sourceTree = "<group>"; };
+		5C29BBFA1DAFE1B3000B4090 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		5C29BBFB1DAFE1B3000B4090 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		5C29BBFC1DAFE1B3000B4090 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		5C29BBFD1DAFE1B3000B4090 /* TeamActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamActivity.swift; sourceTree = "<group>"; };
+		5C29BBFE1DAFE1B3000B4090 /* TNGView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNGView.swift; sourceTree = "<group>"; };
+		5C29BBFF1DAFE1B3000B4090 /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
+		5C29BC161DAFE292000B4090 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BFCF54DF14B62468E04ADDEF /* Pods-TestNFLGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.debug.xcconfig"; sourceTree = "<group>"; };
 		DB90CEEB88BD1053372ABFCA /* Pods-TestNFLGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNFLGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestNFLGames/Pods-TestNFLGames.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,16 +107,31 @@
 		105DA5EB1D6546B9008B0605 /* TestNFLGames */ = {
 			isa = PBXGroup;
 			children = (
+				5C29BC161DAFE292000B4090 /* Main.storyboard */,
+				5C29BBEA1DAFE1B3000B4090 /* AppDelegate.swift */,
+				5C29BBEB1DAFE1B3000B4090 /* CustomHeaderCell.swift */,
+				5C29BBEC1DAFE1B3000B4090 /* Downloader.swift */,
+				5C29BBED1DAFE1B3000B4090 /* Game.swift */,
+				5C29BBEE1DAFE1B3000B4090 /* GameFinder.swift */,
+				5C29BBEF1DAFE1B3000B4090 /* GameTableViewCell.swift */,
+				5C29BBF01DAFE1B3000B4090 /* GameViewMainCell.swift */,
+				5C29BBF11DAFE1B3000B4090 /* GameViewTableViewController.swift */,
+				5C29BBF21DAFE1B3000B4090 /* GoogleService-Info.plist */,
+				5C29BBF31DAFE1B3000B4090 /* Halo5Animation.swift */,
+				5C29BBF41DAFE1B3000B4090 /* Info.plist */,
+				5C29BBF51DAFE1B3000B4090 /* MainViewTableViewController.swift */,
+				5C29BBF61DAFE1B3000B4090 /* MatchUpViewController.swift */,
+				5C29BBF71DAFE1B3000B4090 /* PayoutCell.swift */,
+				5C29BBF81DAFE1B3000B4090 /* ProfileViewController.swift */,
+				5C29BBF91DAFE1B3000B4090 /* shareController.swift */,
+				5C29BBFA1DAFE1B3000B4090 /* SignupViewController.swift */,
+				5C29BBFB1DAFE1B3000B4090 /* String+Extensions.swift */,
+				5C29BBFC1DAFE1B3000B4090 /* Team.swift */,
+				5C29BBFD1DAFE1B3000B4090 /* TeamActivity.swift */,
+				5C29BBFE1DAFE1B3000B4090 /* TNGView.swift */,
+				5C29BBFF1DAFE1B3000B4090 /* Vote.swift */,
 				1003A7B71DAD4BB600DAC8F3 /* Assets.xcassets */,
-				01610D5D1DA8654E0011C940 /* Main.storyboard */,
-				1003A7A51DAD4BA200DAC8F3 /* Cells */,
-				1003A7A61DAD4BA200DAC8F3 /* Custom views */,
-				1003A7A71DAD4BA200DAC8F3 /* Data */,
-				1003A7A81DAD4BA200DAC8F3 /* DetailControllers */,
-				1003A7A91DAD4BA200DAC8F3 /* Main.storyboard */,
-				1003A7AA1DAD4BA200DAC8F3 /* MainControllers */,
-				1003A7AB1DAD4BA300DAC8F3 /* Model */,
-				1003A7AC1DAD4BA300DAC8F3 /* SupportingFiles */,
+				5C29BBE91DAFE1B2000B4090 /* TestNFLGames-Bridging-Header.h */,
 			);
 			path = TestNFLGames;
 			sourceTree = "<group>";
@@ -164,16 +208,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1003A7B51DAD4BA300DAC8F3 /* Model in Resources */,
-				1003A7B61DAD4BA300DAC8F3 /* SupportingFiles in Resources */,
 				1003A7B81DAD4BB600DAC8F3 /* Assets.xcassets in Resources */,
-				1003A7B41DAD4BA300DAC8F3 /* MainControllers in Resources */,
-				1003A7B01DAD4BA300DAC8F3 /* Custom views in Resources */,
-				1003A7B21DAD4BA300DAC8F3 /* DetailControllers in Resources */,
-				01610D5E1DA8654E0011C940 /* Main.storyboard in Resources */,
-				1003A7B31DAD4BA300DAC8F3 /* Main.storyboard in Resources */,
-				1003A7AF1DAD4BA300DAC8F3 /* Cells in Resources */,
-				1003A7B11DAD4BA300DAC8F3 /* Data in Resources */,
+				5C29BC081DAFE1B3000B4090 /* GoogleService-Info.plist in Resources */,
+				5C29BC0A1DAFE1B3000B4090 /* Info.plist in Resources */,
+				5C29BC171DAFE292000B4090 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +270,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C29BC071DAFE1B3000B4090 /* GameViewTableViewController.swift in Sources */,
+				5C29BC001DAFE1B3000B4090 /* AppDelegate.swift in Sources */,
+				5C29BC061DAFE1B3000B4090 /* GameViewMainCell.swift in Sources */,
+				5C29BC011DAFE1B3000B4090 /* CustomHeaderCell.swift in Sources */,
+				5C29BC111DAFE1B3000B4090 /* String+Extensions.swift in Sources */,
+				5C29BC021DAFE1B3000B4090 /* Downloader.swift in Sources */,
+				5C29BC0F1DAFE1B3000B4090 /* shareController.swift in Sources */,
+				5C29BC151DAFE1B3000B4090 /* Vote.swift in Sources */,
+				5C29BC0D1DAFE1B3000B4090 /* PayoutCell.swift in Sources */,
+				5C29BC121DAFE1B3000B4090 /* Team.swift in Sources */,
+				5C29BC0B1DAFE1B3000B4090 /* MainViewTableViewController.swift in Sources */,
+				5C29BC141DAFE1B3000B4090 /* TNGView.swift in Sources */,
+				5C29BC041DAFE1B3000B4090 /* GameFinder.swift in Sources */,
+				5C29BC091DAFE1B3000B4090 /* Halo5Animation.swift in Sources */,
+				5C29BC0C1DAFE1B3000B4090 /* MatchUpViewController.swift in Sources */,
+				5C29BC131DAFE1B3000B4090 /* TeamActivity.swift in Sources */,
+				5C29BC0E1DAFE1B3000B4090 /* ProfileViewController.swift in Sources */,
+				5C29BC101DAFE1B3000B4090 /* SignupViewController.swift in Sources */,
+				5C29BC031DAFE1B3000B4090 /* Game.swift in Sources */,
+				5C29BC051DAFE1B3000B4090 /* GameTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,11 +390,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6B6QHT3AN6;
-				INFOPLIST_FILE = "$(SRCROOT)/TestNFLGames/SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/TestNFLGames/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tyschultz.TestNFLGames;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestNFLGames/TestNFLGames-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -347,11 +408,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6B6QHT3AN6;
-				INFOPLIST_FILE = "$(SRCROOT)/TestNFLGames/SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/TestNFLGames/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tyschultz.TestNFLGames;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestNFLGames/TestNFLGames-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
