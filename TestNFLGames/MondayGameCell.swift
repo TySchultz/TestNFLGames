@@ -18,7 +18,7 @@ import SnapKit
 class MondayGameCell: UICollectionViewCell {
 
     fileprivate static let insets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-    fileprivate static let font = UIFont.systemFont(ofSize: 17)
+    fileprivate static let font = UIFont.boldSystemFont(ofSize: 22)
     fileprivate static let scoreFont = UIFont.boldSystemFont(ofSize: 22)
     fileprivate static let timeFont = UIFont.systemFont(ofSize: 13)
 

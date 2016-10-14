@@ -1,17 +1,14 @@
 //
-//  MatchUpViewController.swift
-//  TestNFLGames
+//  SettingsViewController.swift
+//  Sports
 //
-//  Created by Ty Schultz on 10/4/16.
+//  Created by Tyler J Schultz on 10/12/16.
 //  Copyright © 2016 Ty Schultz. All rights reserved.
 //
 
 import UIKit
 import IGListKit
-class MatchUpViewController: UIViewController, IGListAdapterDataSource, UIScrollViewDelegate {
-    
-    lazy var game : Game = Game()
-    
+class SettingsViewController: UIViewController, IGListAdapterDataSource, UIScrollViewDelegate {
     
     lazy var adapter: IGListAdapter = {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
@@ -29,14 +26,11 @@ class MatchUpViewController: UIViewController, IGListAdapterDataSource, UIScroll
         self.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
         navigationController?.setNavigationBarHidden(false, animated: false)
         
-        sections.append(game)
-        sections.append(StatCell(title: "Record", homeStat: "3-4", awayStat: "4-3"))
-        sections.append(StatCell(title: "Record", homeStat: "3-4", awayStat: "4-3"))
-        sections.append(StatCell(title: "Record", homeStat: "3-4", awayStat: "4-3"))
-        sections.append(StatCell(title: "Record", homeStat: "3-4", awayStat: "4-3"))
-        sections.append(StatCell(title: "Record", homeStat: "3-4", awayStat: "4-3"))
+        sections.append(spinToken)
+        for _ in 1...8 {
+            sections.append("Settings")
+        }
 
-        
         view.addSubview(collectionView)
         adapter.collectionView = collectionView
         adapter.dataSource = self
@@ -56,10 +50,10 @@ class MatchUpViewController: UIViewController, IGListAdapterDataSource, UIScroll
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
-        if let _ = object as? Game {
-            return MondayGameController()
+        if let _ = object as? String {
+            return SettingsSectionController()
         }else {
-            return StatSectionController()
+            return PageHeaderController()
         }
     }
     

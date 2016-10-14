@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let config = ParseClientConfiguration(block: {
@@ -27,13 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.initialize(with: config);
         
         let tab = UITabBarController()
-        tab.setViewControllers([MainScheduleViewController(),MainScheduleViewController()], animated: true)
+        tab.setViewControllers([MainScheduleViewController(),SettingsViewController()], animated: true)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: tab)
         window?.makeKeyAndVisible()
-        
-        
         
         return true
     }

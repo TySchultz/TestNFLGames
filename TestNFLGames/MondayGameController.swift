@@ -17,7 +17,7 @@ import IGListKit
 
 class MondayGameController: IGListSectionController, IGListSectionType {
 
-    var object: Monday?
+    var object: Game!
 
     func numberOfItems() -> Int {
         return 1
@@ -29,22 +29,24 @@ class MondayGameController: IGListSectionController, IGListSectionType {
 
     func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeueReusableCell(of: MondayGameCell.self, for: self, at: index) as! MondayGameCell
-        cell.homeTeamImage.image = UIImage(named: "Cleveland")
-        cell.awayTeamImage.image = UIImage(named: "Seattle")
-        cell.homeTeamName.text = "Cleveland"
-        cell.awayTeamName.text = "Seattle"
-        cell.homeTeamScore.text = "23"
-        cell.awayTeamScore.text = "43"
-        cell.timeLabel.text = "Final"
+        cell.homeTeamImage.image = UIImage(named: object.homeTeam.teamMascotToCity())
+        cell.awayTeamImage.image = UIImage(named: object.awayTeam.teamMascotToCity())
+        cell.homeTeamName.text = object.homeTeam.uppercased()
+        cell.awayTeamName.text = object.awayTeam.uppercased()
+        cell.homeTeamScore.text = object.homeScore
+        cell.awayTeamScore.text = object.awayScore
+        cell.timeLabel.text = object.gameStart
         return cell
     }
 
     func didUpdate(to object: Any) {
-        self.object = object as? Monday
+        self.object = object as? Game
     }
 
     func didSelectItem(at index: Int) {
-
+        let matchUpView : MatchUpViewController = MatchUpViewController()
+        matchUpView.game = object
+        viewController?.navigationController?.pushViewController(matchUpView, animated: true)
     }
 
 }

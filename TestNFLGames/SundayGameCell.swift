@@ -14,7 +14,7 @@ class SundayGameCell: UICollectionViewCell {
     fileprivate static let insets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
     fileprivate static let font = UIFont.systemFont(ofSize: 17)
     fileprivate static let scoreFont = UIFont.boldSystemFont(ofSize: 22)
-    fileprivate static let timeFont = UIFont.systemFont(ofSize: 13)
+    fileprivate static let timeFont = UIFont.boldSystemFont(ofSize: 13)
     
     static var singleLineHeight: CGFloat {
         return font.lineHeight + insets.top + insets.bottom
@@ -43,7 +43,7 @@ class SundayGameCell: UICollectionViewCell {
         let label = UILabel()
         label.backgroundColor = UIColor.clear
         label.numberOfLines = 1
-        label.font = SundayGameCell.font
+        label.font = SundayGameCell.scoreFont
         return label
     }
     
@@ -108,49 +108,48 @@ class SundayGameCell: UICollectionViewCell {
         let left = SundayGameCell.insets.left
         separator.frame = CGRect(x: left, y: bounds.height - height, width: bounds.width - left, height: height)
         
-        let distanceFromTime = 16
         let distanceFromScore = 16
         
         timeLabel.snp.makeConstraints { (make) in
-            make.centerY.equalTo(self.snp.centerY)
+            make.top.equalTo(self.snp.top).offset(8)
             make.left.equalTo(self).offset(8)
         }
         
-        awayTeamImage.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(8)
-            make.right.equalTo(self).offset(-8)
-            make.bottom.equalTo(self.snp.bottom).offset(-8)
-            make.width.equalTo(self.snp.height).offset(-16)
-        }
-        
-        homeTeamImage.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(8)
-            make.right.equalTo(self.awayTeamImage.snp.left).offset(-8)
-            make.bottom.equalTo(self.snp.bottom).offset(-8)
-            make.width.equalTo(self.snp.height).offset(-16)
-        }
-        
-        homeTeamScore.snp.makeConstraints { (make) in
-            make.left.equalTo(self.timeLabel.snp.right).offset(distanceFromTime)
-            make.bottom.equalTo(self.snp.centerY).offset(-4)
-            make.height.equalTo(25)
-        }
-        
-        awayTeamScore.snp.makeConstraints { (make) in
-            make.left.equalTo(self.timeLabel.snp.right).offset(distanceFromTime)
-            make.top.equalTo(self.snp.centerY).offset(4)
-            make.height.equalTo(25)
-        }
-        
+//        awayTeamImage.snp.makeConstraints { (make) in
+//            make.top.equalTo(self).offset(8)
+//            make.right.equalTo(self).offset(-8)
+//            make.bottom.equalTo(self.snp.bottom).offset(-8)
+//            make.width.equalTo(self.snp.height).offset(-16)
+//        }
+//        
+//        homeTeamImage.snp.makeConstraints { (make) in
+//            make.top.equalTo(self).offset(8)
+//            make.right.equalTo(self.awayTeamImage.snp.left).offset(-8)
+//            make.bottom.equalTo(self.snp.bottom).offset(-8)
+//            make.width.equalTo(self.snp.height).offset(-16)
+//        }
+//        
+ 
         homeTeamName.snp.makeConstraints { (make) in
-            make.left.equalTo(self.homeTeamScore.snp.right).offset(distanceFromScore)
-            make.centerY.equalTo(homeTeamScore.snp.centerY)
+            make.left.equalTo(self.timeLabel.snp.left)
+            make.top.equalTo(self.timeLabel.snp.bottom).offset(4)
         }
         
         awayTeamName.snp.makeConstraints { (make) in
-            make.left.equalTo(self.awayTeamScore.snp.right).offset(distanceFromScore)
-            make.centerY.equalTo(awayTeamScore.snp.centerY)
+            make.left.equalTo(self.timeLabel.snp.left)
+            make.top.equalTo(self.homeTeamName.snp.bottom).offset(4)
         }
+        
+        homeTeamScore.snp.makeConstraints { (make) in
+            make.right.equalTo(self.snp.right).offset(-8)
+            make.centerY.equalTo(self.homeTeamName.snp.centerY)
+        }
+        
+        awayTeamScore.snp.makeConstraints { (make) in
+            make.right.equalTo(self.snp.right).offset(-8)
+            make.centerY.equalTo(self.awayTeamName.snp.centerY)
+        }
+        
         
     }
     

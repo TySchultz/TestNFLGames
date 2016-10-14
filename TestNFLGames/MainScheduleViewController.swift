@@ -54,9 +54,9 @@ class MainScheduleViewController: UIViewController, IGListAdapterDataSource, UIS
         gameFinder = GameFinder()
         downloader = Downloader()
         
-        downloader.refreshSeasonData()
+//        downloader.refreshSeasonData()
         
-        currentWeek = 5
+        currentWeek = 6
     
         currentGames.append(PageHeader(title: "Games"))
         
@@ -102,7 +102,6 @@ class MainScheduleViewController: UIViewController, IGListAdapterDataSource, UIS
         }else if let _ = object as? PageHeader {
             return PageHeaderController()
         }else if let obj = object as? Game{
-            
             if obj.thursdayGame {
                 return MondayGameController()
             }else {
