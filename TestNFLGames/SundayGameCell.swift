@@ -94,7 +94,7 @@ class SundayGameCell: UICollectionViewCell {
         
         timeLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(8)
-            make.left.equalTo(self).offset(8)
+            make.left.equalTo(self).offset(16)
         }
         
 //        awayTeamImage.snp.makeConstraints { (make) in

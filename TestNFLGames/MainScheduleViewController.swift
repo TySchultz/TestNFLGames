@@ -44,11 +44,10 @@ class MainScheduleViewController: UIViewController, IGListAdapterDataSource, UIS
     var gameFinder : GameFinder!
     var downloader : Downloader!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         words = []
 

@@ -39,19 +39,21 @@ class MatchUpViewController: UIViewController, IGListAdapterDataSource, UIScroll
 
         self.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
         
-        //Hack to make the team images appear lower
-        sections.append(StatCell(title: "", homeStat: "", awayStat: ""))
-        sections.append(StatCell(title: "", homeStat: "", awayStat: ""))
-        sections.append(game)
         let realm = try! Realm()
         let homeTeam = realm.object(ofType: Team.self, forPrimaryKey: game.homeTeam)!
         let awayTeam = realm.object(ofType: Team.self, forPrimaryKey: game.awayTeam)!
-        
+
+        //Hack to make the team images appear lower
         sections.append(StatCell(title: "", homeStat: "", awayStat: ""))
-        sections.append(StatCell(title: "Record", homeStat: "\(homeTeam.wins) - \(homeTeam.losses)", awayStat: "\(awayTeam.wins) - \(awayTeam.losses)"))
-        sections.append(StatCell(title: "Plays Per Game", homeStat: "\(homeTeam.playsPerGame)", awayStat: "\(awayTeam.playsPerGame)"))
-        sections.append(StatCell(title: "Run %", homeStat: "\(homeTeam.rushAttemptsPerGame)", awayStat: "\(awayTeam.rushAttemptsPerGame)"))
-        sections.append(StatCell(title: "Pass %", homeStat: "\(homeTeam.passAttemptsPerGame)", awayStat: "\(awayTeam.passAttemptsPerGame)"))
+        sections.append(StatCell(title: "", homeStat: "", awayStat: ""))
+        sections.append(MatchupHeader(homeTeamName: game.homeTeam, awayTeamName: game.awayTeam))
+        sections.append(StatCell(title: game.gameStart, homeStat: "", awayStat: ""))
+        sections.append(game)
+        sections.append(StatCell(title: "", homeStat: "", awayStat: ""))
+        sections.append(StatCell(title: "Record", homeStat:  "3-4", awayStat:  "4-3"))
+        sections.append(StatCell(title: "Plays Per Game", homeStat:  homeTeam.playsPerGame, awayStat:  awayTeam.playsPerGame))
+        sections.append(StatCell(title: "Run %", homeStat:  (homeTeam.rushAttemptsPerGame/homeTeam.playsPerGame)*100, awayStat:  (awayTeam.rushAttemptsPerGame/homeTeam.playsPerGame)*100))
+        sections.append(StatCell(title: "Pass %", homeStat:  (homeTeam.passAttemptsPerGame/homeTeam.playsPerGame)*100, awayStat:  (awayTeam.passAttemptsPerGame/homeTeam.playsPerGame)*100))
 
         view.addSubview(collectionView)
         adapter.collectionView = collectionView
@@ -72,8 +74,13 @@ class MatchUpViewController: UIViewController, IGListAdapterDataSource, UIScroll
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
-        if let _ = object as? Game {
-            return MondayGameController()
+        
+        if let _ = object as? MatchupHeader {
+            return MatchupHeaderSectionController()
+        }else if let _ = object as? StatCell{
+            return StatSectionController()
+        }else if let _ = object as? Game {
+            return VoteSectionController()
         }else {
             return StatSectionController()
         }

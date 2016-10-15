@@ -32,8 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.initialize(with: config);
         
         let tab = UITabBarController()
-        tab.setViewControllers([MainScheduleViewController(),SettingsViewController()], animated: true)
-        
+        tab.setViewControllers([MainScheduleViewController(),MainScheduleViewController(),MainScheduleViewController(),SettingsViewController()], animated: true)
+        tab.navigationController?.setNavigationBarHidden(true, animated: false)
+
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: tab)
         window?.makeKeyAndVisible()

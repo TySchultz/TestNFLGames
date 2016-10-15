@@ -18,7 +18,6 @@ class PageHeader: NSObject {
     }
 }
 
-
 class PageHeaderController : IGListSectionController, IGListSectionType {
     var object: PageHeader?
     
@@ -74,12 +73,11 @@ class PageHeaderCell: UICollectionViewCell {
         super.layoutSubviews()
         let bounds = contentView.bounds
         
-        let height: CGFloat = 2
-        let left = PageHeaderCell.insets.left
-        separator.frame = CGRect(x: 0, y: bounds.height - height, width: bounds.width, height: height)
+        let height: CGFloat = 0.5
+        separator.frame = CGRect(x: 16, y: bounds.height - height, width: bounds.width-32, height: height)
         
         headerLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(8)
+            make.centerY.equalTo(self.snp.centerY).offset(0)
             make.left.equalTo(self).offset(16)
         }
     }

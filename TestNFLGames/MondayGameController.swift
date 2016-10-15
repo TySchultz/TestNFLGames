@@ -48,6 +48,7 @@ class MondayGameController: IGListSectionController, IGListSectionType {
     func didSelectItem(at index: Int) {
         let matchUpView : MatchUpViewController = MatchUpViewController()
         matchUpView.game = object
+        matchUpView.title = "\(object.awayTeam) @ \(object.homeTeam)"
         viewController?.navigationController?.pushViewController(matchUpView, animated: true)
     }
 

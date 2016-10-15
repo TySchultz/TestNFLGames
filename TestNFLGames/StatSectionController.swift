@@ -22,10 +22,25 @@ class StatSectionController: IGListSectionController, IGListSectionType {
     
     func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext!.dequeueReusableCell(of: DetailScreenStatCell.self, for: self, at: index) as! DetailScreenStatCell
-        cell.titleLabel.text = object?.title
-        cell.homeStatLabel.text = object?.homeStat
-        cell.awayStatLabel.text = object?.awayStat
+       
+        if let stats = object {
+            cell.titleLabel.text = stats.title
+            cell.homeStatLabel.text = "\(stats.homeStat)"
+            cell.awayStatLabel.text = "\(stats.awayStat)"
+            
+            if let homeStat = object?.homeStat as? CGFloat, let awayStat = object?.awayStat as? CGFloat {
+                cell.homeStatLabel.text = String(format: "%.0f", homeStat)
+                cell.awayStatLabel.text = String(format: "%.0f", awayStat)
 
+//                if (awayStat.isLess(than: homeStat)) {
+//                    cell.homeStatLabel.font = Constants.mainInfoBold
+//                    cell.awayStatLabel.font = Constants.mainInfoNormal
+//                }else{
+//                    cell.homeStatLabel.font = Constants.mainInfoNormal
+//                    cell.awayStatLabel.font = Constants.mainInfoBold
+//                }
+            }
+        }
         return cell
     }
     

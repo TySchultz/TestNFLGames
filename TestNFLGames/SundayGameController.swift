@@ -36,6 +36,10 @@ class SundayGameController: IGListSectionController, IGListSectionType {
             cell.homeTeamScore.textColor = UIColor.lightGray
             cell.awayTeamScore.textColor = UIColor.lightGray
         }
+        
+        cell.homeTeamName.textColor = Constants.teamColorForCityName(name: object.homeTeam.teamMascotToCity())
+        cell.awayTeamName.textColor = Constants.teamColorForCityName(name: object.awayTeam.teamMascotToCity())
+
         return cell
     }
 
@@ -44,9 +48,11 @@ class SundayGameController: IGListSectionController, IGListSectionType {
     }
     
     func didSelectItem(at index: Int) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil) //if bundle is nil the main bundle will be used
-        let matchUpView : MatchUpViewController = storyboard.instantiateViewController(withIdentifier: "matchUpView") as! MatchUpViewController
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil) //if bundle is nil the main bundle will be used
+//        let matchUpView : MatchUpViewController = storyboard.instantiateViewController(withIdentifier: "matchUpView") as! MatchUpViewController
+        let matchUpView : MatchUpViewController = MatchUpViewController()
         matchUpView.game = object
+        matchUpView.title = "\(object.awayTeam) @ \(object.homeTeam)"
         viewController?.navigationController?.pushViewController(matchUpView, animated: true)
     }
     

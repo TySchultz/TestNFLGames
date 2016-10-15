@@ -142,6 +142,3 @@ class MondayGameCell: UICollectionViewCell {
     }
 }
 
-extension MondayGameCell {
-    
-}

@@ -11,10 +11,10 @@ import UIKit
 class StatCell: NSObject {
     
     let title: String
-    let homeStat: String
-    let awayStat: String
+    let homeStat: Any
+    let awayStat: Any
 
-    init(title : String, homeStat : String, awayStat: String) {
+    init(title : String, homeStat : Any, awayStat: Any) {
         self.title = title
         self.homeStat = homeStat
         self.awayStat = awayStat
@@ -22,39 +22,33 @@ class StatCell: NSObject {
 }
 
 class DetailScreenStatCell: UICollectionViewCell {
-    fileprivate static let insets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-    fileprivate static let fontSubHeader = UIFont.systemFont(ofSize: 13)
-    fileprivate static let fontStat = UIFont.systemFont(ofSize: 15)
-
-    
 
     func createLabel() ->  UILabel{
         let label = UILabel()
         label.backgroundColor = UIColor.clear
         label.numberOfLines = 1
-        label.font = DetailScreenStatCell.fontSubHeader
+        label.font = Constants.mainInfoBold
         return label
     }
-
     
     // UI Objects
     lazy var titleLabel: UILabel = {
         let titleLabel = self.createLabel()
-        titleLabel.font = DetailScreenStatCell.fontSubHeader
+        titleLabel.font = Constants.subInfoNormal
         self.contentView.addSubview(titleLabel)
         return titleLabel
     }()
     
     lazy var homeStatLabel: UILabel = {
         let homeStatLabel = self.createLabel()
-        homeStatLabel.font = DetailScreenStatCell.fontStat
+        homeStatLabel.font = Constants.mainInfoBold
         self.contentView.addSubview(homeStatLabel)
         return homeStatLabel
     }()
     
     lazy var awayStatLabel: UILabel = {
         let awayStatLabel = self.createLabel()
-        awayStatLabel.font = DetailScreenStatCell.fontStat
+        awayStatLabel.font = Constants.mainInfoBold
         self.contentView.addSubview(awayStatLabel)
         return awayStatLabel
     }()
