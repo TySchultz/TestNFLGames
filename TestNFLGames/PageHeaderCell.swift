@@ -45,17 +45,13 @@ class PageHeaderController : IGListSectionController, IGListSectionType {
 
 class PageHeaderCell: UICollectionViewCell {
     fileprivate static let insets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-    fileprivate static let font = UIFont.boldSystemFont(ofSize: 32)
     
-    static var singleLineHeight: CGFloat {
-        return font.lineHeight + insets.top + insets.bottom
-    }
-    
+  
     func createLabel() ->  UILabel{
         let label = UILabel()
         label.backgroundColor = UIColor.clear
         label.numberOfLines = 1
-        label.font = PageHeaderCell.font
+        label.font = Constants.pageHeaderFont
         return label
     }
     

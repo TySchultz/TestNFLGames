@@ -36,6 +36,8 @@ class MondayGameController: IGListSectionController, IGListSectionType {
         cell.homeTeamScore.text = object.homeScore
         cell.awayTeamScore.text = object.awayScore
         cell.timeLabel.text = object.gameStart
+        
+        
         return cell
     }
 

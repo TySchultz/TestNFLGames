@@ -165,7 +165,10 @@ extension Downloader {
                     for td in tableData {
                         switch count {
                         case 0:
-                            team.teamName = td.innerHTML!
+                            let longTeamName = td.innerHTML!
+                            var list = longTeamName.components(separatedBy: " ")
+                            team.teamName = list.removeLast().lowercased()
+//                            team.teamName = list.joined(separator: "")
                             break
                         case 1:
                             team.rushAttempts = tdNumber(tableData: td.innerHTML)

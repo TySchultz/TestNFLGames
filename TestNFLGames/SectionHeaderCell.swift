@@ -76,7 +76,7 @@ class SectionHeaderCell: UICollectionViewCell {
         let left = SectionHeaderCell.insets.left
         
         headerLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(8)
+            make.centerY.equalTo(self.snp.centerY).offset(0)
             make.left.equalTo(self).offset(16)
         }
     }

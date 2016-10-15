@@ -29,10 +29,12 @@ class GameFinder: NSObject {
     }
 
     func sortGamesInWeek(gameResults: Results<Game>) -> [Any] {
+        var previousDate = ""
         var gamesWithSections : [Any] = []
         for game in gameResults {
-            if game.thursdayGame {
+            if game.date != previousDate {
                 gamesWithSections.append(SectionHeader(title: game.date))
+                previousDate = game.date
             }
             gamesWithSections.append(game)
         }

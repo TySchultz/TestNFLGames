@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1003A7B81DAD4BB600DAC8F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1003A7B71DAD4BB600DAC8F3 /* Assets.xcassets */; };
+		105A439C1DB27E810060E87C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A439B1DB27E810060E87C /* Constants.swift */; };
 		5C29BC001DAFE1B3000B4090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBEA1DAFE1B3000B4090 /* AppDelegate.swift */; };
 		5C29BC011DAFE1B3000B4090 /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBEB1DAFE1B3000B4090 /* CustomHeaderCell.swift */; };
 		5C29BC021DAFE1B3000B4090 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBEC1DAFE1B3000B4090 /* Downloader.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		1003A7B71DAD4BB600DAC8F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		105A439B1DB27E810060E87C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		105DA5E91D6546B9008B0605 /* TestNFLGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNFLGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		327ED02750E38D0EE76F4180 /* Pods_TestNFLGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestNFLGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C29BBE91DAFE1B2000B4090 /* TestNFLGames-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestNFLGames-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				1003A7B71DAD4BB600DAC8F3 /* Assets.xcassets */,
 				5C29BBE91DAFE1B2000B4090 /* TestNFLGames-Bridging-Header.h */,
 				5C29BBF21DAFE1B3000B4090 /* GoogleService-Info.plist */,
+				105A439B1DB27E810060E87C /* Constants.swift */,
 			);
 			path = TestNFLGames;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				5C29BC091DAFE1B3000B4090 /* Halo5Animation.swift in Sources */,
 				5C29BC0C1DAFE1B3000B4090 /* MatchUpViewController.swift in Sources */,
 				5C964A9F1DAFF70400FBA57F /* MainScheduleViewController.swift in Sources */,
+				105A439C1DB27E810060E87C /* Constants.swift in Sources */,
 				5C29BC131DAFE1B3000B4090 /* TeamActivity.swift in Sources */,
 				5C29BC0E1DAFE1B3000B4090 /* ProfileViewController.swift in Sources */,
 				5C2FA6091DB1308F00F481D1 /* SettingsCell.swift in Sources */,

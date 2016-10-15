@@ -11,23 +11,6 @@ import SnapKit
 
 class SundayGameCell: UICollectionViewCell {
     
-    fileprivate static let insets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-    fileprivate static let font = UIFont.systemFont(ofSize: 17)
-    fileprivate static let scoreFont = UIFont.boldSystemFont(ofSize: 22)
-    fileprivate static let timeFont = UIFont.boldSystemFont(ofSize: 13)
-    
-    static var singleLineHeight: CGFloat {
-        return font.lineHeight + insets.top + insets.bottom
-    }
-    
-    static func textHeight(_ text: String, width: CGFloat) -> CGFloat {
-        let constrainedSize = CGSize(width: width - insets.left - insets.right, height: CGFloat.greatestFiniteMagnitude)
-        let attributes = [ NSFontAttributeName: font ]
-        let options: NSStringDrawingOptions = [.usesFontLeading, .usesLineFragmentOrigin]
-        let bounds = (text as NSString).boundingRect(with: constrainedSize, options: options, attributes: attributes, context: nil)
-        return ceil(bounds.height) + insets.top + insets.bottom
-    }
-    
     
     func createImageView() -> UIImageView {
         let imageView = UIImageView()
@@ -43,8 +26,8 @@ class SundayGameCell: UICollectionViewCell {
         let label = UILabel()
         label.backgroundColor = UIColor.clear
         label.numberOfLines = 1
-        label.font = SundayGameCell.scoreFont
-        return label
+        label.font = Constants.mainInfoBold
+        return label    
     }
     
     
@@ -88,7 +71,7 @@ class SundayGameCell: UICollectionViewCell {
     
     lazy var timeLabel: UILabel = {
         let timeLabel = self.createLabel()
-        timeLabel.font = timeFont
+        timeLabel.font = Constants.subInfoNormal
         self.contentView.addSubview(timeLabel)
         return timeLabel
     }()
@@ -105,8 +88,7 @@ class SundayGameCell: UICollectionViewCell {
         let bounds = contentView.bounds
         
         let height: CGFloat = 0.5
-        let left = SundayGameCell.insets.left
-        separator.frame = CGRect(x: left, y: bounds.height - height, width: bounds.width - left, height: height)
+        separator.frame = CGRect(x: 16, y: bounds.height - height, width: bounds.width - 16, height: height)
         
         let distanceFromScore = 16
         
@@ -141,12 +123,12 @@ class SundayGameCell: UICollectionViewCell {
         }
         
         homeTeamScore.snp.makeConstraints { (make) in
-            make.right.equalTo(self.snp.right).offset(-8)
+            make.right.equalTo(self.snp.right).offset(-16)
             make.centerY.equalTo(self.homeTeamName.snp.centerY)
         }
         
         awayTeamScore.snp.makeConstraints { (make) in
-            make.right.equalTo(self.snp.right).offset(-8)
+            make.right.equalTo(self.snp.right).offset(-16)
             make.centerY.equalTo(self.awayTeamName.snp.centerY)
         }
         

@@ -16,24 +16,7 @@ import UIKit
 import SnapKit
 
 class MondayGameCell: UICollectionViewCell {
-
-    fileprivate static let insets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-    fileprivate static let font = UIFont.boldSystemFont(ofSize: 22)
-    fileprivate static let scoreFont = UIFont.boldSystemFont(ofSize: 22)
-    fileprivate static let timeFont = UIFont.systemFont(ofSize: 13)
-
-    static var singleLineHeight: CGFloat {
-        return font.lineHeight + insets.top + insets.bottom
-    }
-
-    static func textHeight(_ text: String, width: CGFloat) -> CGFloat {
-        let constrainedSize = CGSize(width: width - insets.left - insets.right, height: CGFloat.greatestFiniteMagnitude)
-        let attributes = [ NSFontAttributeName: font ]
-        let options: NSStringDrawingOptions = [.usesFontLeading, .usesLineFragmentOrigin]
-        let bounds = (text as NSString).boundingRect(with: constrainedSize, options: options, attributes: attributes, context: nil)
-        return ceil(bounds.height) + insets.top + insets.bottom
-    }
-    
+   
     
     func createImageView() -> UIImageView {
         let imageView = UIImageView()
@@ -49,7 +32,7 @@ class MondayGameCell: UICollectionViewCell {
         let label = UILabel()
         label.backgroundColor = UIColor.clear
         label.numberOfLines = 1
-        label.font = MondayGameCell.font
+        label.font = Constants.mainInfoNormal
         return label
     }
     
@@ -81,31 +64,27 @@ class MondayGameCell: UICollectionViewCell {
     
     lazy var homeTeamScore: UILabel = {
         let homeTeamScore = self.createLabel()
-        homeTeamScore.font = scoreFont
+        homeTeamScore.font = Constants.sectionHeaderFont
         self.contentView.addSubview(homeTeamScore)
         return homeTeamScore
     }()
     
     lazy var awayTeamScore: UILabel = {
         let awayTeamScore = self.createLabel()
-        awayTeamScore.font = scoreFont
+        awayTeamScore.font = Constants.sectionHeaderFont
         self.contentView.addSubview(awayTeamScore)
         return awayTeamScore
     }()
     
     lazy var timeLabel: UILabel = {
         let timeLabel = self.createLabel()
-        timeLabel.font = timeFont
+        timeLabel.font = Constants.subInfoNormal
         self.contentView.addSubview(timeLabel)
         return timeLabel
     }()
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        let bounds = contentView.bounds
-        
-        let height: CGFloat = 0.5
-        let left = MondayGameCell.insets.left
         
         homeTeamImage.snp.makeConstraints { (make) in
             make.top.equalTo(self).offset(8)
@@ -145,11 +124,20 @@ class MondayGameCell: UICollectionViewCell {
             make.bottom.equalTo(self).offset(-8)
             make.left.equalTo(self).offset(8)
         }
+        
+        let lightGrayColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1.0).cgColor
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = CGRect(x: 0, y: self.frame.height-100, width: self.frame.width, height: 100)
+        gradient.colors = [UIColor.white.cgColor, lightGrayColor]
+        gradient.name = "bottomGradient"
+        self.contentView.layer.insertSublayer(gradient, at: 0)
+        self.contentView.layer.masksToBounds = false
+
     }
 
     override var isHighlighted: Bool {
         didSet {
-            contentView.backgroundColor = UIColor(white: isHighlighted ? 0.9 : 1, alpha: 1)
+//            contentView.backgroundColor = UIColor(white: isHighlighted ? 0.9 : 1, alpha: 1)
         }
     }
 }

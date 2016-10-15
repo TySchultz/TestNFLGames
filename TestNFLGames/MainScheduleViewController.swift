@@ -43,19 +43,20 @@ class MainScheduleViewController: UIViewController, IGListAdapterDataSource, UIS
     var currentWeek = 0
     var gameFinder : GameFinder!
     var downloader : Downloader!
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
         navigationController?.setNavigationBarHidden(false, animated: false)
+        
         words = []
 
         gameFinder = GameFinder()
         downloader = Downloader()
         
 //        downloader.refreshSeasonData()
-        
+//        downloader.downloadTeams()
         currentWeek = 6
     
         currentGames.append(PageHeader(title: "Games"))
@@ -132,6 +133,15 @@ class MainScheduleViewController: UIViewController, IGListAdapterDataSource, UIS
 //                    self.adapter.performUpdates(animated: true, completion: nil)
 //                }
 //            })
+//        }
+//    }
+    
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if scrollView.contentOffset.y > 50 {
+//            self.navigationController?.setNavigationBarHidden(true, animated: true)
+//        }else {
+//            self.navigationController?.setNavigationBarHidden(false, animated: true)
 //        }
 //    }
 

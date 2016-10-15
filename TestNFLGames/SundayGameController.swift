@@ -29,9 +29,16 @@ class SundayGameController: IGListSectionController, IGListSectionType {
         cell.homeTeamScore.text = object.homeScore
         cell.awayTeamScore.text = object.awayScore
         cell.timeLabel.text = object.gameStart
+
+        if object.homeScore == "" {
+            cell.homeTeamScore.text = "0"
+            cell.awayTeamScore.text = "0"
+            cell.homeTeamScore.textColor = UIColor.lightGray
+            cell.awayTeamScore.textColor = UIColor.lightGray
+        }
         return cell
     }
-    
+
     func didUpdate(to object: Any) {
         self.object = object as! Game
     }
