@@ -92,25 +92,28 @@ class SundayGameCell: UICollectionViewCell {
         
         let distanceFromScore = 16
         
+        let imageInset = 16
+
+        
         timeLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(8)
             make.left.equalTo(self).offset(16)
         }
         
-//        awayTeamImage.snp.makeConstraints { (make) in
-//            make.top.equalTo(self).offset(8)
-//            make.right.equalTo(self).offset(-8)
-//            make.bottom.equalTo(self.snp.bottom).offset(-8)
-//            make.width.equalTo(self.snp.height).offset(-16)
-//        }
-//        
-//        homeTeamImage.snp.makeConstraints { (make) in
-//            make.top.equalTo(self).offset(8)
-//            make.right.equalTo(self.awayTeamImage.snp.left).offset(-8)
-//            make.bottom.equalTo(self.snp.bottom).offset(-8)
-//            make.width.equalTo(self.snp.height).offset(-16)
-//        }
-//        
+        awayTeamImage.snp.makeConstraints { (make) in
+            make.top.equalTo(self).offset(imageInset)
+            make.right.equalTo(self).offset(-8)
+            make.bottom.equalTo(self.snp.bottom).offset(-imageInset)
+            make.width.equalTo(self.snp.height).offset(-16)
+        }
+        
+        homeTeamImage.snp.makeConstraints { (make) in
+            make.top.equalTo(self).offset(imageInset)
+            make.right.equalTo(self.awayTeamImage.snp.left).offset(-8)
+            make.bottom.equalTo(self.snp.bottom).offset(-imageInset)
+            make.width.equalTo(self.snp.height).offset(-16)
+        }
+        
  
         homeTeamName.snp.makeConstraints { (make) in
             make.left.equalTo(self.timeLabel.snp.left)
@@ -123,12 +126,12 @@ class SundayGameCell: UICollectionViewCell {
         }
         
         homeTeamScore.snp.makeConstraints { (make) in
-            make.right.equalTo(self.snp.right).offset(-16)
+            make.right.equalTo(self.homeTeamImage.snp.left).offset(-16)
             make.centerY.equalTo(self.homeTeamName.snp.centerY)
         }
         
         awayTeamScore.snp.makeConstraints { (make) in
-            make.right.equalTo(self.snp.right).offset(-16)
+            make.right.equalTo(self.homeTeamImage.snp.left).offset(-16)
             make.centerY.equalTo(self.awayTeamName.snp.centerY)
         }
         

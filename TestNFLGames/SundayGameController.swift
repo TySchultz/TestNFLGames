@@ -36,9 +36,6 @@ class SundayGameController: IGListSectionController, IGListSectionType {
             cell.homeTeamScore.textColor = UIColor.lightGray
             cell.awayTeamScore.textColor = UIColor.lightGray
         }
-        
-        cell.homeTeamName.textColor = Constants.teamColorForCityName(name: object.homeTeam.teamMascotToCity())
-        cell.awayTeamName.textColor = Constants.teamColorForCityName(name: object.awayTeam.teamMascotToCity())
 
         return cell
     }

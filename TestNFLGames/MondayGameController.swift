@@ -24,7 +24,7 @@ class MondayGameController: IGListSectionController, IGListSectionType {
     }
 
     func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: collectionContext!.containerSize.width, height: 270)
+        return CGSize(width: collectionContext!.containerSize.width, height: 230)
     }
 
     func cellForItem(at index: Int) -> UICollectionViewCell {
@@ -50,6 +50,7 @@ class MondayGameController: IGListSectionController, IGListSectionType {
         matchUpView.game = object
         matchUpView.title = "\(object.awayTeam) @ \(object.homeTeam)"
         viewController?.navigationController?.pushViewController(matchUpView, animated: true)
+        
     }
 
 }

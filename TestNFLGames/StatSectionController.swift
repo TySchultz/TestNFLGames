@@ -41,6 +41,7 @@ class StatSectionController: IGListSectionController, IGListSectionType {
 //                }
             }
         }
+        
         return cell
     }
     

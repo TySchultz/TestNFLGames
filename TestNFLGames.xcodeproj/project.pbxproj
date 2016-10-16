@@ -11,6 +11,12 @@
 		105A439C1DB27E810060E87C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A439B1DB27E810060E87C /* Constants.swift */; };
 		105A439E1DB2A1D20060E87C /* VoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A439D1DB2A1D20060E87C /* VoteCell.swift */; };
 		105A43A51DB2A6390060E87C /* MatchupHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A43A41DB2A6390060E87C /* MatchupHeaderCell.swift */; };
+		105A43A91DB3FF000060E87C /* GridSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A43A71DB3FF000060E87C /* GridSectionController.swift */; };
+		105A43AA1DB3FF000060E87C /* CenterLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A43A81DB3FF000060E87C /* CenterLabelCell.swift */; };
+		105A43AC1DB3FF0C0060E87C /* TeamsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A43AB1DB3FF0C0060E87C /* TeamsListViewController.swift */; };
+		1065603A1DB410B000D5D344 /* ScoreBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106560371DB410B000D5D344 /* ScoreBoardViewController.swift */; };
+		1065603B1DB410B000D5D344 /* ScoreBoardSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106560381DB410B000D5D344 /* ScoreBoardSectionController.swift */; };
+		1065603C1DB410B000D5D344 /* ScoreBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106560391DB410B000D5D344 /* ScoreBoardCell.swift */; };
 		5C29BC001DAFE1B3000B4090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBEA1DAFE1B3000B4090 /* AppDelegate.swift */; };
 		5C29BC011DAFE1B3000B4090 /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBEB1DAFE1B3000B4090 /* CustomHeaderCell.swift */; };
 		5C29BC021DAFE1B3000B4090 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29BBEC1DAFE1B3000B4090 /* Downloader.swift */; };
@@ -55,7 +61,13 @@
 		105A439B1DB27E810060E87C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		105A439D1DB2A1D20060E87C /* VoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteCell.swift; sourceTree = "<group>"; };
 		105A43A41DB2A6390060E87C /* MatchupHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchupHeaderCell.swift; sourceTree = "<group>"; };
+		105A43A71DB3FF000060E87C /* GridSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridSectionController.swift; sourceTree = "<group>"; };
+		105A43A81DB3FF000060E87C /* CenterLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterLabelCell.swift; sourceTree = "<group>"; };
+		105A43AB1DB3FF0C0060E87C /* TeamsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsListViewController.swift; sourceTree = "<group>"; };
 		105DA5E91D6546B9008B0605 /* TestNFLGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNFLGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		106560371DB410B000D5D344 /* ScoreBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoardViewController.swift; sourceTree = "<group>"; };
+		106560381DB410B000D5D344 /* ScoreBoardSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoardSectionController.swift; sourceTree = "<group>"; };
+		106560391DB410B000D5D344 /* ScoreBoardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoardCell.swift; sourceTree = "<group>"; };
 		327ED02750E38D0EE76F4180 /* Pods_TestNFLGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestNFLGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C29BBE91DAFE1B2000B4090 /* TestNFLGames-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestNFLGames-Bridging-Header.h"; sourceTree = "<group>"; };
 		5C29BBEA1DAFE1B3000B4090 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +165,16 @@
 			name = MatchUpView;
 			sourceTree = "<group>";
 		};
+		105A43A61DB3FEE00060E87C /* TeamsView */ = {
+			isa = PBXGroup;
+			children = (
+				105A43AB1DB3FF0C0060E87C /* TeamsListViewController.swift */,
+				105A43A71DB3FF000060E87C /* GridSectionController.swift */,
+				105A43A81DB3FF000060E87C /* CenterLabelCell.swift */,
+			);
+			name = TeamsView;
+			sourceTree = "<group>";
+		};
 		105DA5E01D6546B9008B0605 = {
 			isa = PBXGroup;
 			children = (
@@ -176,7 +198,9 @@
 			children = (
 				5C29BC161DAFE292000B4090 /* Main.storyboard */,
 				5C29BBEA1DAFE1B3000B4090 /* AppDelegate.swift */,
+				106560361DB410A300D5D344 /* Leaderboard */,
 				105A43A11DB2A4DB0060E87C /* MainScheduleView */,
+				105A43A61DB3FEE00060E87C /* TeamsView */,
 				105A43A21DB2A4EA0060E87C /* SettingsView */,
 				105A43A31DB2A4FF0060E87C /* MatchUpView */,
 				5C964A9D1DAFF6EB00FBA57F /* CellViews */,
@@ -191,6 +215,16 @@
 				105A439B1DB27E810060E87C /* Constants.swift */,
 			);
 			path = TestNFLGames;
+			sourceTree = "<group>";
+		};
+		106560361DB410A300D5D344 /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				106560371DB410B000D5D344 /* ScoreBoardViewController.swift */,
+				106560381DB410B000D5D344 /* ScoreBoardSectionController.swift */,
+				106560391DB410B000D5D344 /* ScoreBoardCell.swift */,
+			);
+			name = Leaderboard;
 			sourceTree = "<group>";
 		};
 		17760F72E35BD6BB598C8845 /* Pods */ = {
@@ -385,14 +419,17 @@
 				5C29BC071DAFE1B3000B4090 /* GameViewTableViewController.swift in Sources */,
 				5C29BC001DAFE1B3000B4090 /* AppDelegate.swift in Sources */,
 				5C29BC061DAFE1B3000B4090 /* GameViewMainCell.swift in Sources */,
+				105A43A91DB3FF000060E87C /* GridSectionController.swift in Sources */,
 				5C964AA21DAFF70D00FBA57F /* MondayGameController.swift in Sources */,
 				5C2FA60B1DB14D1500F481D1 /* DetailScreenStatCell.swift in Sources */,
 				5C29BC011DAFE1B3000B4090 /* CustomHeaderCell.swift in Sources */,
 				105A43A51DB2A6390060E87C /* MatchupHeaderCell.swift in Sources */,
 				5C29BC111DAFE1B3000B4090 /* String+Extensions.swift in Sources */,
+				1065603C1DB410B000D5D344 /* ScoreBoardCell.swift in Sources */,
 				5C29BC021DAFE1B3000B4090 /* Downloader.swift in Sources */,
 				5C964AA31DAFF70D00FBA57F /* SundayGameController.swift in Sources */,
 				5C2FA60D1DB14EE900F481D1 /* StatSectionController.swift in Sources */,
+				105A43AC1DB3FF0C0060E87C /* TeamsListViewController.swift in Sources */,
 				5C29BC0F1DAFE1B3000B4090 /* shareController.swift in Sources */,
 				5C964AA61DAFF71400FBA57F /* MondayGameCell.swift in Sources */,
 				5C29BC151DAFE1B3000B4090 /* Vote.swift in Sources */,
@@ -406,7 +443,9 @@
 				5C29BC041DAFE1B3000B4090 /* GameFinder.swift in Sources */,
 				5C29BC091DAFE1B3000B4090 /* Halo5Animation.swift in Sources */,
 				5C29BC0C1DAFE1B3000B4090 /* MatchUpViewController.swift in Sources */,
+				105A43AA1DB3FF000060E87C /* CenterLabelCell.swift in Sources */,
 				5C964A9F1DAFF70400FBA57F /* MainScheduleViewController.swift in Sources */,
+				1065603A1DB410B000D5D344 /* ScoreBoardViewController.swift in Sources */,
 				105A439C1DB27E810060E87C /* Constants.swift in Sources */,
 				5C29BC131DAFE1B3000B4090 /* TeamActivity.swift in Sources */,
 				5C29BC0E1DAFE1B3000B4090 /* ProfileViewController.swift in Sources */,
@@ -416,6 +455,7 @@
 				5C29BC101DAFE1B3000B4090 /* SignupViewController.swift in Sources */,
 				5C29BC031DAFE1B3000B4090 /* Game.swift in Sources */,
 				5C29BC051DAFE1B3000B4090 /* GameTableViewCell.swift in Sources */,
+				1065603B1DB410B000D5D344 /* ScoreBoardSectionController.swift in Sources */,
 				5C964AA71DAFF71400FBA57F /* SundayGameCell.swift in Sources */,
 				105A439E1DB2A1D20060E87C /* VoteCell.swift in Sources */,
 			);

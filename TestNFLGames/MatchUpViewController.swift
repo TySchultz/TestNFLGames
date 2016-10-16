@@ -26,7 +26,9 @@ class MatchUpViewController: UIViewController, IGListAdapterDataSource, UIScroll
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//        self.collectionView.contentInset = UIEdgeInsetsMake(,0,44,0);
+
         let voteBar = UIView(frame: CGRect(x: 0, y: self.view.frame.height-100, width: self.view.frame.width, height: 100 ))
         voteBar.backgroundColor = UIColor.white
         voteBar.layer.borderWidth = 1.0
@@ -44,11 +46,8 @@ class MatchUpViewController: UIViewController, IGListAdapterDataSource, UIScroll
         let awayTeam = realm.object(ofType: Team.self, forPrimaryKey: game.awayTeam)!
 
         //Hack to make the team images appear lower
-        sections.append(StatCell(title: "", homeStat: "", awayStat: ""))
-        sections.append(StatCell(title: "", homeStat: "", awayStat: ""))
         sections.append(MatchupHeader(homeTeamName: game.homeTeam, awayTeamName: game.awayTeam))
         sections.append(StatCell(title: game.gameStart, homeStat: "", awayStat: ""))
-        sections.append(game)
         sections.append(StatCell(title: "", homeStat: "", awayStat: ""))
         sections.append(StatCell(title: "Record", homeStat:  "3-4", awayStat:  "4-3"))
         sections.append(StatCell(title: "Plays Per Game", homeStat:  homeTeam.playsPerGame, awayStat:  awayTeam.playsPerGame))
@@ -65,6 +64,8 @@ class MatchUpViewController: UIViewController, IGListAdapterDataSource, UIScroll
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
     }
+    
+
     
     //MARK: IGListAdapterDataSource
     

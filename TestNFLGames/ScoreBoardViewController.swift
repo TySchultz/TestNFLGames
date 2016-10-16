@@ -1,14 +1,14 @@
 //
-//  SettingsViewController.swift
+//  ScoreBoardViewController.swift
 //  Sports
 //
-//  Created by Tyler J Schultz on 10/12/16.
+//  Created by Ty Schultz on 10/12/16.
 //  Copyright © 2016 Ty Schultz. All rights reserved.
 //
 
 import UIKit
 import IGListKit
-class SettingsViewController: UIViewController, IGListAdapterDataSource, UIScrollViewDelegate {
+class ScoreBoardViewController: UIViewController, IGListAdapterDataSource, UIScrollViewDelegate {
     
     lazy var adapter: IGListAdapter = {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
@@ -26,10 +26,10 @@ class SettingsViewController: UIViewController, IGListAdapterDataSource, UIScrol
         self.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
         navigationController?.setNavigationBarHidden(false, animated: false)
         
-        for _ in 1...8 {
+        for _ in 1...32 {
             sections.append("Settings")
         }
-
+        
         view.addSubview(collectionView)
         adapter.collectionView = collectionView
         adapter.dataSource = self
@@ -50,7 +50,7 @@ class SettingsViewController: UIViewController, IGListAdapterDataSource, UIScrol
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
         if let _ = object as? String {
-            return SettingsSectionController()
+            return ScoreBoardSectionController()
         }else {
             return PageHeaderController()
         }

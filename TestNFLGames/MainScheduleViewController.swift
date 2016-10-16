@@ -37,8 +37,6 @@ class MainScheduleViewController: UIViewController, IGListAdapterDataSource, UIS
     let spinToken = NSObject()
     let gridItem = NSObject()
     
-    
-    
     var currentGames : [Any] = []
     var currentWeek = 0
     var gameFinder : GameFinder!
@@ -48,7 +46,8 @@ class MainScheduleViewController: UIViewController, IGListAdapterDataSource, UIS
         super.viewDidLoad()
         self.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        
+        self.collectionView.contentInset = UIEdgeInsetsMake(0,0,44,0);
+
         words = []
 
         gameFinder = GameFinder()
@@ -58,7 +57,7 @@ class MainScheduleViewController: UIViewController, IGListAdapterDataSource, UIS
 //        downloader.downloadTeams()
         currentWeek = 6
     
-        currentGames.append(PageHeader(title: "Games"))
+//        currentGames.append(PageHeader(title: "Games"))
         
         loadGamesForWeek(week: currentWeek)
     
@@ -120,15 +119,15 @@ class MainScheduleViewController: UIViewController, IGListAdapterDataSource, UIS
 //
 //    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 //        let distance = scrollView.contentSize.height - (targetContentOffset.pointee.y + scrollView.bounds.height)
-//        if !loading && distance < 200 {
+//        if !loading && scrollView.contentOffset.y < -30 {
 //            loading = true
+//            self.currentGames.insert(self.spinToken, at: 0)
 //            adapter.performUpdates(animated: true, completion: nil)
 //            DispatchQueue.global(qos: .default).async(execute: {
 //                // fake background loading task
 //                sleep(2)
 //                DispatchQueue.main.async {
 //                    self.loading = false
-//                    self.createData()
 //                    self.adapter.performUpdates(animated: true, completion: nil)
 //                }
 //            })

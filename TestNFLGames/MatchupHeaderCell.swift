@@ -30,7 +30,7 @@ class MatchupHeaderSectionController: IGListSectionController, IGListSectionType
     }
     
     func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: collectionContext!.containerSize.width, height: 200)
+        return CGSize(width: collectionContext!.containerSize.width, height: 220)
     }
     
     func cellForItem(at index: Int) -> UICollectionViewCell {
@@ -62,7 +62,7 @@ class MatchupHeaderCell: UICollectionViewCell {
         imageView.image = UIImage(named: "Carolina")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 8.0
+        imageView.layer.cornerRadius = 0.0
         return imageView
     }
     
@@ -105,27 +105,27 @@ class MatchupHeaderCell: UICollectionViewCell {
         super.layoutSubviews()
         
         homeTeamImage.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(8)
-            make.left.equalTo(self).offset(8)
-            make.right.equalTo(self.snp.centerX).offset(-4)
+            make.top.equalTo(self).offset(0)
+            make.left.equalTo(self).offset(0)
+            make.right.equalTo(self.snp.centerX).offset(0)
             make.bottom.greaterThanOrEqualTo(self.snp.bottom).offset(-25)
         }
         
         awayTeamImage.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(8)
-            make.right.equalTo(self).offset(-8)
-            make.left.equalTo(self.snp.centerX).offset(4)
+            make.top.equalTo(self).offset(0)
+            make.right.equalTo(self).offset(0)
+            make.left.equalTo(self.snp.centerX).offset(0)
             make.bottom.greaterThanOrEqualTo(self.snp.bottom).offset(-25)
         }
         
         homeTeamName.snp.makeConstraints { (make) in
             make.top.equalTo(homeTeamImage.snp.bottom).offset(8)
-            make.left.equalTo(self.homeTeamImage.snp.left)
+            make.left.equalTo(self.homeTeamImage.snp.left).offset(8)
         }
         
         awayTeamName.snp.makeConstraints { (make) in
             make.top.equalTo(awayTeamImage.snp.bottom).offset(8)
-            make.right.equalTo(self.awayTeamImage.snp.right)
+            make.right.equalTo(self.awayTeamImage.snp.right).offset(-8)
         }
     
         
